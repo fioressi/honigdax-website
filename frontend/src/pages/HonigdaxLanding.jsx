@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const TID = {
-  // Header
   headerNavCapabilities: "header-nav-capabilities",
   headerNavApproach: "header-nav-approach",
   headerNavStrategy: "header-nav-strategy",
@@ -9,30 +8,278 @@ const TID = {
   headerClock: "header-clock",
   headerLogo: "header-logo",
   headerCloseBox: "header-close-box",
-  // Hero
+  langSwitchDE: "lang-switch-de",
+  langSwitchEN: "lang-switch-en",
   heroPrimaryCta: "hero-primary-cta",
   heroSecondaryCta: "hero-secondary-cta",
-  heroDiagram: "hero-tech-diagram",
+  heroCockpit: "hero-cockpit-frame",
   heroEyebrow: "hero-eyebrow",
-  // Marquee
   marqueeBand: "marquee-band",
-  // Capabilities
+  insightsImage: "insights-image",
   capabilityRow: (i) => `capability-row-${i}`,
   capabilityToggle: (i) => `capability-toggle-${i}`,
-  // Approach
   approachRow: (i) => `approach-row-${i}`,
-  // Realize / CTA
   finalCta: "final-cta-button",
-  // Footer
   footerLinkCap: "footer-link-capabilities",
   footerLinkApp: "footer-link-approach",
   footerLinkSrv: "footer-link-strategy",
   footerLinkExt: "footer-link-external",
 };
 
-/* ============ small helpers ============ */
-const useReveal = () => {
+/* ============ Translations ============ */
+const T = {
+  de: {
+    headerBrandTag: "TRADING COCKPIT.",
+    navCapabilities: "Capabilities",
+    navApproach: "Approach",
+    navStrategy: "Strategy Lab",
+    navContact: "Contact",
+    locationLabel: "CHICAGO",
+    heroEyebrow: "(01) IBKR · MADE FOR THE EDGE",
+    heroLineA: "Scalpe in",
+    heroLineB: "2 ms.",
+    heroBody:
+      "HonigDAX ist das KI-native Trading-Cockpit auf Interactive Brokers — colociert in Chicago, gebaut für DOM-Scalping, Optionen und HoneyScript. Vom Order-Book bis zum Backtest, eine Schnittstelle.",
+    heroCtaPrimary: "Enter honigdax.com",
+    heroCtaSecondary: "See Capabilities →",
+    heroScrollHint: "SCROLL · ENTER THE COCKPIT",
+    heroScrollNext: "(02) CAPABILITIES — NEXT",
+    cockpitCaption: "LIVE · IGOR · COCKPIT 0241",
+    insightsLabel: "(02·a) INSIGHTS",
+    insightsTitle: ["Sieh dir das ", "echte ", "Cockpit an."],
+    insightsBody:
+      "Live-Chart mit IGOR · der Honey Badger KI, BB-Squeeze-Erkennung, BEAR/BULL-Signale direkt im Chart und Sprach-Kommentar. Keine Renderings — Screenshots aus dem produktiven System.",
+    capLabel: "(02) CAPABILITIES",
+    capTitle: ["One cockpit, the ", "full", " trading lifecycle — vom DOM bis zum Backtest."],
+    capabilities: [
+      {
+        num: "01 /",
+        label: "DOM",
+        italic: "Scalping",
+        meta: "ORDER BOOK · 2ms · CHI",
+        body:
+          "Order-Book in Echtzeit, Klick-Trading direkt auf der Markttiefe. Fills in 2 Millisekunden — colociert in Chicago, sauberer Edge bei jedem Tick.",
+      },
+      {
+        num: "02 /",
+        label: "Optionen",
+        italic: "Lifecycle",
+        meta: "CHAIN · GREEKS · SPREADS",
+        body:
+          "Live Options-Chain, Greeks in Echtzeit, Multi-Leg-Strategien per Klick oder Stimme. Vom Strike bis zum Spread — der komplette Workflow im Cockpit.",
+      },
+      {
+        num: "03 /",
+        label: "KI",
+        italic: "Kommentator",
+        meta: "VOICE · LIVE · BAR-BY-BAR",
+        body:
+          "Die KI liest deinen Chart Bar für Bar, kommentiert live und nimmt natürliche Sprache als Befehl. 81 Tools, eine Schnittstelle.",
+      },
+      {
+        num: "04 /",
+        label: "HoneyScript",
+        italic: "Studio",
+        meta: "SCRIPT · CLI · PIPE",
+        body:
+          "Strategien programmatisch deployen, debuggen und chainen. JSON-Output, pipe-fähige CLI, kompletter Workflow automatisierbar.",
+      },
+      {
+        num: "05 /",
+        label: "Frühausstieg",
+        italic: "& Breakout",
+        meta: "MOMENTUM · ALERTS · RISK",
+        body:
+          "Drehendes Momentum erkannt, Breakout in Echtzeit signalisiert — du bist im Move, bevor die Masse ihn überhaupt sieht.",
+      },
+      {
+        num: "06 /",
+        label: "Strategie",
+        italic: "Lab",
+        meta: "PLAN · ANALYZE · BACKTEST",
+        body:
+          "Optionen und HoneyScript bis ins Detail planen, Drawdown und Win-Rate gegen echte Historie messen — KI-ausgewertet vor jedem realen Trade.",
+      },
+    ],
+    appLabel: "(03) APPROACH",
+    appTitle: [
+      "We handle the latency — ",
+      "so you focus on the trade",
+      " while we take care of the rest.",
+    ],
+    approachRows: [
+      { left: "TRADER", right: "EDGE" },
+      { left: "HEDGER", right: "COVERED" },
+      { left: "QUANT", right: "DEPLOYED" },
+      { left: "SCALPER", right: "2 MS FILLED" },
+    ],
+    stats: [
+      { v: "2 ms", l: "Order → Fill · CHI" },
+      { v: "81", l: "KI-Tools eingebaut" },
+      { v: "24 / 7", l: "KI-Marktbeobachtung" },
+      { v: "99.9 %", l: "Cockpit-Uptime" },
+    ],
+    stratLabel: "(04) STRATEGY LAB",
+    stratLines: ["Plane.", "Analysiere.", "Backteste."],
+    stratItalic: "Backteste.",
+    stratBody:
+      "Das genialste Strategie-Tool für ambitionierte Anleger: Optionsstrategien und HoneyScript bis ins Detail planen, das Risiko sauber analysieren und gegen echte Markthistorie backtesten — Drawdown, Win-Rate und Edge KI-ausgewertet, bevor du echtes Kapital riskierst.",
+    stratList: [
+      ["Plan", "Strikes, Expiries, Hedges. Risiko & Margin live."],
+      ["Analyze", "Greeks, IV-Surface, Skew & Vol-Term-Struktur."],
+      ["Backtest", "Reale COMEX-Historie, KI-ausgewertete Edge & Drawdown."],
+    ],
+    finalKicker: "(05) ENTER",
+    finalLineA: ["Let\u2019s ", "trade"],
+    finalLineB: "it together.",
+    finalCta: "Visit honigdax.com",
+    finalNote: "INVITE\u00A0ONLY · KEIN SPAM · NUR DEIN PLATZ IN DER WARTESCHLANGE",
+    footerTagline:
+      "KI-natives Trading-Cockpit. Exklusives Frontend für Interactive Brokers. Colociert in Chicago.",
+    footerNav: "Navigate",
+    footerLoc: "Location",
+    footerLocBody: "Chicago · Illinois",
+    footerLocSub: "Colocated at the COMEX matching engine",
+    footerConn: "Connect",
+    footerLegal: "© {year} HONIGDAX · DAS EXKLUSIVE IBKR-FRONTEND",
+    footerCredit: "CONCEPT / TRADING SYSTEM",
+    footerDisc:
+      "Trading mit Futures, Optionen und Derivaten ist mit erheblichen Risiken verbunden und nicht für jeden Anleger geeignet. Latenz-Angaben beschreiben Zielwerte der Infrastruktur. HonigDAX ist ein unabhängiges Frontend und steht in keiner offiziellen Verbindung zu Interactive Brokers, der COMEX oder der CME Group. Keine Anlageberatung.",
+    marqueeWords: [
+      "DOM", "Scalping", "Optionen", "Trading",
+      "KI", "Kommentator", "HoneyScript", "Studio",
+      "Chicago", "Colocation", "Strategie", "Lab",
+    ],
+  },
+  en: {
+    headerBrandTag: "TRADING COCKPIT.",
+    navCapabilities: "Capabilities",
+    navApproach: "Approach",
+    navStrategy: "Strategy Lab",
+    navContact: "Contact",
+    locationLabel: "CHICAGO",
+    heroEyebrow: "(01) IBKR · MADE FOR THE EDGE",
+    heroLineA: "Scalp in",
+    heroLineB: "2 ms.",
+    heroBody:
+      "HonigDAX is the AI-native trading cockpit on Interactive Brokers — colocated in Chicago, built for DOM scalping, options and HoneyScript. From the order book to the backtest — one interface.",
+    heroCtaPrimary: "Enter honigdax.com",
+    heroCtaSecondary: "See Capabilities →",
+    heroScrollHint: "SCROLL · ENTER THE COCKPIT",
+    heroScrollNext: "(02) CAPABILITIES — NEXT",
+    cockpitCaption: "LIVE · IGOR · COCKPIT 0241",
+    insightsLabel: "(02·a) INSIGHTS",
+    insightsTitle: ["See the ", "real ", "cockpit."],
+    insightsBody:
+      "Live chart with IGOR — the honey badger AI — BB-squeeze detection, BEAR/BULL signals straight in the chart and voice commentary. No renderings — screenshots from the production system.",
+    capLabel: "(02) CAPABILITIES",
+    capTitle: ["One cockpit, the ", "full", " trading lifecycle — from DOM to backtest."],
+    capabilities: [
+      {
+        num: "01 /",
+        label: "DOM",
+        italic: "Scalping",
+        meta: "ORDER BOOK · 2ms · CHI",
+        body:
+          "Real-time order book, click-to-trade on market depth. 2 millisecond fills — colocated in Chicago, clean edge on every tick.",
+      },
+      {
+        num: "02 /",
+        label: "Options",
+        italic: "Lifecycle",
+        meta: "CHAIN · GREEKS · SPREADS",
+        body:
+          "Live options chain, real-time greeks, multi-leg strategies by click or voice. From strike to spread — the full workflow in the cockpit.",
+      },
+      {
+        num: "03 /",
+        label: "AI",
+        italic: "Commentator",
+        meta: "VOICE · LIVE · BAR-BY-BAR",
+        body:
+          "The AI reads your chart bar by bar, comments live and takes natural language as command. 81 tools, one interface.",
+      },
+      {
+        num: "04 /",
+        label: "HoneyScript",
+        italic: "Studio",
+        meta: "SCRIPT · CLI · PIPE",
+        body:
+          "Deploy, debug and chain strategies programmatically. JSON output, pipe-friendly CLI, full workflow automatable.",
+      },
+      {
+        num: "05 /",
+        label: "Early-Exit",
+        italic: "& Breakout",
+        meta: "MOMENTUM · ALERTS · RISK",
+        body:
+          "Reversing momentum caught, breakout flagged in real time — you\u2019re in the move before the crowd even sees it.",
+      },
+      {
+        num: "06 /",
+        label: "Strategy",
+        italic: "Lab",
+        meta: "PLAN · ANALYZE · BACKTEST",
+        body:
+          "Plan options and HoneyScript down to the detail, measure drawdown and win rate against real history — AI-evaluated before any real trade.",
+      },
+    ],
+    appLabel: "(03) APPROACH",
+    appTitle: [
+      "We handle the latency — ",
+      "so you focus on the trade",
+      " while we take care of the rest.",
+    ],
+    approachRows: [
+      { left: "TRADER", right: "EDGE" },
+      { left: "HEDGER", right: "COVERED" },
+      { left: "QUANT", right: "DEPLOYED" },
+      { left: "SCALPER", right: "2 MS FILLED" },
+    ],
+    stats: [
+      { v: "2 ms", l: "Order → Fill · CHI" },
+      { v: "81", l: "AI tools built-in" },
+      { v: "24 / 7", l: "AI market watch" },
+      { v: "99.9 %", l: "Cockpit uptime" },
+    ],
+    stratLabel: "(04) STRATEGY LAB",
+    stratLines: ["Plan.", "Analyze.", "Backtest."],
+    stratItalic: "Backtest.",
+    stratBody:
+      "The most brilliant strategy tool for ambitious traders: plan option strategies and HoneyScript down to the detail, analyse the risk cleanly and backtest against real market history — drawdown, win-rate and edge AI-evaluated before you risk real capital.",
+    stratList: [
+      ["Plan", "Strikes, expiries, hedges. Risk & margin live."],
+      ["Analyze", "Greeks, IV surface, skew & vol-term structure."],
+      ["Backtest", "Real COMEX history, AI-evaluated edge & drawdown."],
+    ],
+    finalKicker: "(05) ENTER",
+    finalLineA: ["Let\u2019s ", "trade"],
+    finalLineB: "it together.",
+    finalCta: "Visit honigdax.com",
+    finalNote: "INVITE\u00A0ONLY · NO SPAM · JUST YOUR SPOT IN THE QUEUE",
+    footerTagline:
+      "AI-native trading cockpit. Exclusive frontend for Interactive Brokers. Colocated in Chicago.",
+    footerNav: "Navigate",
+    footerLoc: "Location",
+    footerLocBody: "Chicago · Illinois",
+    footerLocSub: "Colocated at the COMEX matching engine",
+    footerConn: "Connect",
+    footerLegal: "© {year} HONIGDAX · THE EXCLUSIVE IBKR FRONTEND",
+    footerCredit: "CONCEPT / TRADING SYSTEM",
+    footerDisc:
+      "Trading futures, options and derivatives carries substantial risk and is not suitable for every investor. Latency figures describe infrastructure targets. HonigDAX is an independent frontend and has no official affiliation with Interactive Brokers, COMEX or the CME Group. Not investment advice.",
+    marqueeWords: [
+      "DOM", "Scalping", "Options", "Trading",
+      "AI", "Commentator", "HoneyScript", "Studio",
+      "Chicago", "Colocation", "Strategy", "Lab",
+    ],
+  },
+};
+
+/* ============ Hooks ============ */
+const useReveal = (deps = []) => {
   useEffect(() => {
+    const els = document.querySelectorAll(".reveal:not(.in)");
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
@@ -43,9 +290,9 @@ const useReveal = () => {
         }),
       { threshold: 0.12 }
     );
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, deps);
 };
 
 const useClock = () => {
@@ -62,153 +309,114 @@ const useClock = () => {
   });
 };
 
-/* ============ corner: technical drawing diagram ============ */
-const HeroDiagram = () => (
+const useLang = () => {
+  const [lang, setLang] = useState(() => {
+    try {
+      const saved = window.localStorage.getItem("honigdax.lang");
+      if (saved === "de" || saved === "en") return saved;
+    } catch (_e) {
+      // ignore localStorage access (private mode / SSR)
+    }
+    return (navigator.language || "de").toLowerCase().startsWith("de")
+      ? "de"
+      : "en";
+  });
+  useEffect(() => {
+    try { window.localStorage.setItem("honigdax.lang", lang); } catch (_e) { /* ignore */ }
+    document.documentElement.lang = lang;
+  }, [lang]);
+  return [lang, setLang];
+};
+
+/* ============ Hero cockpit frame (real screenshot) ============ */
+const HeroCockpit = ({ caption }) => (
   <div
-    data-testid={TID.heroDiagram}
+    data-testid={TID.heroCockpit}
     className="reveal"
     style={{
-      width: 280,
-      height: 280,
+      width: 360,
       flexShrink: 0,
       position: "relative",
+      fontFamily: "JetBrains Mono, monospace",
     }}
   >
     <div
-      className="font-mono"
       style={{
-        position: "absolute",
-        inset: 0,
-        border: "1px solid rgba(13,13,13,0.18)",
+        position: "relative",
+        border: "1px solid rgba(13,13,13,0.22)",
+        background: "rgba(255,255,255,0.4)",
+        padding: 18,
       }}
     >
+      {/* corner plus marks (Hungema-style) */}
+      <span style={{ position: "absolute", top: 4, left: 6, fontSize: 11, color: "var(--muted)" }}>+</span>
+      <span style={{ position: "absolute", top: 4, right: 6, fontSize: 11, color: "var(--muted)" }}>+</span>
+      <span style={{ position: "absolute", bottom: 4, left: 6, fontSize: 11, color: "var(--muted)" }}>+</span>
+      <span style={{ position: "absolute", bottom: 4, right: 6, fontSize: 11, color: "var(--muted)" }}>+</span>
+
       <div
         style={{
-          position: "absolute",
-          top: 6,
-          left: 10,
+          display: "flex",
+          justifyContent: "space-between",
           fontSize: 10,
           color: "var(--muted)",
+          letterSpacing: "0.06em",
+          marginBottom: 10,
         }}
       >
-        REF · HGD–0241
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          top: 6,
-          right: 10,
-          fontSize: 10,
-          color: "var(--muted)",
-        }}
-      >
-        +
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          bottom: 6,
-          left: 10,
-          fontSize: 10,
-          color: "var(--muted)",
-        }}
-      >
-        +
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          bottom: 6,
-          right: 10,
-          fontSize: 10,
-          color: "var(--muted)",
-        }}
-      >
-        REV 02 / 2026
+        <span>REF · HGD–0241</span>
+        <span>REV 02 / 2026</span>
       </div>
 
-      <svg
-        viewBox="0 0 280 280"
-        width="100%"
-        height="100%"
-        style={{ display: "block" }}
+      <div
+        style={{
+          position: "relative",
+          background: "#0c0c10",
+          aspectRatio: "16/10",
+          overflow: "hidden",
+          border: "1px solid rgba(0,0,0,0.4)",
+        }}
       >
-        {/* grid */}
-        <g stroke="rgba(13,13,13,0.10)" strokeWidth="0.5">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <line key={`h${i}`} x1="0" y1={40 + i * 40} x2="280" y2={40 + i * 40} />
-          ))}
-          {Array.from({ length: 6 }).map((_, i) => (
-            <line key={`v${i}`} x1={40 + i * 40} y1="0" x2={40 + i * 40} y2="280" />
-          ))}
-        </g>
-        {/* center cross */}
-        <line x1="20" y1="140" x2="260" y2="140" stroke="rgba(13,13,13,0.45)" strokeWidth="0.6" strokeDasharray="2 4" />
-        <line x1="140" y1="20" x2="140" y2="260" stroke="rgba(13,13,13,0.45)" strokeWidth="0.6" strokeDasharray="2 4" />
-        {/* outer arc circle */}
-        <circle cx="140" cy="140" r="100" fill="none" stroke="rgba(13,13,13,0.7)" strokeWidth="0.9" />
-        <circle cx="140" cy="140" r="68" fill="none" stroke="rgba(13,13,13,0.55)" strokeWidth="0.7" />
-        {/* tick marks around */}
-        {Array.from({ length: 32 }).map((_, i) => {
-          const a = (i / 32) * Math.PI * 2;
-          const x1 = 140 + Math.cos(a) * 100;
-          const y1 = 140 + Math.sin(a) * 100;
-          const x2 = 140 + Math.cos(a) * (i % 4 === 0 ? 90 : 95);
-          const y2 = 140 + Math.sin(a) * (i % 4 === 0 ? 90 : 95);
-          return (
-            <line
-              key={i}
-              x1={x1}
-              y1={y1}
-              x2={x2}
-              y2={y2}
-              stroke="rgba(13,13,13,0.7)"
-              strokeWidth="0.7"
-            />
-          );
-        })}
-        {/* fill curve representing payoff */}
-        <path
-          d="M40 200 L120 200 L180 80 L240 80"
-          fill="none"
-          stroke="var(--rust)"
-          strokeWidth="1.6"
-          strokeLinejoin="round"
-          strokeLinecap="round"
+        <img
+          src="/honigdax-cockpit.png"
+          alt="HonigDAX Cockpit — IGOR the Honey Badger live chart"
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          loading="lazy"
         />
-        <circle cx="120" cy="200" r="3" fill="var(--rust)" />
-        <circle cx="180" cy="80" r="3" fill="var(--ink)" />
-        <text
-          x="186"
-          y="76"
-          fontSize="8"
-          fill="var(--ink)"
-          fontFamily="JetBrains Mono"
-        >
-          BE 2.418
-        </text>
-        <text
-          x="148"
-          y="135"
-          fontSize="9"
-          fill="rgba(13,13,13,0.55)"
-          fontFamily="JetBrains Mono"
-        >
-          Ø 100
-        </text>
-        {/* CHI marker */}
-        <circle cx="208" cy="72" r="3.6" fill="var(--rust)" />
-        <text x="216" y="76" fontSize="8" fill="var(--rust)" fontFamily="JetBrains Mono">
-          CHI · 2ms
-        </text>
-      </svg>
+        {/* signal dot overlay */}
+        <span
+          className="dot-pulse"
+          style={{
+            position: "absolute",
+            top: 10,
+            right: 12,
+          }}
+        />
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginTop: 10,
+          fontSize: 10,
+          color: "var(--muted)",
+          letterSpacing: "0.06em",
+        }}
+      >
+        <span>{caption}</span>
+        <span style={{ color: "var(--rust)" }}>● REC</span>
+      </div>
     </div>
   </div>
 );
 
-/* ============ Capability row (expandable) ============ */
-const CapabilityRow = ({ i, num, label, italic, meta, body, onDark }) => {
+/* ============ Capability row ============ */
+const CapabilityRow = ({ i, num, label, italic, meta, body, onDark, langKey }) => {
   const [open, setOpen] = useState(false);
+  // collapse when language changes
+  useEffect(() => { setOpen(false); }, [langKey]);
   return (
     <div
       className="row-cap reveal"
@@ -221,6 +429,7 @@ const CapabilityRow = ({ i, num, label, italic, meta, body, onDark }) => {
         type="button"
         data-testid={TID.capabilityToggle(i)}
         onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
         style={{
           width: "100%",
           background: "transparent",
@@ -287,7 +496,6 @@ const CapabilityRow = ({ i, num, label, italic, meta, body, onDark }) => {
   );
 };
 
-/* ============ Approach row (BRAND → END PRODUCT) ============ */
 const ApproachRow = ({ i, left, right }) => (
   <div
     data-testid={TID.approachRow(i)}
@@ -301,24 +509,10 @@ const ApproachRow = ({ i, left, right }) => (
       gap: 24,
     }}
   >
-    <span
-      className="font-mono"
-      style={{
-        color: "rgba(255,255,255,0.75)",
-        fontSize: 13,
-        letterSpacing: "0.12em",
-      }}
-    >
+    <span className="font-mono" style={{ color: "rgba(255,255,255,0.75)", fontSize: 13, letterSpacing: "0.12em" }}>
       {left}
     </span>
-    <span
-      className="font-mono"
-      style={{
-        color: "var(--rust-bright)",
-        fontSize: 13,
-        letterSpacing: "0.12em",
-      }}
-    >
+    <span className="font-mono" style={{ color: "var(--rust-bright)", fontSize: 13, letterSpacing: "0.12em" }}>
       → {right}
     </span>
   </div>
@@ -326,67 +520,11 @@ const ApproachRow = ({ i, left, right }) => (
 
 /* ============ Main page ============ */
 export default function HonigdaxLanding() {
-  useReveal();
+  const [lang, setLang] = useLang();
+  useReveal([lang]);
   const clock = useClock();
   const yearRef = useRef(new Date().getFullYear());
-
-  const capabilities = [
-    {
-      num: "01 /",
-      label: "DOM",
-      italic: "Scalping",
-      meta: "ORDER BOOK · 2ms · CHI",
-      body:
-        "Order-Book in Echtzeit, Klick-Trading direkt auf der Markttiefe. Fills in 2 Millisekunden — colociert in Chicago, sauberer Edge bei jedem Tick.",
-    },
-    {
-      num: "02 /",
-      label: "Optionen",
-      italic: "Lifecycle",
-      meta: "CHAIN · GREEKS · SPREADS",
-      body:
-        "Live Options-Chain, Greeks in Echtzeit, Multi-Leg-Strategien per Klick oder Stimme. Vom Strike bis zum Spread — der komplette Workflow im Cockpit.",
-    },
-    {
-      num: "03 /",
-      label: "KI",
-      italic: "Kommentator",
-      meta: "VOICE · LIVE · BAR-BY-BAR",
-      body:
-        "Die KI liest deinen Chart Bar für Bar, kommentiert live und nimmt natürliche Sprache als Befehl. 81 Tools, eine Schnittstelle.",
-    },
-    {
-      num: "04 /",
-      label: "HoneyScript",
-      italic: "Studio",
-      meta: "SCRIPT · CLI · PIPE",
-      body:
-        "Strategien programmatisch deployen, debuggen und chainen. JSON-Output, pipe-fähige CLI, kompletter Workflow automatisierbar.",
-    },
-    {
-      num: "05 /",
-      label: "Frühausstieg",
-      italic: "& Breakout",
-      meta: "MOMENTUM · ALERTS · RISK",
-      body:
-        "Drehendes Momentum erkannt, Breakout in Echtzeit signalisiert — du bist im Move, bevor die Masse ihn überhaupt sieht.",
-    },
-    {
-      num: "06 /",
-      label: "Strategie",
-      italic: "Lab",
-      meta: "PLAN · ANALYZE · BACKTEST",
-      body:
-        "Optionen und HoneyScript bis ins Detail planen, Drawdown und Win-Rate gegen echte Historie messen — KI-ausgewertet vor jedem realen Trade.",
-    },
-  ];
-
-  const approach = [
-    { left: "TRADER", right: "EDGE" },
-    { left: "HEDGER", right: "COVERED" },
-    { left: "QUANT", right: "DEPLOYED" },
-    { left: "SCALPER", right: "2 MS FILLED" },
-  ];
+  const t = useMemo(() => T[lang], [lang]);
 
   return (
     <div className="paper-grain" style={{ background: "var(--paper)", color: "var(--ink)", position: "relative" }}>
@@ -407,53 +545,69 @@ export default function HonigdaxLanding() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <a
-            href="#top"
-            className="x-box"
-            data-testid={TID.headerCloseBox}
-            aria-label="Top"
-          >
+          <a href="#top" className="x-box" data-testid={TID.headerCloseBox} aria-label="Top">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M1 1 L11 11 M11 1 L1 11" stroke="currentColor" strokeWidth="1.4" />
             </svg>
           </a>
-          <div
-            className="font-mono label label-strong"
-            data-testid={TID.headerLogo}
-            style={{ fontSize: 12, fontWeight: 600 }}
-          >
-            HONIGDAX <span style={{ color: "var(--muted)", margin: "0 6px" }}>/</span> TRADING COCKPIT.
+          <div className="font-mono label label-strong" data-testid={TID.headerLogo} style={{ fontSize: 12, fontWeight: 600 }}>
+            HONIGDAX <span style={{ color: "var(--muted)", margin: "0 6px" }}>/</span> {t.headerBrandTag}
           </div>
         </div>
 
-        <nav
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 36,
-          }}
-        >
-          <a className="tlink" href="#capabilities" data-testid={TID.headerNavCapabilities}>
-            Capabilities
-          </a>
-          <a className="tlink" href="#approach" data-testid={TID.headerNavApproach}>
-            Approach
-          </a>
-          <a className="tlink" href="#strategy" data-testid={TID.headerNavStrategy}>
-            Strategy Lab
-          </a>
-          <a className="tlink" href="#contact" data-testid={TID.headerNavContact}>
-            Contact
-          </a>
+        <nav style={{ display: "flex", justifyContent: "center", gap: 36 }}>
+          <a className="tlink" href="#capabilities" data-testid={TID.headerNavCapabilities}>{t.navCapabilities}</a>
+          <a className="tlink" href="#approach" data-testid={TID.headerNavApproach}>{t.navApproach}</a>
+          <a className="tlink" href="#strategy" data-testid={TID.headerNavStrategy}>{t.navStrategy}</a>
+          <a className="tlink" href="#contact" data-testid={TID.headerNavContact}>{t.navContact}</a>
         </nav>
 
-        <div
-          className="font-mono label"
-          data-testid={TID.headerClock}
-          style={{ display: "flex", gap: 14, alignItems: "center", fontSize: 12 }}
-        >
-          <span className="dot-pulse" />
-          <span>CHICAGO · {clock}</span>
+        <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
+          <div
+            role="group"
+            aria-label="Sprache / Language"
+            style={{
+              display: "inline-flex",
+              border: "1px solid var(--rule)",
+              borderRadius: 999,
+              padding: 2,
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: 11,
+              letterSpacing: "0.08em",
+            }}
+          >
+            {["de", "en"].map((code) => (
+              <button
+                key={code}
+                data-testid={code === "de" ? TID.langSwitchDE : TID.langSwitchEN}
+                onClick={() => setLang(code)}
+                aria-pressed={lang === code}
+                style={{
+                  background: lang === code ? "var(--ink)" : "transparent",
+                  color: lang === code ? "var(--paper)" : "var(--ink)",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "5px 10px",
+                  borderRadius: 999,
+                  textTransform: "uppercase",
+                  fontFamily: "inherit",
+                  fontSize: "inherit",
+                  letterSpacing: "inherit",
+                  transition: "background 0.18s, color 0.18s",
+                }}
+              >
+                {code}
+              </button>
+            ))}
+          </div>
+          <div
+            className="font-mono label"
+            data-testid={TID.headerClock}
+            style={{ display: "flex", gap: 14, alignItems: "center", fontSize: 12 }}
+          >
+            <span className="dot-pulse" />
+            <span>{t.locationLabel} · {clock}</span>
+          </div>
         </div>
       </header>
 
@@ -469,43 +623,27 @@ export default function HonigdaxLanding() {
           gap: 40,
         }}
       >
-        <div
-          className="font-mono label idx reveal"
-          data-testid={TID.heroEyebrow}
-          style={{ paddingTop: 22 }}
-        >
+        <div className="font-mono label idx reveal" data-testid={TID.heroEyebrow} style={{ paddingTop: 22 }}>
           <span className="bar" />
-          <span>(01) IBKR · MADE FOR THE EDGE</span>
+          <span>{t.heroEyebrow}</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", alignItems: "end", gap: 60 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", alignItems: "end", gap: 60 }}>
           <h1 className="h-display reveal" style={{ fontSize: "clamp(64px, 11vw, 196px)", marginTop: 28 }}>
-            Scalpe in
+            {t.heroLineA}
             <br />
-            <span className="h-italic" style={{ fontSize: "1em" }}>2 ms.</span>
+            <span className="h-italic" style={{ fontSize: "1em" }}>{t.heroLineB}</span>
           </h1>
-          <HeroDiagram />
+          <HeroCockpit caption={t.cockpitCaption} />
         </div>
 
         <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "end", marginTop: 12 }}>
-          <p
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: 16,
-              maxWidth: 480,
-              lineHeight: 1.6,
-              color: "var(--ink)",
-            }}
-          >
-            HonigDAX ist das KI-native Trading-Cockpit auf Interactive Brokers — colociert in Chicago, gebaut für DOM-Scalping, Optionen und HoneyScript. Vom Order-Book bis zum Backtest, eine Schnittstelle.
+          <p style={{ fontFamily: "Inter, sans-serif", fontSize: 16, maxWidth: 480, lineHeight: 1.6, color: "var(--ink)" }}>
+            {t.heroBody}
           </p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-            <a
-              href="#contact"
-              className="pill"
-              data-testid={TID.heroPrimaryCta}
-            >
-              Enter honigdax.com
+            <a href="#contact" className="pill" data-testid={TID.heroPrimaryCta}>
+              {t.heroCtaPrimary}
               <span className="arr">
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
                   <path d="M3 9 L9 3 M9 3 H4 M9 3 V8" stroke="currentColor" strokeWidth="1.4" />
@@ -513,31 +651,16 @@ export default function HonigdaxLanding() {
               </span>
             </a>
             <a href="#capabilities" className="tlink" data-testid={TID.heroSecondaryCta} style={{ alignSelf: "center" }}>
-              See Capabilities →
+              {t.heroCtaSecondary}
             </a>
           </div>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            marginTop: 60,
-          }}
-        >
-          <div className="font-mono label">
-            SCROLL · ENTER THE COCKPIT
-          </div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: 60 }}>
+          <div className="font-mono label">{t.heroScrollHint}</div>
           <div
             aria-hidden
-            style={{
-              width: 18,
-              height: 28,
-              borderRadius: 12,
-              border: "1px solid rgba(13,13,13,0.4)",
-              position: "relative",
-            }}
+            style={{ width: 18, height: 28, borderRadius: 12, border: "1px solid rgba(13,13,13,0.4)", position: "relative" }}
           >
             <span
               style={{
@@ -553,63 +676,98 @@ export default function HonigdaxLanding() {
               }}
             />
           </div>
-          <div className="font-mono label">
-            (02) CAPABILITIES — NEXT
-          </div>
+          <div className="font-mono label">{t.heroScrollNext}</div>
         </div>
       </section>
 
       {/* ============== MARQUEE ============== */}
       <div className="marquee" data-testid={TID.marqueeBand}>
         <div className="marquee-track">
-          <span>DOM</span><span>Scalping</span>
-          <span>Optionen</span><span>Trading</span>
-          <span>KI</span><span>Kommentator</span>
-          <span>HoneyScript</span><span>Studio</span>
-          <span>Chicago</span><span>Colocation</span>
-          <span>Strategie</span><span>Lab</span>
-          {/* duplicate for seamless loop */}
-          <span>DOM</span><span>Scalping</span>
-          <span>Optionen</span><span>Trading</span>
-          <span>KI</span><span>Kommentator</span>
-          <span>HoneyScript</span><span>Studio</span>
-          <span>Chicago</span><span>Colocation</span>
-          <span>Strategie</span><span>Lab</span>
+          {t.marqueeWords.map((w, i) => <span key={`a${i}`}>{w}</span>)}
+          {t.marqueeWords.map((w, i) => <span key={`b${i}`}>{w}</span>)}
         </div>
       </div>
 
-      {/* ============== CAPABILITIES ============== */}
-      <section id="capabilities" style={{ padding: "120px 36px 80px" }}>
-        <div
-          className="font-mono label idx reveal"
-          style={{ marginBottom: 56 }}
-        >
+      {/* ============== INSIGHTS (real cockpit preview) ============== */}
+      <section id="insights" style={{ padding: "120px 36px 40px" }}>
+        <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
           <span className="bar" />
-          <span>(02) CAPABILITIES</span>
+          <span>{t.insightsLabel}</span>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+          <h2 className="h-display reveal" style={{ fontSize: "clamp(38px, 5.2vw, 80px)" }}>
+            {t.insightsTitle[0]}
+            <span className="h-italic">{t.insightsTitle[1]}</span>
+            {t.insightsTitle[2]}
+          </h2>
+          <p className="reveal" style={{ fontFamily: "Inter, sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink)", maxWidth: 520 }}>
+            {t.insightsBody}
+          </p>
         </div>
 
-        <h2
-          className="h-display reveal"
+        <div
+          className="reveal"
+          data-testid={TID.insightsImage}
           style={{
-            fontSize: "clamp(38px, 5.5vw, 84px)",
-            marginLeft: "30%",
-            maxWidth: 1000,
-            marginBottom: 64,
+            marginTop: 56,
+            position: "relative",
+            border: "1px solid var(--rule)",
+            background: "#0c0c10",
+            aspectRatio: "16/9",
+            overflow: "hidden",
+            boxShadow: "0 30px 80px rgba(13,13,13,0.18)",
           }}
         >
-          One cockpit, the <span className="h-italic">full</span> trading lifecycle — vom DOM bis zum Backtest.
+          <img
+            src="/honigdax-cockpit.png"
+            alt="HonigDAX live cockpit — IGOR Gold Spot chart"
+            loading="lazy"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+          <div
+            className="font-mono"
+            style={{
+              position: "absolute",
+              bottom: 14,
+              left: 18,
+              right: 18,
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255,255,255,0.8)",
+              fontSize: 11,
+              letterSpacing: "0.08em",
+            }}
+          >
+            <span>XAUUSD · 5m · IGOR GOLD v4 · BB-SQUEEZE · CVD DOM</span>
+            <span style={{ color: "var(--rust-bright)" }}>● LIVE · CHI</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ============== CAPABILITIES ============== */}
+      <section id="capabilities" style={{ padding: "120px 36px 80px" }}>
+        <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
+          <span className="bar" />
+          <span>{t.capLabel}</span>
+        </div>
+
+        <h2 className="h-display reveal" style={{ fontSize: "clamp(38px, 5.5vw, 84px)", marginLeft: "30%", maxWidth: 1000, marginBottom: 64 }}>
+          {t.capTitle[0]}
+          <span className="h-italic">{t.capTitle[1]}</span>
+          {t.capTitle[2]}
         </h2>
 
         <div>
-          {capabilities.map((c, i) => (
+          {t.capabilities.map((c, i) => (
             <CapabilityRow
-              key={c.num}
+              key={`${lang}-${i}`}
               i={i}
               num={c.num}
               label={c.label}
               italic={c.italic}
               meta={c.meta}
               body={c.body}
+              langKey={lang}
             />
           ))}
           <div style={{ borderTop: "1px solid var(--rule)" }} />
@@ -620,34 +778,27 @@ export default function HonigdaxLanding() {
       <section
         id="approach"
         className="paper-grain dark on-dark"
-        style={{
-          background: "var(--ink-2)",
-          color: "#fff",
-          padding: "120px 36px",
-          position: "relative",
-        }}
+        style={{ background: "var(--ink-2)", color: "#fff", padding: "120px 36px", position: "relative" }}
       >
         <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
           <span className="bar" style={{ background: "rgba(255,255,255,0.5)" }} />
-          <span>(03) APPROACH</span>
+          <span>{t.appLabel}</span>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 80, alignItems: "start" }}>
-          <h2
-            className="h-display reveal"
-            style={{ fontSize: "clamp(36px, 4.6vw, 68px)", maxWidth: 680 }}
-          >
-            We handle the latency — <span className="h-italic" style={{ color: "var(--rust-bright)" }}>so you focus on the trade</span> while we take care of the rest.
+          <h2 className="h-display reveal" style={{ fontSize: "clamp(36px, 4.6vw, 68px)", maxWidth: 680 }}>
+            {t.appTitle[0]}
+            <span className="h-italic" style={{ color: "var(--rust-bright)" }}>{t.appTitle[1]}</span>
+            {t.appTitle[2]}
           </h2>
           <div className="reveal" style={{ paddingTop: 12 }}>
-            {approach.map((r, i) => (
+            {t.approachRows.map((r, i) => (
               <ApproachRow key={r.left} i={i} left={r.left} right={r.right} />
             ))}
             <div style={{ borderTop: "1px solid var(--rule-dark)" }} />
           </div>
         </div>
 
-        {/* stats strip */}
         <div
           className="reveal"
           style={{
@@ -660,12 +811,7 @@ export default function HonigdaxLanding() {
             padding: "32px 0",
           }}
         >
-          {[
-            { v: "2 ms", l: "Order → Fill · CHI" },
-            { v: "81", l: "KI-Tools eingebaut" },
-            { v: "24 / 7", l: "KI-Marktbeobachtung" },
-            { v: "99.9 %", l: "Cockpit-Uptime" },
-          ].map((s) => (
+          {t.stats.map((s) => (
             <div key={s.l}>
               <div className="font-serif" style={{ fontSize: "clamp(36px, 4.5vw, 64px)", fontWeight: 700, letterSpacing: "-0.02em" }}>
                 {s.v}
@@ -679,37 +825,28 @@ export default function HonigdaxLanding() {
       </section>
 
       {/* ============== STRATEGY LAB ============== */}
-      <section
-        id="strategy"
-        style={{ padding: "120px 36px 60px", position: "relative" }}
-      >
+      <section id="strategy" style={{ padding: "120px 36px 60px", position: "relative" }}>
         <div className="font-mono label idx reveal" style={{ marginBottom: 40 }}>
           <span className="bar" />
-          <span>(04) STRATEGY LAB</span>
+          <span>{t.stratLabel}</span>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
-          <h2
-            className="h-display reveal"
-            style={{ fontSize: "clamp(38px, 5vw, 76px)", maxWidth: 560 }}
-          >
-            Plane.
-            <br />
-            Analysiere.
-            <br />
-            <span className="h-italic">Backteste.</span>
+          <h2 className="h-display reveal" style={{ fontSize: "clamp(38px, 5vw, 76px)", maxWidth: 560 }}>
+            {t.stratLines.map((line, i) => (
+              <React.Fragment key={i}>
+                {line === t.stratItalic ? <span className="h-italic">{line}</span> : line}
+                {i < t.stratLines.length - 1 && <br />}
+              </React.Fragment>
+            ))}
           </h2>
 
           <div className="reveal" style={{ fontFamily: "Inter, sans-serif" }}>
             <p style={{ fontSize: 17, lineHeight: 1.65, color: "var(--ink)", maxWidth: 520, marginBottom: 28 }}>
-              Das genialste Strategie-Tool für ambitionierte Anleger: Optionsstrategien und HoneyScript bis ins Detail planen, das Risiko sauber analysieren und gegen echte Markthistorie backtesten — Drawdown, Win-Rate und Edge KI-ausgewertet, bevor du echtes Kapital riskierst.
+              {t.stratBody}
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {[
-                ["Plan", "Strikes, Expiries, Hedges. Risiko & Margin live."],
-                ["Analyze", "Greeks, IV-Surface, Skew & Vol-Term-Struktur."],
-                ["Backtest", "Reale COMEX-Historie, KI-ausgewertete Edge & Drawdown."],
-              ].map(([k, v]) => (
+              {t.stratList.map(([k, v]) => (
                 <li
                   key={k}
                   style={{
@@ -720,9 +857,7 @@ export default function HonigdaxLanding() {
                     borderTop: "1px solid var(--rule)",
                   }}
                 >
-                  <span className="font-mono label label-strong" style={{ fontWeight: 600 }}>
-                    {k}
-                  </span>
+                  <span className="font-mono label label-strong" style={{ fontWeight: 600 }}>{k}</span>
                   <span style={{ color: "var(--muted)", fontSize: 15.5 }}>{v}</span>
                 </li>
               ))}
@@ -733,40 +868,19 @@ export default function HonigdaxLanding() {
       </section>
 
       {/* ============== REALIZE / CTA ============== */}
-      <section
-        id="contact"
-        style={{ padding: "120px 36px 200px", textAlign: "center", position: "relative" }}
-      >
-        <div
-          className="font-mono label reveal"
-          style={{ marginBottom: 36, color: "var(--muted)" }}
-        >
-          (05) ENTER
+      <section id="contact" style={{ padding: "120px 36px 200px", textAlign: "center", position: "relative" }}>
+        <div className="font-mono label reveal" style={{ marginBottom: 36, color: "var(--muted)" }}>
+          {t.finalKicker}
         </div>
-        <h2
-          className="h-display reveal"
-          style={{
-            fontSize: "clamp(64px, 9vw, 144px)",
-            marginBottom: 12,
-          }}
-        >
-          Let&rsquo;s{" "}
-          <span className="h-italic">trade</span>
+        <h2 className="h-display reveal" style={{ fontSize: "clamp(64px, 9vw, 144px)", marginBottom: 12 }}>
+          {t.finalLineA[0]}<span className="h-italic">{t.finalLineA[1]}</span>
         </h2>
-        <h2
-          className="h-display reveal"
-          style={{ fontSize: "clamp(64px, 9vw, 144px)", marginBottom: 56 }}
-        >
-          it together.
+        <h2 className="h-display reveal" style={{ fontSize: "clamp(64px, 9vw, 144px)", marginBottom: 56 }}>
+          {t.finalLineB}
         </h2>
 
-        <a
-          href="https://honigdax.com"
-          className="pill reveal"
-          data-testid={TID.finalCta}
-          style={{ padding: "18px 28px", fontSize: 15 }}
-        >
-          Visit honigdax.com
+        <a href="https://honigdax.com" className="pill reveal" data-testid={TID.finalCta} style={{ padding: "18px 28px", fontSize: 15 }}>
+          {t.finalCta}
           <span className="arr">
             <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
               <path d="M3 9 L9 3 M9 3 H4 M9 3 V8" stroke="currentColor" strokeWidth="1.4" />
@@ -775,7 +889,7 @@ export default function HonigdaxLanding() {
         </a>
 
         <p className="font-mono label reveal" style={{ marginTop: 32, color: "var(--muted)" }}>
-          INVITE&nbsp;ONLY · KEIN SPAM · NUR DER PLATZ IN DER WARTESCHLANGE
+          {t.finalNote}
         </p>
       </section>
 
@@ -794,29 +908,29 @@ export default function HonigdaxLanding() {
             HonigDAX<span style={{ color: "var(--rust)" }}>.</span>
           </div>
           <p style={{ marginTop: 12, color: "var(--muted)", fontFamily: "Inter, sans-serif", fontSize: 14, lineHeight: 1.6, maxWidth: 280 }}>
-            KI-natives Trading-Cockpit. Exklusives Frontend für Interactive Brokers. Colociert in Chicago.
+            {t.footerTagline}
           </p>
         </div>
 
         <div>
-          <div className="font-mono label" style={{ marginBottom: 14 }}>Navigate</div>
+          <div className="font-mono label" style={{ marginBottom: 14 }}>{t.footerNav}</div>
           <div style={{ display: "grid", gap: 10 }}>
-            <a className="tlink" href="#capabilities" data-testid={TID.footerLinkCap}>Capabilities</a>
-            <a className="tlink" href="#approach" data-testid={TID.footerLinkApp}>Approach</a>
-            <a className="tlink" href="#strategy" data-testid={TID.footerLinkSrv}>Strategy Lab</a>
+            <a className="tlink" href="#capabilities" data-testid={TID.footerLinkCap}>{t.navCapabilities}</a>
+            <a className="tlink" href="#approach" data-testid={TID.footerLinkApp}>{t.navApproach}</a>
+            <a className="tlink" href="#strategy" data-testid={TID.footerLinkSrv}>{t.navStrategy}</a>
           </div>
         </div>
 
         <div>
-          <div className="font-mono label" style={{ marginBottom: 14 }}>Location</div>
+          <div className="font-mono label" style={{ marginBottom: 14 }}>{t.footerLoc}</div>
           <div style={{ fontFamily: "Inter, sans-serif", fontSize: 14.5 }}>
-            Chicago · Illinois
-            <div style={{ color: "var(--muted)", marginTop: 6 }}>Colocated at the COMEX matching engine</div>
+            {t.footerLocBody}
+            <div style={{ color: "var(--muted)", marginTop: 6 }}>{t.footerLocSub}</div>
           </div>
         </div>
 
         <div>
-          <div className="font-mono label" style={{ marginBottom: 14 }}>Connect</div>
+          <div className="font-mono label" style={{ marginBottom: 14 }}>{t.footerConn}</div>
           <a className="tlink" href="https://honigdax.com" target="_blank" rel="noreferrer" data-testid={TID.footerLinkExt}>
             www.honigdax.com ↗
           </a>
@@ -835,8 +949,8 @@ export default function HonigdaxLanding() {
             gap: 12,
           }}
         >
-          <div className="font-mono label">© {yearRef.current} HONIGDAX · DAS EXKLUSIVE IBKR-FRONTEND</div>
-          <div className="font-mono label">CONCEPT / TRADING SYSTEM</div>
+          <div className="font-mono label">{t.footerLegal.replace("{year}", yearRef.current)}</div>
+          <div className="font-mono label">{t.footerCredit}</div>
         </div>
 
         <p
@@ -851,7 +965,7 @@ export default function HonigdaxLanding() {
             textAlign: "center",
           }}
         >
-          Trading mit Futures, Optionen und Derivaten ist mit erheblichen Risiken verbunden und nicht für jeden Anleger geeignet. Latenz-Angaben beschreiben Zielwerte der Infrastruktur. HonigDAX ist ein unabhängiges Frontend und steht in keiner offiziellen Verbindung zu Interactive Brokers, der COMEX oder der CME Group. Keine Anlageberatung.
+          {t.footerDisc}
         </p>
       </footer>
     </div>
