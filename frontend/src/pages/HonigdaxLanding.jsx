@@ -203,7 +203,37 @@ const T = {
       buy: "AGGR. BUY",
       sell: "AGGR. SELL",
     },
-    appLabel: "(06) APPROACH",
+    cfLabel: "(06) CONFLUENCE ENGINE",
+    cfTitle: ["Einstieg mit Konfluenz — ", "wenn alles zusammenpasst", "."],
+    cfSub:
+      "Ein einzelnes Signal lügt schnell. HonigDAX nimmt einen Einstieg erst ernst, wenn mehrere unabhängige Datenquellen in dieselbe Richtung zeigen — das nennt man Konfluenz.",
+    cfSources: [
+      { code: "ORDERFLOW", label: ["Orderflow · ", "wer drückt"], body: "Aktiver Druck (CVD), Wände brechen oder halten.", weight: 0.92 },
+      { code: "DOM",       label: ["DOM · ", "Imbalance"],          body: "Ruhender Kauf-/Verkaufsdruck im Orderbuch.",         weight: 0.78 },
+      { code: "BREAKOUT",  label: ["Breakout · ", "Volumen"],       body: "Volumenbestätigter Ausbruch über S/R.",               weight: 0.85 },
+      { code: "TREND",     label: ["Trend · ", "SMA 50/200"],       body: "Lage zu SMA 50/200, Strukturrichtung.",               weight: 0.66 },
+      { code: "MOMENTUM",  label: ["Momentum · ", "RSI"],           body: "RSI-Schwung, Beschleunigung gegen Mittelwert.",       weight: 0.71 },
+      { code: "SURGE",     label: ["Surge-Score · ", "Qualität"],   body: "Qualität und Stärke des Symbols, relative Strength.",  weight: 0.74 },
+    ],
+    cfSignal: {
+      label: "SIGNAL · LIVE",
+      title: "LONG-SETUP",
+      pct: "72 %",
+      tags: ["Trend↑", "Flow↑", "Break↑", "DOM-Bid"],
+      sub: "Konsens 4 / 6 Stimmen · Schwelle 60 %",
+    },
+    cfStyleTitle: ["Dein Stil, ", "deine Gewichte", "."],
+    cfStyleBody:
+      "Ein Schieber zwischen Scalping (Orderflow & DOM dominieren) und Swing (Trend, Momentum, Surge dominieren) — dieselbe Engine, an deinen Handel angepasst.",
+    cfStyleEnds: ["Scalping", "Swing"],
+    cfFlowTitle: ["Erkennen → Einsteigen → ", "Schützen", " in einem Klick."],
+    cfFlowBody:
+      "Feuert ein Setup, reicht ein Klick: Market-Order in Signalrichtung — und der Auto-Schutz (trailender Broker-Stop) armt sich automatisch. Signal, Order und Absicherung in einem Zug.",
+    cfFlowSteps: ["DETECT", "ENTER", "PROTECT"],
+    cfTagline: "Nicht ein Signal. Der Konsens aller Signale.",
+    cfDisc:
+      "Konfluenz senkt Fehlsignale, eliminiert sie nicht — Einstiege bleiben Wahrscheinlichkeiten. Regeln im Strategie-Lab gegen die Historie prüfen, bevor du ihnen vertraust.",
+    appLabel: "(07) APPROACH",
     appTitle: [
       "We handle the latency — ",
       "so you focus on the trade",
@@ -221,7 +251,7 @@ const T = {
       { v: "24 / 7", l: "KI-Marktbeobachtung" },
       { v: "99.9 %", l: "Cockpit-Uptime" },
     ],
-    ocLabel: "(07) OPTIONS COCKPIT",
+    ocLabel: "(08) OPTIONS COCKPIT",
     ocTitle: ["Optionen: bauen, optimieren, ", "beweisen", "."],
     ocSub:
       "Vom ersten Bein bis zur durchgerechneten, gegen die Historie getesteten Strategie — alles in einem Flow.",
@@ -271,7 +301,7 @@ const T = {
       be: "BE 466.85",
       pop: "POP 58 %",
     },
-    stratLabel: "(08) STRATEGY LAB",
+    stratLabel: "(09) STRATEGY LAB",
     stratTitle: ["Strategien testen wie ein Quant — ", "bevor echtes Geld fließt", "."],
     stratSub:
       "Plane Optionsstrategien mit klaren Wenn-Dann-Regeln, teste sie gegen echte Markthistorie, optimiere die Varianten — und lass die KI die robusteste Variante herausarbeiten.",
@@ -317,7 +347,7 @@ const T = {
       ["Trades",   "1.482"],
       ["Avg / Trade", "+$118"],
     ],
-    finalKicker: "(10) ENTER",
+    finalKicker: "(11) ENTER",
     finalLineA: ["Let\u2019s ", "trade"],
     finalLineB: "it together.",
     finalCta: "Visit honigdax.com",
@@ -348,7 +378,7 @@ const T = {
       { sym: "US10Y",   v: "4.32%",     d: "+2 bps",  up: true,  note: "10Y Treasury" },
       { sym: "PING",    v: "1.94 ms",   d: "CHI",     up: null,  note: "Order → Fill" },
     ],
-    perfLabel: "(09) TRACK RECORD",
+    perfLabel: "(10) TRACK RECORD",
     perfTitle: ["Sieben Jahre. ", "Audit-fähig", "."],
     perfBody:
       "Aggregierte Backtest- und Live-Performance über die wichtigsten Module. Werte aus Drittpartei-Audit, alle Trades zeit- und latenzgestempelt. Keine cherry picks — die volle Kurve, inkl. der schlechten Jahre.",
@@ -539,7 +569,37 @@ const T = {
       buy: "AGGR. BUY",
       sell: "AGGR. SELL",
     },
-    appLabel: "(06) APPROACH",
+    cfLabel: "(06) CONFLUENCE ENGINE",
+    cfTitle: ["Entry with confluence — ", "when everything lines up", "."],
+    cfSub:
+      "A single signal lies easily. HonigDAX only takes an entry seriously when several independent data sources point the same way — that's called confluence.",
+    cfSources: [
+      { code: "ORDERFLOW", label: ["Orderflow · ", "who pushes"], body: "Active pressure (CVD), walls breaking or holding.", weight: 0.92 },
+      { code: "DOM",       label: ["DOM · ", "imbalance"],        body: "Resting buy/sell pressure in the order book.",      weight: 0.78 },
+      { code: "BREAKOUT",  label: ["Breakout · ", "volume"],      body: "Volume-confirmed break of support/resistance.",    weight: 0.85 },
+      { code: "TREND",     label: ["Trend · ", "SMA 50/200"],     body: "Position vs. SMA 50/200, structural direction.",   weight: 0.66 },
+      { code: "MOMENTUM",  label: ["Momentum · ", "RSI"],         body: "RSI thrust, acceleration vs. mean.",               weight: 0.71 },
+      { code: "SURGE",     label: ["Surge score · ", "quality"],  body: "Symbol quality & relative strength.",              weight: 0.74 },
+    ],
+    cfSignal: {
+      label: "SIGNAL · LIVE",
+      title: "LONG SETUP",
+      pct: "72 %",
+      tags: ["Trend↑", "Flow↑", "Break↑", "DOM-Bid"],
+      sub: "Consensus 4 / 6 votes · threshold 60 %",
+    },
+    cfStyleTitle: ["Your style, ", "your weights", "."],
+    cfStyleBody:
+      "A slider between Scalping (orderflow & DOM dominate) and Swing (trend, momentum, surge dominate) — same engine, tuned to your trading.",
+    cfStyleEnds: ["Scalping", "Swing"],
+    cfFlowTitle: ["Detect → enter → ", "protect", " in one click."],
+    cfFlowBody:
+      "When a setup fires, one click is enough: market order in signal direction — and auto-protection (trailing broker stop) arms itself automatically. Signal, order and hedge in one move.",
+    cfFlowSteps: ["DETECT", "ENTER", "PROTECT"],
+    cfTagline: "Not one signal. The consensus of all signals.",
+    cfDisc:
+      "Confluence lowers false signals, it doesn't eliminate them — entries remain probabilities. Validate rules in the Strategy Lab against history before trusting them.",
+    appLabel: "(07) APPROACH",
     appTitle: [
       "We handle the latency — ",
       "so you focus on the trade",
@@ -557,7 +617,7 @@ const T = {
       { v: "24 / 7", l: "AI market watch" },
       { v: "99.9 %", l: "Cockpit uptime" },
     ],
-    ocLabel: "(07) OPTIONS COCKPIT",
+    ocLabel: "(08) OPTIONS COCKPIT",
     ocTitle: ["Options: build, optimise, ", "prove", "."],
     ocSub:
       "From the first leg to a fully priced, history-tested strategy — in one flow.",
@@ -607,7 +667,7 @@ const T = {
       be: "BE 466.85",
       pop: "POP 58 %",
     },
-    stratLabel: "(08) STRATEGY LAB",
+    stratLabel: "(09) STRATEGY LAB",
     stratTitle: ["Test strategies like a quant — ", "before real money moves", "."],
     stratSub:
       "Plan option strategies with clear if-then rules, test them against real market history, optimise the variants — and let the AI surface the most robust one.",
@@ -653,7 +713,7 @@ const T = {
       ["Trades",   "1,482"],
       ["Avg / Trade", "+$118"],
     ],
-    finalKicker: "(10) ENTER",
+    finalKicker: "(11) ENTER",
     finalLineA: ["Let\u2019s ", "trade"],
     finalLineB: "it together.",
     finalCta: "Visit honigdax.com",
@@ -684,7 +744,7 @@ const T = {
       { sym: "US10Y",   v: "4.32%",     d: "+2 bps",  up: true,  note: "10Y Treasury" },
       { sym: "PING",    v: "1.94 ms",   d: "CHI",     up: null,  note: "Order → Fill" },
     ],
-    perfLabel: "(09) TRACK RECORD",
+    perfLabel: "(10) TRACK RECORD",
     perfTitle: ["Seven years. ", "Audit ready", "."],
     perfBody:
       "Aggregated backtest and live performance across the core modules. Third-party audited, every trade time- and latency-stamped. No cherry picks — the full curve, bad years included.",
@@ -752,6 +812,184 @@ const useLang = () => {
     document.documentElement.lang = lang;
   }, [lang]);
   return [lang, setLang];
+};
+
+/* ============ Confluence radar (6-axis spider chart + score) ============ */
+const ConfluenceRadar = ({ sources, signal }) => {
+  const R = 130;
+  const cx = 200;
+  const cy = 175;
+  const angle = (i) => (Math.PI * 2 * i) / sources.length - Math.PI / 2;
+  const pt = (i, r) => [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r];
+  const polygon = sources
+    .map((s, i) => {
+      const [x, y] = pt(i, s.weight * R);
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    })
+    .join(" ");
+  return (
+    <div
+      data-testid="confluence-radar"
+      className="reveal"
+      style={{
+        width: "100%",
+        border: "1px solid var(--rule)",
+        background: "rgba(255,255,255,0.4)",
+        padding: 22,
+        position: "relative",
+        fontFamily: "JetBrains Mono, monospace",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          fontSize: 11,
+          letterSpacing: "0.08em",
+          color: "var(--muted)",
+          marginBottom: 8,
+        }}
+      >
+        <span>RADAR · 6 STIMMEN</span>
+        <span style={{ color: "var(--rust)" }}>● {signal.label}</span>
+      </div>
+
+      <svg viewBox="0 0 400 360" width="100%" height="auto" style={{ display: "block" }}>
+        {/* concentric rings */}
+        {[0.25, 0.5, 0.75, 1].map((r, i) => (
+          <polygon
+            key={i}
+            points={sources
+              .map((_, j) => {
+                const [x, y] = pt(j, r * R);
+                return `${x.toFixed(1)},${y.toFixed(1)}`;
+              })
+              .join(" ")}
+            fill="none"
+            stroke="rgba(13,13,13,0.10)"
+            strokeWidth="0.6"
+          />
+        ))}
+        {/* axis spokes */}
+        {sources.map((_, i) => {
+          const [x, y] = pt(i, R);
+          return (
+            <line
+              key={i}
+              x1={cx}
+              y1={cy}
+              x2={x}
+              y2={y}
+              stroke="rgba(13,13,13,0.15)"
+              strokeWidth="0.5"
+            />
+          );
+        })}
+        {/* threshold ring at 60 % (rust dashed) */}
+        <polygon
+          points={sources
+            .map((_, j) => {
+              const [x, y] = pt(j, 0.6 * R);
+              return `${x.toFixed(1)},${y.toFixed(1)}`;
+            })
+            .join(" ")}
+          fill="none"
+          stroke="var(--rust)"
+          strokeWidth="0.9"
+          strokeDasharray="4 4"
+          opacity="0.6"
+        />
+        {/* value polygon */}
+        <polygon
+          points={polygon}
+          fill="rgba(196,74,31,0.18)"
+          stroke="var(--rust)"
+          strokeWidth="1.8"
+          strokeLinejoin="round"
+        />
+        {/* value dots */}
+        {sources.map((s, i) => {
+          const [x, y] = pt(i, s.weight * R);
+          return <circle key={i} cx={x} cy={y} r="3.4" fill="var(--rust)" />;
+        })}
+
+        {/* center score badge */}
+        <g>
+          <circle cx={cx} cy={cy} r="34" fill="#0d0d0d" />
+          <text
+            x={cx}
+            y={cy - 4}
+            textAnchor="middle"
+            fill="#fff"
+            fontSize="20"
+            fontWeight="700"
+            fontFamily="Playfair Display"
+          >
+            {signal.pct}
+          </text>
+          <text
+            x={cx}
+            y={cy + 12}
+            textAnchor="middle"
+            fill="rgba(255,255,255,0.55)"
+            fontSize="8"
+            letterSpacing="0.12em"
+          >
+            CONSENSUS
+          </text>
+        </g>
+
+        {/* axis labels */}
+        {sources.map((s, i) => {
+          const [x, y] = pt(i, R + 22);
+          let anchor = "middle";
+          if (x < cx - 10) anchor = "end";
+          else if (x > cx + 10) anchor = "start";
+          return (
+            <text
+              key={i}
+              x={x}
+              y={y + 4}
+              textAnchor={anchor}
+              fill="rgba(13,13,13,0.7)"
+              fontSize="10"
+              letterSpacing="0.1em"
+              fontFamily="JetBrains Mono"
+            >
+              {s.code}
+            </text>
+          );
+        })}
+      </svg>
+
+      {/* Signal banner */}
+      <div
+        style={{
+          marginTop: 12,
+          background: "var(--ink-2)",
+          color: "#fff",
+          padding: "14px 18px",
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          flexWrap: "wrap",
+        }}
+      >
+        <span style={{ width: 9, height: 9, borderRadius: 999, background: "#5dba8a", boxShadow: "0 0 0 0 rgba(93,186,138,0.6)", animation: "dotp 1.8s infinite" }} />
+        <span className="font-serif" style={{ fontSize: 17, fontWeight: 600 }}>
+          {signal.title}
+        </span>
+        <span className="font-mono" style={{ color: "var(--rust-bright)", fontSize: 13 }}>{signal.pct}</span>
+        <span style={{ flex: 1 }} />
+        <span className="font-mono" style={{ color: "rgba(255,255,255,0.65)", fontSize: 11, letterSpacing: "0.08em", display: "flex", gap: 10, flexWrap: "wrap" }}>
+          {signal.tags.map((tg) => <span key={tg}>{tg}</span>)}
+        </span>
+      </div>
+      <div className="font-mono label" style={{ marginTop: 8, color: "var(--muted)" }}>
+        {signal.sub}
+      </div>
+    </div>
+  );
 };
 
 /* ============ Options payoff card (Bull-Call spread schematic) ============ */
@@ -2001,6 +2239,285 @@ export default function HonigdaxLanding() {
             }}
           >
             {t.ofDisc}
+          </p>
+        </div>
+      </section>
+
+      {/* ============== CONFLUENCE ENGINE ============== */}
+      <section id="confluence" className="sec-pad" style={{ position: "relative" }}>
+        <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
+          <span className="bar" />
+          <span>{t.cfLabel}</span>
+        </div>
+
+        <div className="insights-head" style={{ marginBottom: 56 }}>
+          <h2 className="h-display reveal" style={{ fontSize: "clamp(36px, 4.8vw, 70px)", maxWidth: 820 }}>
+            {t.cfTitle[0]}
+            <span className="h-italic">{t.cfTitle[1]}</span>
+            {t.cfTitle[2]}
+          </h2>
+          <p
+            className="reveal"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 16.5,
+              lineHeight: 1.65,
+              color: "var(--ink)",
+              maxWidth: 540,
+            }}
+          >
+            {t.cfSub}
+          </p>
+        </div>
+
+        {/* Radar + sources */}
+        <div className="cf-grid">
+          <div className="cf-radar-wrap">
+            <ConfluenceRadar sources={t.cfSources} signal={t.cfSignal} />
+          </div>
+          <div className="cf-sources">
+            {t.cfSources.map((s, i) => (
+              <div
+                key={s.code}
+                data-testid={`confluence-source-${i}`}
+                className="reveal"
+                style={{
+                  borderTop: "1px solid var(--rule)",
+                  padding: "20px 0",
+                  display: "grid",
+                  gridTemplateColumns: "1fr auto",
+                  gap: 20,
+                  alignItems: "center",
+                }}
+              >
+                <div>
+                  <div className="font-mono label" style={{ marginBottom: 6 }}>{s.code}</div>
+                  <div
+                    className="font-serif"
+                    style={{
+                      fontSize: "clamp(18px, 1.9vw, 24px)",
+                      fontWeight: 500,
+                      lineHeight: 1.15,
+                      marginBottom: 4,
+                    }}
+                  >
+                    {s.label[0]}<span className="h-italic">{s.label[1]}</span>
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: 14,
+                      color: "var(--muted)",
+                      lineHeight: 1.55,
+                      margin: 0,
+                    }}
+                  >
+                    {s.body}
+                  </p>
+                </div>
+                {/* tiny vote bar */}
+                <div style={{ width: 90, textAlign: "right" }}>
+                  <div
+                    style={{
+                      height: 6,
+                      background: "rgba(13,13,13,0.08)",
+                      position: "relative",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: `${Math.round(s.weight * 100)}%`,
+                        height: "100%",
+                        background: "var(--rust)",
+                      }}
+                    />
+                  </div>
+                  <div className="font-mono" style={{ fontSize: 11, color: "var(--ink)", marginTop: 6, fontVariantNumeric: "tabular-nums" }}>
+                    {Math.round(s.weight * 100)} %
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div style={{ borderTop: "1px solid var(--rule)" }} />
+          </div>
+        </div>
+
+        {/* Style slider */}
+        <div className="reveal" style={{ marginTop: 80 }}>
+          <h3
+            className="font-serif"
+            style={{
+              fontSize: "clamp(24px, 2.6vw, 36px)",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.15,
+              marginBottom: 12,
+            }}
+          >
+            {t.cfStyleTitle[0]}<span className="h-italic">{t.cfStyleTitle[1]}</span>{t.cfStyleTitle[2]}
+          </h3>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 15.5,
+              lineHeight: 1.65,
+              color: "var(--muted)",
+              maxWidth: 760,
+              marginBottom: 24,
+            }}
+          >
+            {t.cfStyleBody}
+          </p>
+          <div
+            style={{
+              border: "1px solid var(--rule)",
+              padding: "20px 24px",
+              background: "rgba(255,255,255,0.4)",
+              display: "grid",
+              gridTemplateColumns: "auto 1fr auto",
+              gap: 22,
+              alignItems: "center",
+            }}
+          >
+            <span className="font-mono label label-strong">{t.cfStyleEnds[0]}</span>
+            <div style={{ position: "relative", height: 22, display: "flex", alignItems: "center" }}>
+              <div style={{ position: "absolute", left: 0, right: 0, height: 2, background: "rgba(13,13,13,0.18)" }} />
+              <div style={{ position: "absolute", left: 0, width: "44%", height: 2, background: "var(--ink)" }} />
+              {[0, 0.25, 0.5, 0.75, 1].map((p) => (
+                <span
+                  key={p}
+                  style={{
+                    position: "absolute",
+                    left: `calc(${p * 100}% - 2px)`,
+                    width: 4,
+                    height: 10,
+                    background: "rgba(13,13,13,0.35)",
+                  }}
+                />
+              ))}
+              <span
+                style={{
+                  position: "absolute",
+                  left: "calc(44% - 11px)",
+                  width: 22,
+                  height: 22,
+                  borderRadius: 999,
+                  background: "var(--ink)",
+                  border: "3px solid var(--rust)",
+                  boxShadow: "0 6px 16px rgba(13,13,13,0.18)",
+                }}
+              />
+            </div>
+            <span className="font-mono label label-strong">{t.cfStyleEnds[1]}</span>
+          </div>
+        </div>
+
+        {/* Flow strip — Detect → Enter → Protect */}
+        <div className="reveal" style={{ marginTop: 56 }}>
+          <h3
+            className="font-serif"
+            style={{
+              fontSize: "clamp(24px, 2.6vw, 36px)",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.15,
+              marginBottom: 12,
+            }}
+          >
+            {t.cfFlowTitle[0]}<span className="h-italic">{t.cfFlowTitle[1]}</span>{t.cfFlowTitle[2]}
+          </h3>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 15.5,
+              lineHeight: 1.65,
+              color: "var(--muted)",
+              maxWidth: 760,
+              marginBottom: 24,
+            }}
+          >
+            {t.cfFlowBody}
+          </p>
+          <div className="cf-flow">
+            {t.cfFlowSteps.map((s, i) => (
+              <React.Fragment key={s}>
+                <div
+                  data-testid={`confluence-flow-${i}`}
+                  className="cf-flow-step"
+                  style={{
+                    border: "1px solid var(--ink)",
+                    background: i === t.cfFlowSteps.length - 1 ? "var(--ink)" : "transparent",
+                    color: i === t.cfFlowSteps.length - 1 ? "#fff" : "var(--ink)",
+                    padding: "18px 24px",
+                    flex: 1,
+                    minWidth: 180,
+                    fontFamily: "JetBrains Mono, monospace",
+                    fontSize: 12,
+                    letterSpacing: "0.12em",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <span>{String(i + 1).padStart(2, "0")} · {s}</span>
+                  <span style={{ color: i === t.cfFlowSteps.length - 1 ? "var(--rust-bright)" : "var(--rust)" }}>●</span>
+                </div>
+                {i < t.cfFlowSteps.length - 1 && (
+                  <span
+                    aria-hidden
+                    className="cf-flow-arrow"
+                    style={{
+                      fontFamily: "JetBrains Mono",
+                      color: "var(--rust)",
+                      fontSize: 18,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: 32,
+                    }}
+                  >
+                    →
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        {/* Tagline + disclaimer */}
+        <div className="reveal" style={{ marginTop: 48, display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 14,
+              padding: "12px 20px",
+              border: "1px solid var(--ink)",
+              borderRadius: 999,
+              background: "var(--ink)",
+              color: "#fff",
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+              <circle cx="7" cy="7" r="6" stroke="rgba(255,255,255,0.65)" strokeWidth="1" />
+              <path d="M3.5 7.5 L6 10 L10.5 4.5" stroke="var(--rust-bright)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+            <span className="font-mono" style={{ letterSpacing: "0.08em", fontSize: 12, color: "rgba(255,255,255,0.92)" }}>
+              {t.cfTagline}
+            </span>
+          </div>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 11.5,
+              lineHeight: 1.6,
+              color: "var(--muted-2)",
+              maxWidth: 720,
+              margin: 0,
+            }}
+          >
+            {t.cfDisc}
           </p>
         </div>
       </section>

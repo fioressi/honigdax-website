@@ -267,6 +267,10 @@ html, body {
 .oc-grid           { display: grid; grid-template-columns: minmax(0, 1fr) 1fr; gap: 64px; align-items: start; }
 .oc-payoff-wrap    { position: sticky; top: 120px; }
 .oc-steps          { display: block; }
+.cf-grid           { display: grid; grid-template-columns: minmax(0, 1.05fr) 0.95fr; gap: 60px; align-items: start; }
+.cf-radar-wrap     { position: sticky; top: 120px; }
+.cf-sources        { display: block; }
+.cf-flow           { display: flex; align-items: stretch; gap: 0; }
 .of-heat-wrap      { display: block; }
 
 @media (max-width: 900px) {
@@ -313,6 +317,12 @@ html, body {
     /* OPTIONS COCKPIT */
     .oc-grid           { grid-template-columns: 1fr !important; gap: 36px !important; }
     .oc-payoff-wrap    { position: static !important; }
+
+    /* CONFLUENCE ENGINE */
+    .cf-grid           { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .cf-radar-wrap     { position: static !important; }
+    .cf-flow           { flex-wrap: wrap; gap: 12px !important; }
+    .cf-flow-arrow     { transform: rotate(90deg); width: 100% !important; }
 
     /* PERFORMANCE TABLE — collapse 6 cols to 4 (drop Sharpe + Note) */
     .perf-row,
