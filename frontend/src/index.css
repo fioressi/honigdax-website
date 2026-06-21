@@ -271,6 +271,7 @@ html, body {
 .cf-radar-wrap     { position: sticky; top: 120px; }
 .cf-sources        { display: block; }
 .cf-flow           { display: flex; align-items: stretch; gap: 0; }
+.beta-cols         { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
 .of-heat-wrap      { display: block; }
 
 @media (max-width: 900px) {
@@ -323,6 +324,15 @@ html, body {
     .cf-radar-wrap     { position: static !important; }
     .cf-flow           { flex-wrap: wrap; gap: 12px !important; }
     .cf-flow-arrow     { transform: rotate(90deg); width: 100% !important; }
+
+    /* BETA SECTION */
+    .beta-form         { flex-wrap: wrap !important; border-radius: 14px !important; padding: 10px !important; gap: 8px !important; }
+    .beta-form label   { display: none !important; }
+    .beta-form input   { flex: 1 1 100% !important; padding: 12px 14px !important; }
+    .beta-form button  { flex: 1 1 100% !important; }
+    .beta-cols         { grid-template-columns: 1fr !important; max-width: 100% !important; }
+    .beta-cols > div   { border-left: none !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.12) !important; }
+    .beta-cols > div:last-child { border-bottom: none !important; }
 
     /* PERFORMANCE TABLE — collapse 6 cols to 4 (drop Sharpe + Note) */
     .perf-row,

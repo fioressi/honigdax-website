@@ -347,11 +347,26 @@ const T = {
       ["Trades",   "1.482"],
       ["Avg / Trade", "+$118"],
     ],
-    finalKicker: "(11) ENTER",
-    finalLineA: ["Let\u2019s ", "trade"],
-    finalLineB: "it together.",
-    finalCta: "Visit honigdax.com",
-    finalNote: "INVITE\u00A0ONLY · KEIN SPAM · NUR DEIN PLATZ IN DER WARTESCHLANGE",
+    finalKicker: "(11) BETA · WE'RE BUILDING",
+    finalStatus: "● IN DEVELOPMENT · BETA Q1 2026 · WAITLIST OPEN",
+    finalLineA: ["We're building the ", "Cockpit"],
+    finalLineB: ["You're flying it ", "first", "."],
+    finalSub:
+      "HonigDAX is being built. We're looking for a handful of traders to take the cockpit out first — honest feedback, direct line to the engine room. Free during beta. Twenty dollars a month after launch. Required up front: nothing.",
+    finalEmailLabel: "YOUR EMAIL",
+    finalEmailPh: "trader@…",
+    finalSubmit: "Put me on the list",
+    finalSubmitting: "Adding…",
+    finalSuccess: "You're in. Seat",
+    finalAlready: "You're already on the list. Seat",
+    finalError: "Please enter a valid email.",
+    finalSeats: "of 100 seats taken",
+    finalCols: [
+      { label: "BETA PRICE", value: "$0", sub: "during beta · invite only" },
+      { label: "PRICE AT LAUNCH", value: "$20 / mo", sub: "per trader · cancel anytime" },
+      { label: "REQUIRED NOW", value: "Nothing", sub: "no card · no contract" },
+    ],
+    finalNote: "No spam. Just updates when your cockpit seat opens up.",
     footerTagline:
       "KI-natives Trading-Cockpit. Exklusives Frontend für Interactive Brokers. Colociert in Chicago.",
     footerNav: "Navigate",
@@ -713,11 +728,26 @@ const T = {
       ["Trades",   "1,482"],
       ["Avg / Trade", "+$118"],
     ],
-    finalKicker: "(11) ENTER",
-    finalLineA: ["Let\u2019s ", "trade"],
-    finalLineB: "it together.",
-    finalCta: "Visit honigdax.com",
-    finalNote: "INVITE\u00A0ONLY · NO SPAM · JUST YOUR SPOT IN THE QUEUE",
+    finalKicker: "(11) BETA · WE'RE BUILDING",
+    finalStatus: "● IN DEVELOPMENT · BETA Q1 2026 · WAITLIST OPEN",
+    finalLineA: ["We're building the ", "Cockpit"],
+    finalLineB: ["You're flying it ", "first", "."],
+    finalSub:
+      "HonigDAX is being built. We're looking for a handful of traders to take the cockpit out first — honest feedback, direct line to the engine room. Free during beta. Twenty dollars a month after launch. Required up front: nothing.",
+    finalEmailLabel: "YOUR EMAIL",
+    finalEmailPh: "trader@…",
+    finalSubmit: "Put me on the list",
+    finalSubmitting: "Adding…",
+    finalSuccess: "You're in. Seat",
+    finalAlready: "You're already on the list. Seat",
+    finalError: "Please enter a valid email.",
+    finalSeats: "of 100 seats taken",
+    finalCols: [
+      { label: "BETA PRICE", value: "$0", sub: "during beta · invite only" },
+      { label: "PRICE AT LAUNCH", value: "$20 / mo", sub: "per trader · cancel anytime" },
+      { label: "REQUIRED NOW", value: "Nothing", sub: "no card · no contract" },
+    ],
+    finalNote: "No spam. Just updates when your cockpit seat opens up.",
     footerTagline:
       "AI-native trading cockpit. Exclusive frontend for Interactive Brokers. Colocated in Chicago.",
     footerNav: "Navigate",
@@ -812,6 +842,45 @@ const useLang = () => {
     document.documentElement.lang = lang;
   }, [lang]);
   return [lang, setLang];
+};
+
+/* ============ Beta signup hook (POST /api/beta-signup) ============ */
+const API_BASE = (process.env.REACT_APP_BACKEND_URL || "").replace(/\/$/, "");
+const useBetaSignup = () => {
+  const [state, setState] = useState({ status: "idle", seat: null, total: 0, already: false, error: null });
+  const submit = async ({ email, name, lang, style }) => {
+    setState((s) => ({ ...s, status: "loading", error: null }));
+    try {
+      const res = await fetch(`${API_BASE}/api/beta-signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name, lang, style, referrer: typeof document !== "undefined" ? document.referrer : null }),
+      });
+      const data = await res.json();
+      if (!data.ok) {
+        setState({ status: "error", seat: null, total: 0, already: false, error: data.error || "error" });
+        return;
+      }
+      setState({ status: "success", seat: data.seat || null, total: data.total || 0, already: !!data.already_on_list, error: null });
+    } catch (e) {
+      setState({ status: "error", seat: null, total: 0, already: false, error: "network" });
+    }
+  };
+  return [state, submit];
+};
+
+/* ============ Beta signup stats hook ============ */
+const useBetaStats = () => {
+  const [stats, setStats] = useState({ total: 0, capacity: 100 });
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`${API_BASE}/api/beta-signup/stats`)
+      .then((r) => r.json())
+      .then((d) => { if (!cancelled && d && typeof d.total === "number") setStats({ total: d.total, capacity: d.capacity || 100 }); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+  return stats;
 };
 
 /* ============ Confluence radar (6-axis spider chart + score) ============ */
@@ -1668,10 +1737,15 @@ const ApproachRow = ({ i, left, right }) => (
 /* ============ Main page ============ */
 export default function HonigdaxLanding() {
   const [lang, setLang] = useLang();
+  const [signup, submitSignup] = useBetaSignup();
+  const stats = useBetaStats();
   useReveal([lang]);
   const clock = useClock();
   const yearRef = useRef(new Date().getFullYear());
   const t = useMemo(() => T[lang], [lang]);
+  const [betaEmail, setBetaEmail] = useState("");
+  const seatsTaken = Math.max(stats.total, signup.seat || 0);
+  const seatsCapacity = stats.capacity || 100;
 
   return (
     <div className="paper-grain" style={{ background: "var(--paper)", color: "var(--ink)", position: "relative" }}>
@@ -3003,30 +3077,248 @@ export default function HonigdaxLanding() {
         </div>
       </section>
 
-      {/* ============== REALIZE / CTA ============== */}
-      <section id="contact" style={{ padding: "120px 36px 200px", textAlign: "center", position: "relative" }}>
-        <div className="font-mono label reveal" style={{ marginBottom: 36, color: "var(--muted)" }}>
+      {/* ============== BETA — WE'RE BUILDING ============== */}
+      <section
+        id="contact"
+        className="paper-grain dark on-dark"
+        style={{
+          background: "var(--ink-2)",
+          color: "#fff",
+          padding: "120px 36px 140px",
+          position: "relative",
+        }}
+      >
+        {/* status stamp */}
+        <div className="reveal" style={{ display: "flex", justifyContent: "center", marginBottom: 36 }}>
+          <div
+            className="font-mono"
+            style={{
+              display: "inline-flex",
+              gap: 14,
+              alignItems: "center",
+              border: "1px solid rgba(255,255,255,0.18)",
+              padding: "8px 16px",
+              borderRadius: 999,
+              fontSize: 11,
+              letterSpacing: "0.14em",
+              color: "rgba(255,255,255,0.75)",
+            }}
+          >
+            <span className="dot-pulse" />
+            <span>{t.finalStatus}</span>
+          </div>
+        </div>
+
+        {/* kicker */}
+        <div className="font-mono label reveal" style={{ marginBottom: 32, color: "rgba(255,255,255,0.55)", textAlign: "center" }}>
           {t.finalKicker}
         </div>
-        <h2 className="h-display reveal" style={{ fontSize: "clamp(64px, 9vw, 144px)", marginBottom: 12 }}>
-          {t.finalLineA[0]}<span className="h-italic">{t.finalLineA[1]}</span>
+
+        {/* headlines */}
+        <h2 className="h-display reveal" style={{ fontSize: "clamp(54px, 8vw, 124px)", textAlign: "center", marginBottom: 6, color: "#fff" }}>
+          {t.finalLineA[0]}<span className="h-italic" style={{ color: "var(--rust-bright)" }}>{t.finalLineA[1]}</span>
         </h2>
-        <h2 className="h-display reveal" style={{ fontSize: "clamp(64px, 9vw, 144px)", marginBottom: 56 }}>
-          {t.finalLineB}
+        <h2 className="h-display reveal" style={{ fontSize: "clamp(54px, 8vw, 124px)", textAlign: "center", marginBottom: 48, color: "#fff" }}>
+          {t.finalLineB[0]}<span className="h-italic" style={{ color: "var(--rust-bright)" }}>{t.finalLineB[1]}</span>{t.finalLineB[2]}
         </h2>
 
-        <a href="https://honigdax.com" className="pill reveal" data-testid={TID.finalCta} style={{ padding: "18px 28px", fontSize: 15 }}>
-          {t.finalCta}
-          <span className="arr">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-              <path d="M3 9 L9 3 M9 3 H4 M9 3 V8" stroke="currentColor" strokeWidth="1.4" />
-            </svg>
-          </span>
-        </a>
-
-        <p className="font-mono label reveal" style={{ marginTop: 32, color: "var(--muted)" }}>
-          {t.finalNote}
+        {/* sub */}
+        <p
+          className="reveal"
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 17,
+            lineHeight: 1.65,
+            color: "rgba(255,255,255,0.78)",
+            maxWidth: 720,
+            margin: "0 auto 48px",
+            textAlign: "center",
+          }}
+        >
+          {t.finalSub}
         </p>
+
+        {/* Signup form */}
+        <form
+          className="reveal beta-form"
+          data-testid="beta-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (signup.status === "loading") return;
+            submitSignup({ email: betaEmail, lang });
+          }}
+          style={{
+            display: "flex",
+            gap: 0,
+            maxWidth: 540,
+            margin: "0 auto 16px",
+            border: "1px solid rgba(255,255,255,0.22)",
+            borderRadius: 999,
+            background: "rgba(255,255,255,0.04)",
+            padding: 6,
+            alignItems: "stretch",
+          }}
+        >
+          <label
+            className="font-mono"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "0 14px 0 18px",
+              fontSize: 10.5,
+              letterSpacing: "0.14em",
+              color: "rgba(255,255,255,0.45)",
+              borderRight: "1px solid rgba(255,255,255,0.12)",
+              whiteSpace: "nowrap",
+            }}
+            htmlFor="beta-email"
+          >
+            {t.finalEmailLabel}
+          </label>
+          <input
+            id="beta-email"
+            data-testid="beta-email-input"
+            type="email"
+            required
+            autoComplete="email"
+            placeholder={t.finalEmailPh}
+            value={betaEmail}
+            onChange={(e) => setBetaEmail(e.target.value)}
+            disabled={signup.status === "loading" || signup.status === "success"}
+            style={{
+              flex: 1,
+              background: "transparent",
+              border: "none",
+              outline: "none",
+              color: "#fff",
+              padding: "14px 16px",
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: 14,
+              minWidth: 0,
+            }}
+          />
+          <button
+            type="submit"
+            data-testid="beta-submit"
+            disabled={signup.status === "loading" || signup.status === "success"}
+            className="font-mono"
+            style={{
+              border: "none",
+              background: signup.status === "success" ? "#3f7a55" : "var(--rust)",
+              color: "#fff",
+              padding: "14px 24px",
+              borderRadius: 999,
+              fontSize: 13,
+              letterSpacing: "0.08em",
+              cursor: signup.status === "success" ? "default" : "pointer",
+              transition: "background 0.2s, transform 0.2s",
+              whiteSpace: "nowrap",
+              fontWeight: 500,
+            }}
+          >
+            {signup.status === "loading" ? t.finalSubmitting : signup.status === "success" ? "✓" : t.finalSubmit}
+          </button>
+        </form>
+
+        {/* status message */}
+        <div
+          className="font-mono"
+          data-testid="beta-status-msg"
+          style={{
+            textAlign: "center",
+            minHeight: 22,
+            fontSize: 12,
+            letterSpacing: "0.06em",
+            color:
+              signup.status === "success" ? "#7fd6a4"
+              : signup.status === "error" ? "var(--rust-bright)"
+              : "rgba(255,255,255,0.5)",
+            marginBottom: 36,
+          }}
+        >
+          {signup.status === "success" &&
+            `${signup.already ? t.finalAlready : t.finalSuccess} #${String(signup.seat || "—").padStart(3, "0")} / 100`}
+          {signup.status === "error" && t.finalError}
+          {signup.status === "idle" && t.finalNote}
+          {signup.status === "loading" && "…"}
+        </div>
+
+        {/* seats progress */}
+        <div className="reveal" style={{ maxWidth: 540, margin: "0 auto 64px" }}>
+          <div
+            style={{
+              height: 4,
+              background: "rgba(255,255,255,0.10)",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                width: `${Math.min(100, (seatsTaken / seatsCapacity) * 100)}%`,
+                height: "100%",
+                background: "var(--rust)",
+                transition: "width 0.6s ease",
+              }}
+            />
+          </div>
+          <div
+            className="font-mono"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 10,
+              fontSize: 11,
+              letterSpacing: "0.1em",
+              color: "rgba(255,255,255,0.55)",
+            }}
+          >
+            <span style={{ color: "var(--rust-bright)" }}>{String(seatsTaken).padStart(3, "0")} / {String(seatsCapacity).padStart(3, "0")}</span>
+            <span>{t.finalSeats}</span>
+          </div>
+        </div>
+
+        {/* 3-col deal strip */}
+        <div className="beta-cols reveal">
+          {t.finalCols.map((c, i) => (
+            <div
+              key={c.label}
+              data-testid={`beta-col-${i}`}
+              style={{
+                padding: "26px 26px",
+                borderLeft: "1px solid rgba(255,255,255,0.12)",
+                borderRight: i === t.finalCols.length - 1 ? "1px solid rgba(255,255,255,0.12)" : "none",
+              }}
+            >
+              <div className="font-mono label" style={{ color: "rgba(255,255,255,0.55)", marginBottom: 12 }}>
+                {c.label}
+              </div>
+              <div
+                className="font-serif"
+                style={{
+                  fontSize: "clamp(32px, 3.6vw, 56px)",
+                  fontWeight: 700,
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1,
+                  color: i === 1 ? "var(--rust-bright)" : "#fff",
+                  marginBottom: 8,
+                }}
+              >
+                {c.value}
+              </div>
+              <div
+                className="font-mono"
+                style={{
+                  fontSize: 11,
+                  letterSpacing: "0.08em",
+                  color: "rgba(255,255,255,0.55)",
+                }}
+              >
+                {c.sub}
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ============== FOOTER ============== */}

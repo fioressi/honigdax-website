@@ -37,6 +37,27 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+
+# ===== Beta Signup =====
+class BetaSignup(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    email: str
+    name: str | None = None
+    style: str | None = None  # "scalping" | "swing" | "options" | None
+    referrer: str | None = None
+    lang: str | None = None
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class BetaSignupCreate(BaseModel):
+    email: str
+    name: str | None = None
+    style: str | None = None
+    referrer: str | None = None
+    lang: str | None = None
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
@@ -65,6 +86,48 @@ async def get_status_checks():
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
     
     return status_checks
+
+
+# ===== Beta signup =====
+import re
+
+_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+
+
+@api_router.post("/beta-signup")
+async def beta_signup(payload: BetaSignupCreate):
+    email = (payload.email or "").strip().lower()
+    if not _EMAIL_RE.match(email):
+        return {"ok": False, "error": "invalid_email"}
+
+    # idempotent: if already on list, return success with already_on_list flag
+    existing = await db.beta_signups.find_one({"email": email}, {"_id": 0})
+    if existing:
+        count = await db.beta_signups.count_documents({})
+        return {"ok": True, "already_on_list": True, "seat": existing.get("seat"), "total": count}
+
+    count = await db.beta_signups.count_documents({})
+    seat = count + 1
+
+    doc = BetaSignup(
+        email=email,
+        name=(payload.name or "").strip() or None,
+        style=payload.style,
+        referrer=payload.referrer,
+        lang=payload.lang,
+    ).model_dump()
+    doc["created_at"] = doc["created_at"].isoformat()
+    doc["seat"] = seat
+
+    await db.beta_signups.insert_one(doc)
+    logger.info("beta signup #%s · %s", seat, email)
+    return {"ok": True, "seat": seat, "total": seat}
+
+
+@api_router.get("/beta-signup/stats")
+async def beta_signup_stats():
+    total = await db.beta_signups.count_documents({})
+    return {"total": total, "capacity": 100}
 
 # Include the router in the main app
 app.include_router(api_router)
