@@ -35,11 +35,11 @@ const T = {
     navStrategy: "Strategy Lab",
     navContact: "Contact",
     locationLabel: "CHICAGO",
-    heroEyebrow: "(01) IBKR · MADE FOR THE EDGE",
-    heroLineA: "Scalpe in",
-    heroLineB: "2 ms.",
+    heroEyebrow: "(01) FÜR ADVANCED TRADER · IBKR · MADE FOR THE EDGE",
+    heroLineA: "Optionen, geplant.",
+    heroLineB: "Strategien, bewiesen.",
     heroBody:
-      "HonigDAX ist das KI-native Trading-Cockpit auf Interactive Brokers — colociert in Chicago, gebaut für DOM-Scalping, Optionen und HoneyScript. Vom Order-Book bis zum Backtest, eine Schnittstelle.",
+      "HonigDAX ist das Pro-Cockpit für Optionshandel, Strategie-Backtesting und DOM-Scalping auf Interactive Brokers. Bauen wie OptionStrat, beweisen gegen echte Markthistorie, traden mit 2-ms-Fills aus Chicago — eine Schnittstelle.",
     heroCtaPrimary: "Enter honigdax.com",
     heroCtaSecondary: "See Capabilities →",
     heroScrollHint: "SCROLL · ENTER THE COCKPIT",
@@ -48,12 +48,12 @@ const T = {
     essLabel: "(02) ESSENZ",
     essTitle: ["Was du bekommst, ", "in sechs Worten", "."],
     essCells: [
-      { num: "01 /", label: "DOM · ",         italic: "Scalping",  meta: "2 ms · ORDER BOOK",        href: "#capabilities" },
-      { num: "02 /", label: "Optionen · ",     italic: "Builder",   meta: "CHAIN · GREEKS · IBKR",     href: "#options-cockpit" },
-      { num: "03 /", label: "Konfluenz · ",    italic: "Engine",    meta: "6 STIMMEN · 1 SCORE",       href: "#confluence" },
-      { num: "04 /", label: "HoneyScript · ",  italic: "Studio",    meta: "SCRIPT · CLI · JSON",        href: "#capabilities" },
-      { num: "05 /", label: "Strategie · ",    italic: "Lab",       meta: "BACKTEST · WALK-FORWARD",    href: "#strategy" },
-      { num: "06 /", label: "Schutz · ",       italic: "Doppelt",   meta: "BROKER-STOP · DOM EXIT",     href: "#protection" },
+      { num: "01 /", label: "Optionen · ",     italic: "Builder",   meta: "OPTIONSTRAT-LEVEL · LIVE IBKR-CHAIN", href: "#options-cockpit", pro: true },
+      { num: "02 /", label: "Strategie · ",    italic: "Lab",       meta: "BACKTEST · WALK-FORWARD · KI",       href: "#strategy",        pro: true },
+      { num: "03 /", label: "DOM · ",          italic: "Scalping",  meta: "2 MS · ORDER BOOK · CHI",            href: "#capabilities" },
+      { num: "04 /", label: "Konfluenz · ",    italic: "Engine",    meta: "6 STIMMEN · 1 SCORE",                 href: "#confluence" },
+      { num: "05 /", label: "HoneyScript · ",  italic: "Studio",    meta: "SCRIPT · CLI · JSON",                  href: "#capabilities" },
+      { num: "06 /", label: "Schutz · ",       italic: "Doppelt",   meta: "BROKER-STOP · DOM-EXIT",                href: "#protection" },
     ],
     essStats: [
       { v: "2 ms",   l: "ORDER → FILL" },
@@ -398,9 +398,13 @@ const T = {
     footerDisc:
       "Trading mit Futures, Optionen und Derivaten ist mit erheblichen Risiken verbunden und nicht für jeden Anleger geeignet. Latenz-Angaben beschreiben Zielwerte der Infrastruktur. HonigDAX ist ein unabhängiges Frontend und steht in keiner offiziellen Verbindung zu Interactive Brokers, der COMEX oder der CME Group. Keine Anlageberatung.",
     marqueeWords: [
-      "DOM", "Scalping", "Optionen", "Trading",
-      "KI", "Kommentator", "HoneyScript", "Studio",
-      "Chicago", "Colocation", "Strategie", "Lab",
+      "Optionen", "Builder",
+      "Strategie", "Lab",
+      "Backtest", "Walk-Forward",
+      "DOM", "Scalping",
+      "KI", "Kommentator",
+      "HoneyScript", "Studio",
+      "Konfluenz", "Engine",
     ],
     tickerItems: [
       { sym: "XAUUSD",  v: "4,716.70",  d: "+0.16%",  up: true,  note: "Gold Spot" },
@@ -435,11 +439,11 @@ const T = {
     navStrategy: "Strategy Lab",
     navContact: "Contact",
     locationLabel: "CHICAGO",
-    heroEyebrow: "(01) IBKR · MADE FOR THE EDGE",
-    heroLineA: "Scalp in",
-    heroLineB: "2 ms.",
+    heroEyebrow: "(01) FOR THE ADVANCED TRADER · IBKR · MADE FOR THE EDGE",
+    heroLineA: "Options, planned.",
+    heroLineB: "Strategies, proven.",
     heroBody:
-      "HonigDAX is the AI-native trading cockpit on Interactive Brokers — colocated in Chicago, built for DOM scalping, options and HoneyScript. From the order book to the backtest — one interface.",
+      "HonigDAX is the pro cockpit for options trading, strategy backtesting and DOM scalping on Interactive Brokers. Build like OptionStrat, prove against real market history, trade with 2 ms fills from Chicago — one interface.",
     heroCtaPrimary: "Enter honigdax.com",
     heroCtaSecondary: "See Capabilities →",
     heroScrollHint: "SCROLL · ENTER THE COCKPIT",
@@ -448,12 +452,12 @@ const T = {
     essLabel: "(02) ESSENCE",
     essTitle: ["What you get, ", "in six words", "."],
     essCells: [
-      { num: "01 /", label: "DOM · ",         italic: "Scalping",  meta: "2 ms · ORDER BOOK",        href: "#capabilities" },
-      { num: "02 /", label: "Options · ",      italic: "Builder",   meta: "CHAIN · GREEKS · IBKR",     href: "#options-cockpit" },
-      { num: "03 /", label: "Confluence · ",   italic: "Engine",    meta: "6 VOTES · 1 SCORE",         href: "#confluence" },
-      { num: "04 /", label: "HoneyScript · ",  italic: "Studio",    meta: "SCRIPT · CLI · JSON",        href: "#capabilities" },
-      { num: "05 /", label: "Strategy · ",     italic: "Lab",       meta: "BACKTEST · WALK-FORWARD",    href: "#strategy" },
-      { num: "06 /", label: "Protection · ",   italic: "Dual",      meta: "BROKER STOP · DOM EXIT",     href: "#protection" },
+      { num: "01 /", label: "Options · ",      italic: "Builder",   meta: "OPTIONSTRAT-LEVEL · LIVE IBKR CHAIN", href: "#options-cockpit", pro: true },
+      { num: "02 /", label: "Strategy · ",     italic: "Lab",       meta: "BACKTEST · WALK-FORWARD · AI",        href: "#strategy",        pro: true },
+      { num: "03 /", label: "DOM · ",          italic: "Scalping",  meta: "2 MS · ORDER BOOK · CHI",             href: "#capabilities" },
+      { num: "04 /", label: "Confluence · ",   italic: "Engine",    meta: "6 VOTES · 1 SCORE",                    href: "#confluence" },
+      { num: "05 /", label: "HoneyScript · ",  italic: "Studio",    meta: "SCRIPT · CLI · JSON",                   href: "#capabilities" },
+      { num: "06 /", label: "Protection · ",   italic: "Dual",      meta: "BROKER STOP · DOM EXIT",                 href: "#protection" },
     ],
     essStats: [
       { v: "2 ms",   l: "ORDER → FILL" },
@@ -798,9 +802,13 @@ const T = {
     footerDisc:
       "Trading futures, options and derivatives carries substantial risk and is not suitable for every investor. Latency figures describe infrastructure targets. HonigDAX is an independent frontend and has no official affiliation with Interactive Brokers, COMEX or the CME Group. Not investment advice.",
     marqueeWords: [
-      "DOM", "Scalping", "Options", "Trading",
-      "AI", "Commentator", "HoneyScript", "Studio",
-      "Chicago", "Colocation", "Strategy", "Lab",
+      "Options", "Builder",
+      "Strategy", "Lab",
+      "Backtest", "Walk-Forward",
+      "DOM", "Scalping",
+      "AI", "Commentator",
+      "HoneyScript", "Studio",
+      "Confluence", "Engine",
     ],
     tickerItems: [
       { sym: "XAUUSD",  v: "4,716.70",  d: "+0.16%",  up: true,  note: "Gold Spot" },
@@ -1988,8 +1996,22 @@ export default function HonigdaxLanding() {
                 borderBottom: (i < 3) ? "1px solid var(--rule)" : "none",
                 position: "relative",
                 transition: "background 0.25s ease",
+                background: c.pro ? "rgba(196,74,31,0.045)" : "transparent",
               }}
             >
+              {c.pro && (
+                <span
+                  aria-hidden
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 3,
+                    background: "var(--rust)",
+                  }}
+                />
+              )}
               <div
                 className="font-mono"
                 style={{
@@ -2002,7 +2024,24 @@ export default function HonigdaxLanding() {
                   marginBottom: 14,
                 }}
               >
-                <span>{c.num}</span>
+                <span style={{ display: "inline-flex", gap: 10, alignItems: "center" }}>
+                  <span>{c.num}</span>
+                  {c.pro && (
+                    <span
+                      className="font-mono"
+                      style={{
+                        background: "var(--ink)",
+                        color: "#fff",
+                        fontSize: 9,
+                        letterSpacing: "0.18em",
+                        padding: "2px 8px",
+                        borderRadius: 999,
+                      }}
+                    >
+                      PRO · CORE
+                    </span>
+                  )}
+                </span>
                 <span className="ess-arrow" style={{ color: "var(--rust)", transition: "transform 0.25s" }}>→</span>
               </div>
               <div
