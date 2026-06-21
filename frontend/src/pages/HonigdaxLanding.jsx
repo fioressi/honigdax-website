@@ -486,7 +486,7 @@ const TickerBar = ({ items }) => {
 const HeroCockpit = ({ caption }) => (
   <div
     data-testid={TID.heroCockpit}
-    className="reveal"
+    className="reveal hero-cockpit-mob"
     style={{
       width: 360,
       flexShrink: 0,
@@ -584,26 +584,23 @@ const CapabilityRow = ({ i, num, label, italic, meta, body, onDark, langKey }) =
         data-testid={TID.capabilityToggle(i)}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
+        className="cap-row-grid"
         style={{
           width: "100%",
           background: "transparent",
           border: "none",
           padding: "26px 0",
-          display: "grid",
-          gridTemplateColumns: "60px 1fr auto auto",
-          gap: 18,
-          alignItems: "center",
           cursor: "pointer",
           textAlign: "left",
           color: "inherit",
         }}
       >
         <span className="font-mono label">{num}</span>
-        <span className="font-serif" style={{ fontSize: "clamp(28px,4.2vw,56px)", fontWeight: 500, lineHeight: 1.05 }}>
+        <span className="font-serif cap-row-label" style={{ fontSize: "clamp(28px,4.2vw,56px)", fontWeight: 500, lineHeight: 1.05 }}>
           {label}{" "}
           <span className="h-italic">{italic}</span>
         </span>
-        <span className="font-mono label" style={{ marginRight: 18 }}>
+        <span className="font-mono label cap-row-meta" style={{ marginRight: 18 }}>
           {meta}
         </span>
         <span
@@ -685,6 +682,7 @@ export default function HonigdaxLanding() {
       <TickerBar items={t.tickerItems} />
       {/* ============== HEADER ============== */}
       <header
+        className="header-grid"
         style={{
           position: "fixed",
           top: 34,
@@ -692,10 +690,6 @@ export default function HonigdaxLanding() {
           right: 0,
           zIndex: 50,
           padding: "20px 36px",
-          display: "grid",
-          gridTemplateColumns: "auto 1fr auto",
-          alignItems: "center",
-          gap: 24,
           backdropFilter: "blur(2px)",
         }}
       >
@@ -705,19 +699,19 @@ export default function HonigdaxLanding() {
               <path d="M1 1 L11 11 M11 1 L1 11" stroke="currentColor" strokeWidth="1.4" />
             </svg>
           </a>
-          <div className="font-mono label label-strong" data-testid={TID.headerLogo} style={{ fontSize: 12, fontWeight: 600 }}>
-            HONIGDAX <span style={{ color: "var(--muted)", margin: "0 6px" }}>/</span> {t.headerBrandTag}
+          <div className="font-mono label label-strong" data-testid={TID.headerLogo} style={{ fontSize: 12, fontWeight: 600, whiteSpace: "nowrap" }}>
+            HONIGDAX <span className="header-brand-tag" style={{ color: "var(--muted)", margin: "0 6px" }}>/</span><span className="header-brand-tag"> {t.headerBrandTag}</span>
           </div>
         </div>
 
-        <nav style={{ display: "flex", justifyContent: "center", gap: 36 }}>
+        <nav className="header-nav">
           <a className="tlink" href="#capabilities" data-testid={TID.headerNavCapabilities}>{t.navCapabilities}</a>
           <a className="tlink" href="#approach" data-testid={TID.headerNavApproach}>{t.navApproach}</a>
           <a className="tlink" href="#strategy" data-testid={TID.headerNavStrategy}>{t.navStrategy}</a>
           <a className="tlink" href="#contact" data-testid={TID.headerNavContact}>{t.navContact}</a>
         </nav>
 
-        <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
+        <div className="header-tools">
           <div
             role="group"
             aria-label="Sprache / Language"
@@ -756,7 +750,7 @@ export default function HonigdaxLanding() {
             ))}
           </div>
           <div
-            className="font-mono label"
+            className="font-mono label header-clock"
             data-testid={TID.headerClock}
             style={{ display: "flex", gap: 14, alignItems: "center", fontSize: 12 }}
           >
@@ -783,7 +777,7 @@ export default function HonigdaxLanding() {
           <span>{t.heroEyebrow}</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", alignItems: "end", gap: 60 }}>
+        <div className="hero-split">
           <h1 className="h-display reveal" style={{ fontSize: "clamp(64px, 11vw, 196px)", marginTop: 28 }}>
             {t.heroLineA}
             <br />
@@ -792,11 +786,11 @@ export default function HonigdaxLanding() {
           <HeroCockpit caption={t.cockpitCaption} />
         </div>
 
-        <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "end", marginTop: 12 }}>
+        <div className="reveal hero-bottom">
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: 16, maxWidth: 480, lineHeight: 1.6, color: "var(--ink)" }}>
             {t.heroBody}
           </p>
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+          <div className="hero-cta-wrap" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
             <a href="#contact" className="pill" data-testid={TID.heroPrimaryCta}>
               {t.heroCtaPrimary}
               <span className="arr">
@@ -811,7 +805,7 @@ export default function HonigdaxLanding() {
           </div>
         </div>
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: 60 }}>
+        <div className="hero-scroll">
           <div className="font-mono label">{t.heroScrollHint}</div>
           <div
             aria-hidden
@@ -843,12 +837,12 @@ export default function HonigdaxLanding() {
       </div>
 
       {/* ============== INSIGHTS (real cockpit preview) ============== */}
-      <section id="insights" style={{ padding: "120px 36px 40px" }}>
+      <section id="insights" className="sec-pad">
         <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
           <span className="bar" />
           <span>{t.insightsLabel}</span>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+        <div className="insights-head">
           <h2 className="h-display reveal" style={{ fontSize: "clamp(38px, 5.2vw, 80px)" }}>
             {t.insightsTitle[0]}
             <span className="h-italic">{t.insightsTitle[1]}</span>
@@ -860,14 +854,8 @@ export default function HonigdaxLanding() {
         </div>
 
         <div
-          className="reveal"
+          className="reveal gallery-grid"
           data-testid={TID.insightsImage}
-          style={{
-            marginTop: 56,
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 22,
-          }}
         >
           {t.galleryItems.map((g, idx) => (
             <a
@@ -955,13 +943,13 @@ export default function HonigdaxLanding() {
       </section>
 
       {/* ============== CAPABILITIES ============== */}
-      <section id="capabilities" style={{ padding: "120px 36px 80px" }}>
+      <section id="capabilities" className="sec-pad">
         <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
           <span className="bar" />
           <span>{t.capLabel}</span>
         </div>
 
-        <h2 className="h-display reveal" style={{ fontSize: "clamp(38px, 5.5vw, 84px)", marginLeft: "30%", maxWidth: 1000, marginBottom: 64 }}>
+        <h2 className="h-display reveal cap-title" style={{ fontSize: "clamp(38px, 5.5vw, 84px)" }}>
           {t.capTitle[0]}
           <span className="h-italic">{t.capTitle[1]}</span>
           {t.capTitle[2]}
@@ -987,7 +975,7 @@ export default function HonigdaxLanding() {
       {/* ============== APPROACH (BLACK) ============== */}
       <section
         id="approach"
-        className="paper-grain dark on-dark"
+        className="paper-grain dark on-dark approach-pad"
         style={{ background: "var(--ink-2)", color: "#fff", padding: "120px 36px", position: "relative" }}
       >
         <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
@@ -995,7 +983,7 @@ export default function HonigdaxLanding() {
           <span>{t.appLabel}</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 80, alignItems: "start" }}>
+        <div className="approach-grid">
           <h2 className="h-display reveal" style={{ fontSize: "clamp(36px, 4.6vw, 68px)", maxWidth: 680 }}>
             {t.appTitle[0]}
             <span className="h-italic" style={{ color: "var(--rust-bright)" }}>{t.appTitle[1]}</span>
@@ -1010,12 +998,9 @@ export default function HonigdaxLanding() {
         </div>
 
         <div
-          className="reveal"
+          className="reveal stats-grid"
           style={{
             marginTop: 96,
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 32,
             borderTop: "1px solid var(--rule-dark)",
             borderBottom: "1px solid var(--rule-dark)",
             padding: "32px 0",
@@ -1035,13 +1020,13 @@ export default function HonigdaxLanding() {
       </section>
 
       {/* ============== STRATEGY LAB ============== */}
-      <section id="strategy" style={{ padding: "120px 36px 60px", position: "relative" }}>
+      <section id="strategy" className="sec-pad" style={{ position: "relative" }}>
         <div className="font-mono label idx reveal" style={{ marginBottom: 40 }}>
           <span className="bar" />
           <span>{t.stratLabel}</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+        <div className="strategy-grid">
           <h2 className="h-display reveal" style={{ fontSize: "clamp(38px, 5vw, 76px)", maxWidth: 560 }}>
             {t.stratLines.map((line, i) => (
               <React.Fragment key={i}>
@@ -1078,13 +1063,13 @@ export default function HonigdaxLanding() {
       </section>
 
       {/* ============== TRACK RECORD ============== */}
-      <section id="track-record" style={{ padding: "120px 36px 80px" }}>
+      <section id="track-record" className="sec-pad">
         <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
           <span className="bar" />
           <span>{t.perfLabel}</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 80, alignItems: "start", marginBottom: 64 }}>
+        <div className="perf-head">
           <h2 className="h-display reveal" style={{ fontSize: "clamp(38px, 5.2vw, 80px)" }}>
             {t.perfTitle[0]}
             <span className="h-italic">{t.perfTitle[1]}</span>
@@ -1115,10 +1100,8 @@ export default function HonigdaxLanding() {
         >
           {/* header row */}
           <div
-            className="font-mono"
+            className="font-mono perf-header-row"
             style={{
-              display: "grid",
-              gridTemplateColumns: "1.1fr 1fr 1fr 0.8fr 1fr 1.4fr",
               padding: "14px 22px",
               fontSize: 11,
               letterSpacing: "0.1em",
@@ -1128,9 +1111,18 @@ export default function HonigdaxLanding() {
               background: "rgba(13,13,13,0.04)",
             }}
           >
-            {t.perfHeader.map((h, i) => (
-              <span key={h} style={{ textAlign: i === t.perfHeader.length - 1 ? "right" : i === 0 ? "left" : "right" }}>{h}</span>
-            ))}
+            {t.perfHeader.map((h, i) => {
+              const cls = i === 3 ? "perf-col-sharpe" : i === 5 ? "perf-col-note" : "";
+              return (
+                <span
+                  key={h}
+                  className={cls}
+                  style={{ textAlign: i === t.perfHeader.length - 1 ? "right" : i === 0 ? "left" : "right" }}
+                >
+                  {h}
+                </span>
+              );
+            })}
           </div>
           {t.perfRows.map((r, i) => {
             const edgePositive = r[1].trim().startsWith("+");
@@ -1138,10 +1130,8 @@ export default function HonigdaxLanding() {
               <div
                 key={r[0]}
                 data-testid={`performance-row-${i}`}
-                className="font-mono row-cap"
+                className="font-mono row-cap perf-row"
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "1.1fr 1fr 1fr 0.8fr 1fr 1.4fr",
                   padding: "16px 22px",
                   fontSize: 13.5,
                   borderBottom: i < t.perfRows.length - 1 ? "1px solid rgba(13,13,13,0.10)" : "none",
@@ -1152,9 +1142,9 @@ export default function HonigdaxLanding() {
                 <span style={{ color: "var(--ink)", fontWeight: 600, letterSpacing: "0.04em" }}>{r[0]}</span>
                 <span style={{ color: edgePositive ? "#3f7a55" : "#a04535", textAlign: "right" }}>{r[1]}</span>
                 <span style={{ color: "var(--muted)", textAlign: "right" }}>{r[2]}</span>
-                <span style={{ color: "var(--ink)", textAlign: "right" }}>{r[3]}</span>
+                <span className="perf-col-sharpe" style={{ color: "var(--ink)", textAlign: "right" }}>{r[3]}</span>
                 <span style={{ color: "var(--muted)", textAlign: "right" }}>{r[4]}</span>
-                <span style={{ color: "var(--muted-2)", textAlign: "right", letterSpacing: "0.06em", fontSize: 11.5 }}>{r[5]}</span>
+                <span className="perf-col-note" style={{ color: "var(--muted-2)", textAlign: "right", letterSpacing: "0.06em", fontSize: 11.5 }}>{r[5]}</span>
               </div>
             );
           })}
@@ -1203,12 +1193,10 @@ export default function HonigdaxLanding() {
 
       {/* ============== FOOTER ============== */}
       <footer
+        className="footer-grid"
         style={{
           borderTop: "1px solid var(--rule)",
           padding: "48px 36px 40px",
-          display: "grid",
-          gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
-          gap: 40,
         }}
       >
         <div>

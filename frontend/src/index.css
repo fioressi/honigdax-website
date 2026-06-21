@@ -236,6 +236,87 @@ html, body {
     transform: scale(1.04);
 }
 
+/* =========================================================
+   Responsive grids — overrides for ≤ 900 / ≤ 600 px
+   Inline styles still set the desktop defaults; these rules
+   use the same selectors with higher specificity (class).
+   ========================================================= */
+.hero-split        { display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: end; }
+.hero-bottom       { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-top: 12px; }
+.hero-scroll       { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 60px; }
+.insights-head     { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.gallery-grid      { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 56px; }
+.cap-title         { margin-left: 30%; max-width: 1000px; margin-bottom: 64px; }
+.cap-row-grid      { display: grid; grid-template-columns: 60px 1fr auto auto; gap: 18px; align-items: center; }
+.approach-grid     { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 80px; align-items: start; }
+.stats-grid        { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.strategy-grid     { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.perf-head         { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; margin-bottom: 64px; }
+.perf-row, .perf-header-row { display: grid; grid-template-columns: 1.1fr 1fr 1fr 0.8fr 1fr 1.4fr; }
+.footer-grid       { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+.header-grid       { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; }
+.header-nav        { display: flex; justify-content: center; gap: 36px; }
+.header-tools      { display: flex; gap: 18px; align-items: center; }
+.sec-pad           { padding: 120px 36px 80px; }
+
+@media (max-width: 900px) {
+    /* HEADER */
+    .header-nav        { display: none !important; }
+    header[class],
+    header.header-grid { padding: 14px 18px !important; grid-template-columns: 1fr auto !important; }
+    .header-tools      { gap: 10px; }
+    .header-brand-tag  { display: none !important; }
+    .header-clock      { display: none !important; }
+
+    /* HERO */
+    .hero-split        { grid-template-columns: 1fr !important; gap: 36px !important; align-items: stretch !important; }
+    .hero-cockpit-mob  { width: 100% !important; max-width: 420px; }
+    .hero-bottom       { grid-template-columns: 1fr !important; gap: 24px !important; align-items: stretch !important; }
+    .hero-scroll       { flex-direction: column; align-items: flex-start; gap: 18px; margin-top: 32px; }
+
+    /* SECTIONS */
+    .sec-pad           { padding: 64px 18px 48px !important; }
+    .approach-pad      { padding: 72px 18px !important; }
+    .insights-head     { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .gallery-grid      { grid-template-columns: 1fr !important; gap: 18px !important; margin-top: 36px !important; }
+    .cap-title         { margin-left: 0 !important; margin-bottom: 36px !important; }
+    .cap-row-grid      { grid-template-columns: 36px 1fr 24px !important; gap: 12px !important; padding: 18px 0 !important; }
+    .cap-row-meta      { display: none !important; }
+    .approach-grid     { grid-template-columns: 1fr !important; gap: 30px !important; }
+    .stats-grid        { grid-template-columns: repeat(2, 1fr) !important; gap: 22px !important; }
+    .strategy-grid     { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .perf-head         { grid-template-columns: 1fr !important; gap: 22px !important; margin-bottom: 36px !important; }
+    .footer-grid       { grid-template-columns: 1fr 1fr !important; gap: 26px !important; padding: 32px 18px 28px !important; }
+
+    /* PERFORMANCE TABLE — collapse 6 cols to 4 (drop Sharpe + Note) */
+    .perf-row,
+    .perf-header-row   { grid-template-columns: 0.9fr 1fr 1fr 1fr !important; padding: 12px 14px !important; font-size: 12px !important; }
+    .perf-col-sharpe,
+    .perf-col-note     { display: none !important; }
+
+    /* TYPE — bring giant headlines down */
+    h1.h-display       { font-size: clamp(48px, 15vw, 110px) !important; }
+    h2.h-display       { font-size: clamp(34px, 9vw, 60px) !important; }
+
+    /* TICKER — show only essential, smaller */
+    [data-testid="ticker-bar"] { font-size: 10px; height: 30px; }
+    [data-testid="ticker-bar"] > div:first-child { font-size: 9.5px !important; padding: 0 10px !important; }
+
+    /* Capability section H2 sits over the rows, give space */
+    .cap-row-label { font-size: clamp(26px, 7.5vw, 44px) !important; }
+
+    /* CTA pill row wraps on mobile */
+    .hero-cta-wrap     { width: 100%; }
+    .hero-cta-wrap > .pill { flex: 1; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+    .stats-grid        { grid-template-columns: 1fr !important; }
+    .footer-grid       { grid-template-columns: 1fr !important; }
+    h1.h-display       { font-size: clamp(44px, 14vw, 80px) !important; }
+    h2.h-display       { font-size: clamp(30px, 9vw, 48px) !important; }
+}
+
 /* Shadcn baseline (kept minimal) */
 @layer base {
     :root {
