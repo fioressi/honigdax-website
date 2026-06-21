@@ -252,7 +252,43 @@ const T = {
     cfTagline: "Nicht ein Signal. Der Konsens aller Signale.",
     cfDisc:
       "Konfluenz senkt Fehlsignale, eliminiert sie nicht — Einstiege bleiben Wahrscheinlichkeiten. Regeln im Strategie-Lab gegen die Historie prüfen, bevor du ihnen vertraust.",
-    appLabel: "(08) APPROACH",
+    prLabel: "(08) PATTERN RECOGNITION",
+    prTitle: ["Muster erkennen — ", "automatisch markiert", "."],
+    prSub:
+      "HonigDAX scannt deinen Chart in Echtzeit und markiert klassische Formationen direkt dort, wo sie entstehen — du musst sie nicht mehr selbst suchen.",
+    prCandlesTitle: ["Kerzenmuster · ", "regelbasiert"],
+    prCandlesBody:
+      "Sauber aus OHLC-Regeln erkannt und am jeweiligen Balken getaggt — grün für bullisch, rot für bärisch.",
+    prCandles: [
+      "Bullish & Bearish Engulfing",
+      "Hammer & Shooting Star",
+      "Doji · Marubozu",
+      "Morning & Evening Star",
+      "Three White Soldiers / Black Crows",
+      "Harami · Piercing · Dark Cloud",
+    ],
+    prChartsTitle: ["Chartmuster · ", "geometrisch"],
+    prChartsBody:
+      "Aus Pivot-Hochs und -Tiefs gerechnet, inkl. eingezeichneter Nackenlinie und Trendlinien.",
+    prCharts: [
+      "Doppel-Top / Doppel-Bottom",
+      "Kopf-Schulter (+ invers)",
+      "Dreieck steigend / fallend / symmetrisch",
+      "Flaggen & Wimpel",
+      "Keile · Kanäle",
+    ],
+    prNote: "Dezent, nicht aufdringlich. Ein Klick auf 🔍 Muster — Marker ein oder aus.",
+    prTagline: "Formationen sehen, bevor du sie suchst.",
+    prDisc:
+      "Mustererkennung ist ein Hinweisgeber, kein Handelssignal. Kerzenmuster wirken nur im Kontext (Trend, Level); Chartmuster brauchen Bestätigung (Ausbruch). Im Strategie-Lab gegen die Historie prüfen.",
+    prChartLabels: {
+      title: "XAUUSD · 5m · PATTERNS",
+      tagBE: "BULLISH ENGULFING",
+      tagDT: "DOUBLE TOP",
+      tagTR: "ASCENDING TRIANGLE",
+      neck: "NECKLINE",
+    },
+    appLabel: "(09) APPROACH",
     appTitle: [
       "We handle the latency — ",
       "so you focus on the trade",
@@ -270,7 +306,7 @@ const T = {
       { v: "24 / 7", l: "KI-Marktbeobachtung" },
       { v: "99.9 %", l: "Cockpit-Uptime" },
     ],
-    ocLabel: "(09) OPTIONS COCKPIT",
+    ocLabel: "(10) OPTIONS COCKPIT",
     ocTitle: ["Optionen: bauen, optimieren, ", "beweisen", "."],
     ocSub:
       "Vom ersten Bein bis zur durchgerechneten, gegen die Historie getesteten Strategie — alles in einem Flow.",
@@ -320,7 +356,7 @@ const T = {
       be: "BE 466.85",
       pop: "POP 58 %",
     },
-    stratLabel: "(10) STRATEGY LAB",
+    stratLabel: "(11) STRATEGY LAB",
     stratTitle: ["Strategien testen wie ein Quant — ", "bevor echtes Geld fließt", "."],
     stratSub:
       "Plane Optionsstrategien mit klaren Wenn-Dann-Regeln, teste sie gegen echte Markthistorie, optimiere die Varianten — und lass die KI die robusteste Variante herausarbeiten.",
@@ -366,7 +402,7 @@ const T = {
       ["Trades",   "1.482"],
       ["Avg / Trade", "+$118"],
     ],
-    finalKicker: "(12) BETA · WE'RE BUILDING",
+    finalKicker: "(13) BETA · WE'RE BUILDING",
     finalStatus: "● IN DEVELOPMENT · BETA Q1 2026 · WAITLIST OPEN",
     finalLineA: ["We're building the ", "Cockpit"],
     finalLineB: ["You're flying it ", "first", "."],
@@ -416,7 +452,7 @@ const T = {
       { sym: "US10Y",   v: "4.32%",     d: "+2 bps",  up: true,  note: "10Y Treasury" },
       { sym: "PING",    v: "1.94 ms",   d: "CHI",     up: null,  note: "Order → Fill" },
     ],
-    perfLabel: "(11) TRACK RECORD",
+    perfLabel: "(12) TRACK RECORD",
     perfTitle: ["Sieben Jahre. ", "Audit-fähig", "."],
     perfBody:
       "Aggregierte Backtest- und Live-Performance über die wichtigsten Module. Werte aus Drittpartei-Audit, alle Trades zeit- und latenzgestempelt. Keine cherry picks — die volle Kurve, inkl. der schlechten Jahre.",
@@ -656,7 +692,43 @@ const T = {
     cfTagline: "Not one signal. The consensus of all signals.",
     cfDisc:
       "Confluence lowers false signals, it doesn't eliminate them — entries remain probabilities. Validate rules in the Strategy Lab against history before trusting them.",
-    appLabel: "(08) APPROACH",
+    prLabel: "(08) PATTERN RECOGNITION",
+    prTitle: ["Spot patterns — ", "auto-marked", "."],
+    prSub:
+      "HonigDAX scans your chart in real time and marks classic formations right where they form — you don't have to hunt for them anymore.",
+    prCandlesTitle: ["Candlestick patterns · ", "rule-based"],
+    prCandlesBody:
+      "Detected cleanly from OHLC rules and tagged on the exact bar — green for bullish, red for bearish.",
+    prCandles: [
+      "Bullish & Bearish Engulfing",
+      "Hammer & Shooting Star",
+      "Doji · Marubozu",
+      "Morning & Evening Star",
+      "Three White Soldiers / Black Crows",
+      "Harami · Piercing · Dark Cloud",
+    ],
+    prChartsTitle: ["Chart patterns · ", "geometric"],
+    prChartsBody:
+      "Computed from swing highs and lows, with drawn-in neckline and trendlines.",
+    prCharts: [
+      "Double top / double bottom",
+      "Head & shoulders (+ inverse)",
+      "Triangle ascending / descending / symmetric",
+      "Flags & pennants",
+      "Wedges · channels",
+    ],
+    prNote: "Subtle, not noisy. One click on 🔍 Patterns — markers on or off.",
+    prTagline: "See formations before you go looking.",
+    prDisc:
+      "Pattern recognition is a hint, not a trade signal. Candlestick patterns only matter in context (trend, level); chart patterns need confirmation (breakout). Validate in the Strategy Lab against history.",
+    prChartLabels: {
+      title: "XAUUSD · 5m · PATTERNS",
+      tagBE: "BULLISH ENGULFING",
+      tagDT: "DOUBLE TOP",
+      tagTR: "ASCENDING TRIANGLE",
+      neck: "NECKLINE",
+    },
+    appLabel: "(09) APPROACH",
     appTitle: [
       "We handle the latency — ",
       "so you focus on the trade",
@@ -674,7 +746,7 @@ const T = {
       { v: "24 / 7", l: "AI market watch" },
       { v: "99.9 %", l: "Cockpit uptime" },
     ],
-    ocLabel: "(09) OPTIONS COCKPIT",
+    ocLabel: "(10) OPTIONS COCKPIT",
     ocTitle: ["Options: build, optimise, ", "prove", "."],
     ocSub:
       "From the first leg to a fully priced, history-tested strategy — in one flow.",
@@ -724,7 +796,7 @@ const T = {
       be: "BE 466.85",
       pop: "POP 58 %",
     },
-    stratLabel: "(10) STRATEGY LAB",
+    stratLabel: "(11) STRATEGY LAB",
     stratTitle: ["Test strategies like a quant — ", "before real money moves", "."],
     stratSub:
       "Plan option strategies with clear if-then rules, test them against real market history, optimise the variants — and let the AI surface the most robust one.",
@@ -770,7 +842,7 @@ const T = {
       ["Trades",   "1,482"],
       ["Avg / Trade", "+$118"],
     ],
-    finalKicker: "(12) BETA · WE'RE BUILDING",
+    finalKicker: "(13) BETA · WE'RE BUILDING",
     finalStatus: "● IN DEVELOPMENT · BETA Q1 2026 · WAITLIST OPEN",
     finalLineA: ["We're building the ", "Cockpit"],
     finalLineB: ["You're flying it ", "first", "."],
@@ -820,7 +892,7 @@ const T = {
       { sym: "US10Y",   v: "4.32%",     d: "+2 bps",  up: true,  note: "10Y Treasury" },
       { sym: "PING",    v: "1.94 ms",   d: "CHI",     up: null,  note: "Order → Fill" },
     ],
-    perfLabel: "(11) TRACK RECORD",
+    perfLabel: "(12) TRACK RECORD",
     perfTitle: ["Seven years. ", "Audit ready", "."],
     perfBody:
       "Aggregated backtest and live performance across the core modules. Third-party audited, every trade time- and latency-stamped. No cherry picks — the full curve, bad years included.",
@@ -927,6 +999,224 @@ const useBetaStats = () => {
     return () => { cancelled = true; };
   }, []);
   return stats;
+};
+
+/* ============ Chapter divider (editorial cover page) ============ */
+const ChapterDivider = ({ letter, label, title, items, onDark = false }) => (
+  <section
+    className={`paper-grain chapter-divider ${onDark ? "dark on-dark" : ""}`}
+    data-testid={`chapter-${letter.toLowerCase()}`}
+    style={{
+      background: onDark ? "var(--ink-2)" : "var(--paper)",
+      color: onDark ? "#fff" : "var(--ink)",
+      padding: "140px 36px 120px",
+      borderTop: onDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid var(--rule)",
+      borderBottom: onDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid var(--rule)",
+      position: "relative",
+    }}
+  >
+    <div
+      className="font-mono label idx reveal"
+      style={{
+        marginBottom: 64,
+        color: onDark ? "rgba(255,255,255,0.55)" : "var(--muted)",
+      }}
+    >
+      <span className="bar" style={onDark ? { background: "rgba(255,255,255,0.4)" } : undefined} />
+      <span>{label}</span>
+    </div>
+
+    <div className="chapter-grid">
+      <div
+        className="font-serif reveal"
+        style={{
+          fontSize: "clamp(120px, 18vw, 280px)",
+          fontWeight: 900,
+          letterSpacing: "-0.04em",
+          lineHeight: 0.85,
+          color: onDark ? "rgba(255,255,255,0.06)" : "rgba(13,13,13,0.06)",
+        }}
+      >
+        {letter}
+      </div>
+      <div>
+        <h2
+          className="h-display reveal"
+          style={{
+            fontSize: "clamp(40px, 5.4vw, 88px)",
+            color: onDark ? "#fff" : "var(--ink)",
+            marginBottom: 36,
+          }}
+        >
+          {title[0]}
+          <span className="h-italic" style={onDark ? { color: "var(--rust-bright)" } : undefined}>{title[1]}</span>
+          {title[2]}
+        </h2>
+        <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
+          {items.map((it, i) => (
+            <li
+              key={it.href}
+              data-testid={`chapter-${letter.toLowerCase()}-item-${i}`}
+              className="reveal"
+              style={{ borderTop: onDark ? "1px solid rgba(255,255,255,0.14)" : "1px solid var(--rule)" }}
+            >
+              <a
+                href={it.href}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "60px 1fr auto",
+                  gap: 22,
+                  padding: "20px 0",
+                  textDecoration: "none",
+                  color: "inherit",
+                  alignItems: "baseline",
+                }}
+              >
+                <span className="font-mono label" style={onDark ? { color: "rgba(255,255,255,0.5)" } : undefined}>{letter}.{String(i + 1).padStart(2, "0")}</span>
+                <span
+                  className="font-serif"
+                  style={{
+                    fontSize: "clamp(20px, 2.2vw, 30px)",
+                    fontWeight: 500,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {it.label}<span className="h-italic" style={onDark ? { color: "var(--rust-bright)" } : undefined}>{it.italic}</span>
+                </span>
+                <span style={{ color: onDark ? "var(--rust-bright)" : "var(--rust)" }}>→</span>
+              </a>
+            </li>
+          ))}
+          <li style={{ borderTop: onDark ? "1px solid rgba(255,255,255,0.14)" : "1px solid var(--rule)" }} />
+        </ol>
+      </div>
+    </div>
+  </section>
+);
+
+/* ============ Pattern recognition chart (candlesticks + tagged patterns) ============ */
+const PatternChart = ({ labels }) => {
+  // 30 fake OHLC bars with deliberate patterns
+  const candles = [
+    [50,55,46,52,"u"],[52,56,49,51,"d"],[51,54,47,49,"d"],[49,53,46,52,"u"],[52,58,51,57,"u"],
+    [57,60,55,56,"d"],[56,58,52,53,"d"],[53,57,51,56,"u"],[56,62,55,61,"u"],[61,66,60,65,"u"], // Bullish Engulfing zone
+    [65,72,64,71,"u"],[71,78,70,77,"u"],[77,82,76,81,"u"],[81,86,79,85,"u"],[85,90,84,89,"u"], // run up to first top
+    [89,92,86,87,"d"],[87,89,82,84,"d"],[84,86,80,85,"u"],[85,88,82,87,"u"],[87,91,86,90,"u"], // pull-back
+    [90,92,88,89,"d"],[89,91,84,86,"d"],[86,89,82,84,"d"],[84,86,80,82,"d"],[82,84,78,79,"d"], // double top + drop
+    [79,82,76,80,"u"],[80,82,78,79,"d"],[79,81,77,80,"u"],[80,82,78,81,"u"],[81,84,79,83,"u"], // triangle
+  ];
+  const W = 800;
+  const H = 360;
+  const padL = 30, padR = 30, padT = 30, padB = 50;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
+  const minP = 40, maxP = 100;
+  const y = (p) => padT + ((maxP - p) / (maxP - minP)) * innerH;
+  const cw = innerW / candles.length;
+
+  return (
+    <div
+      data-testid="pattern-chart"
+      className="reveal"
+      style={{
+        width: "100%",
+        border: "1px solid var(--rule)",
+        background: "#0c0c10",
+        padding: 20,
+        fontFamily: "JetBrains Mono, monospace",
+        color: "rgba(255,255,255,0.85)",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: 12,
+          fontSize: 11,
+          letterSpacing: "0.08em",
+          color: "rgba(255,255,255,0.55)",
+        }}
+      >
+        <span>{labels.title}</span>
+        <span style={{ color: "var(--rust-bright)" }}>🔍 PATTERNS · ON</span>
+      </div>
+
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="auto" style={{ display: "block" }}>
+        <g stroke="rgba(255,255,255,0.05)" strokeWidth="0.5">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <line key={i} x1={padL} y1={padT + i * (innerH / 5)} x2={W - padR} y2={padT + i * (innerH / 5)} />
+          ))}
+        </g>
+
+        {/* Candles */}
+        {candles.map((c, i) => {
+          const [o, h, l, cl, dir] = c;
+          const x = padL + i * cw + cw * 0.15;
+          const bw = cw * 0.7;
+          const col = dir === "u" ? "#5dba8a" : "#d88075";
+          const yo = y(o), yc = y(cl), yh = y(h), yl = y(l);
+          const top = Math.min(yo, yc);
+          const bh = Math.max(2, Math.abs(yc - yo));
+          return (
+            <g key={i}>
+              <line x1={x + bw / 2} y1={yh} x2={x + bw / 2} y2={yl} stroke={col} strokeWidth="1" />
+              <rect x={x} y={top} width={bw} height={bh} fill={col} />
+            </g>
+          );
+        })}
+
+        {/* Bullish Engulfing tag (around candle index 8-9) */}
+        <g>
+          <rect x={padL + 8 * cw - 10} y={y(50)} width={cw * 2 + 20} height={innerH * 0.15} fill="rgba(93,186,138,0.12)" stroke="rgba(93,186,138,0.5)" />
+          <line x1={padL + 9 * cw + cw / 2} y1={y(62)} x2={padL + 9 * cw + cw / 2} y2={y(74)} stroke="#5dba8a" strokeDasharray="2 3" />
+          <g transform={`translate(${padL + 9 * cw + 8}, ${y(75)})`}>
+            <rect x="0" y="-12" width="138" height="18" fill="rgba(93,186,138,0.92)" />
+            <text x="69" y="1" textAnchor="middle" fill="#0d0d0d" fontSize="10" letterSpacing="0.08em" fontWeight="600">▲ {labels.tagBE}</text>
+          </g>
+        </g>
+
+        {/* Double top — connect 2 peaks with neckline */}
+        <g>
+          <circle cx={padL + 14 * cw + cw / 2} cy={y(90)} r="4.5" fill="none" stroke="#d88075" strokeWidth="1.4" />
+          <circle cx={padL + 19 * cw + cw / 2} cy={y(91)} r="4.5" fill="none" stroke="#d88075" strokeWidth="1.4" />
+          <line x1={padL + 14 * cw + cw / 2} y1={y(90)} x2={padL + 19 * cw + cw / 2} y2={y(91)} stroke="#d88075" strokeWidth="1" strokeDasharray="4 3" />
+          {/* neckline */}
+          <line x1={padL + 14 * cw} y1={y(82)} x2={padL + 24 * cw} y2={y(82)} stroke="rgba(216,128,117,0.6)" strokeWidth="0.9" strokeDasharray="2 4" />
+          <g transform={`translate(${padL + 16 * cw}, ${y(94)})`}>
+            <rect x="0" y="-12" width="110" height="18" fill="rgba(216,128,117,0.92)" />
+            <text x="55" y="1" textAnchor="middle" fill="#0d0d0d" fontSize="10" letterSpacing="0.08em" fontWeight="600">▼ {labels.tagDT}</text>
+          </g>
+          <text x={padL + 24 * cw + 4} y={y(82) + 3} fill="rgba(216,128,117,0.7)" fontSize="9" letterSpacing="0.08em">
+            {labels.neck}
+          </text>
+        </g>
+
+        {/* Ascending triangle on the right — two trendlines converging */}
+        <g>
+          <line x1={padL + 25 * cw} y1={y(82)} x2={padL + 30 * cw} y2={y(82)} stroke="rgba(196,74,31,0.85)" strokeWidth="1.2" />
+          <line x1={padL + 25 * cw} y1={y(76)} x2={padL + 30 * cw} y2={y(80)} stroke="rgba(196,74,31,0.85)" strokeWidth="1.2" />
+          <g transform={`translate(${padL + 25 * cw - 4}, ${y(73)})`}>
+            <rect x="0" y="-12" width="140" height="18" fill="rgba(196,74,31,0.92)" />
+            <text x="70" y="1" textAnchor="middle" fill="#fff" fontSize="10" letterSpacing="0.08em" fontWeight="600">△ {labels.tagTR}</text>
+          </g>
+        </g>
+      </svg>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: 10,
+          fontSize: 10,
+          letterSpacing: "0.08em",
+          color: "rgba(255,255,255,0.45)",
+        }}
+      >
+        <span>SCHEMATIC · BARS NOT REAL · TOGGLE WITH 🔍</span>
+        <span style={{ color: "var(--rust-bright)" }}>● 3 PATTERNS DETECTED</span>
+      </div>
+    </div>
+  );
 };
 
 /* ============ Confluence radar (6-axis spider chart + score) ============ */
@@ -2836,6 +3126,162 @@ export default function HonigdaxLanding() {
             }}
           >
             {t.cfDisc}
+          </p>
+        </div>
+      </section>
+
+      {/* ============== PATTERN RECOGNITION ============== */}
+      <section id="patterns" className="sec-pad" style={{ position: "relative" }}>
+        <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
+          <span className="bar" />
+          <span>{t.prLabel}</span>
+        </div>
+
+        <div className="insights-head" style={{ marginBottom: 48 }}>
+          <h2 className="h-display reveal" style={{ fontSize: "clamp(36px, 4.8vw, 70px)", maxWidth: 820 }}>
+            {t.prTitle[0]}<span className="h-italic">{t.prTitle[1]}</span>{t.prTitle[2]}
+          </h2>
+          <p
+            className="reveal"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 16.5,
+              lineHeight: 1.65,
+              color: "var(--ink)",
+              maxWidth: 540,
+            }}
+          >
+            {t.prSub}
+          </p>
+        </div>
+
+        <div className="reveal" style={{ marginBottom: 48 }}>
+          <PatternChart labels={t.prChartLabels} />
+        </div>
+
+        <div className="strat-steps-grid">
+          {[
+            { title: t.prCandlesTitle, body: t.prCandlesBody, list: t.prCandles, badge: "🕯", color: "#5dba8a" },
+            { title: t.prChartsTitle,  body: t.prChartsBody,  list: t.prCharts,  badge: "△",  color: "#c44a1f" },
+          ].map((g, i) => (
+            <div
+              key={i}
+              data-testid={`pattern-group-${i}`}
+              className="reveal"
+              style={{
+                border: "1px solid var(--rule)",
+                background: "rgba(255,255,255,0.35)",
+                padding: "28px 26px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 16,
+              }}
+            >
+              <div
+                className="font-mono"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  fontSize: 11,
+                  letterSpacing: "0.12em",
+                  color: "var(--muted)",
+                }}
+              >
+                <span>{String(i + 1).padStart(2, "0")} /</span>
+                <span style={{ color: g.color, fontSize: 14 }}>{g.badge}</span>
+              </div>
+              <div
+                className="font-serif"
+                style={{
+                  fontSize: "clamp(22px, 2.2vw, 30px)",
+                  fontWeight: 500,
+                  lineHeight: 1.15,
+                }}
+              >
+                {g.title[0]}<span className="h-italic">{g.title[1]}</span>
+              </div>
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: 14.5,
+                  lineHeight: 1.6,
+                  color: "var(--muted)",
+                  margin: 0,
+                }}
+              >
+                {g.body}
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: "4px 0 0" }}>
+                {g.list.map((p) => (
+                  <li
+                    key={p}
+                    className="font-mono"
+                    style={{
+                      fontSize: 12,
+                      letterSpacing: "0.04em",
+                      color: "var(--muted)",
+                      padding: "5px 0",
+                      display: "flex",
+                      gap: 10,
+                      alignItems: "center",
+                    }}
+                  >
+                    <span style={{ color: g.color, flexShrink: 0 }}>·</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="reveal" style={{ marginTop: 32 }}>
+          <p
+            className="font-mono"
+            style={{
+              fontSize: 12,
+              letterSpacing: "0.06em",
+              color: "var(--muted)",
+              textAlign: "center",
+            }}
+          >
+            {t.prNote}
+          </p>
+        </div>
+
+        <div className="reveal" style={{ marginTop: 40, display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 14,
+              padding: "12px 20px",
+              border: "1px solid var(--ink)",
+              borderRadius: 999,
+              background: "var(--ink)",
+              color: "#fff",
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+              <circle cx="6" cy="6" r="4" stroke="var(--rust-bright)" strokeWidth="1.4" fill="none" />
+              <line x1="9" y1="9" x2="12.5" y2="12.5" stroke="var(--rust-bright)" strokeWidth="1.4" strokeLinecap="round" />
+            </svg>
+            <span className="font-mono" style={{ letterSpacing: "0.08em", fontSize: 12, color: "rgba(255,255,255,0.92)" }}>
+              {t.prTagline}
+            </span>
+          </div>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 11.5,
+              lineHeight: 1.6,
+              color: "var(--muted-2)",
+              maxWidth: 720,
+              margin: 0,
+            }}
+          >
+            {t.prDisc}
           </p>
         </div>
       </section>

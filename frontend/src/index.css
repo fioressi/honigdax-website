@@ -271,6 +271,7 @@ html, body {
 .cf-radar-wrap     { position: sticky; top: 120px; }
 .cf-sources        { display: block; }
 .cf-flow           { display: flex; align-items: stretch; gap: 0; }
+.chapter-grid      { display: grid; grid-template-columns: minmax(200px, 0.5fr) 1fr; gap: 60px; align-items: start; }
 .beta-cols         { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
 .ess-grid          { display: grid; grid-template-columns: repeat(3, 1fr); }
 .ess-stats         { display: grid; grid-template-columns: repeat(6, 1fr); }
@@ -328,6 +329,10 @@ html, body {
     .cf-radar-wrap     { position: static !important; }
     .cf-flow           { flex-wrap: wrap; gap: 12px !important; }
     .cf-flow-arrow     { transform: rotate(90deg); width: 100% !important; }
+
+    /* CHAPTER DIVIDER */
+    .chapter-divider   { padding: 80px 18px !important; }
+    .chapter-grid      { grid-template-columns: 1fr !important; gap: 28px !important; }
 
     /* BETA SECTION */
     .beta-form         { flex-wrap: wrap !important; border-radius: 14px !important; padding: 10px !important; gap: 8px !important; }
