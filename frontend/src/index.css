@@ -258,6 +258,16 @@ html, body {
 .header-nav        { display: flex; justify-content: center; gap: 36px; }
 .header-tools      { display: flex; gap: 18px; align-items: center; }
 .sec-pad           { padding: 120px 36px 80px; }
+.protection-grid   { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+.protection-chart-wrap { position: sticky; top: 120px; display: flex; justify-content: flex-end; }
+.of-steps-grid     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.of-steps-grid .of-step:nth-child(4) { grid-column: 1 / span 1; }
+.strat-steps-grid  { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.strat-kpis        { grid-template-columns: repeat(4, 1fr); }
+.oc-grid           { display: grid; grid-template-columns: minmax(0, 1fr) 1fr; gap: 64px; align-items: start; }
+.oc-payoff-wrap    { position: sticky; top: 120px; }
+.oc-steps          { display: block; }
+.of-heat-wrap      { display: block; }
 
 @media (max-width: 900px) {
     /* HEADER */
@@ -287,6 +297,22 @@ html, body {
     .strategy-grid     { grid-template-columns: 1fr !important; gap: 36px !important; }
     .perf-head         { grid-template-columns: 1fr !important; gap: 22px !important; margin-bottom: 36px !important; }
     .footer-grid       { grid-template-columns: 1fr 1fr !important; gap: 26px !important; padding: 32px 18px 28px !important; }
+
+    /* PROTECTION */
+    .protection-grid   { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .protection-chart-wrap { position: static !important; justify-content: flex-start !important; }
+
+    /* ORDERFLOW */
+    .of-steps-grid     { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .of-steps-grid .of-step:nth-child(4) { grid-column: auto !important; }
+
+    /* STRATEGY LAB */
+    .strat-steps-grid  { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .strat-kpis        { grid-template-columns: repeat(2, 1fr) !important; border-right: 1px solid var(--rule) !important; }
+
+    /* OPTIONS COCKPIT */
+    .oc-grid           { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .oc-payoff-wrap    { position: static !important; }
 
     /* PERFORMANCE TABLE — collapse 6 cols to 4 (drop Sharpe + Note) */
     .perf-row,
