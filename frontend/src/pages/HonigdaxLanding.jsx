@@ -43,9 +43,28 @@ const T = {
     heroCtaPrimary: "Enter honigdax.com",
     heroCtaSecondary: "See Capabilities →",
     heroScrollHint: "SCROLL · ENTER THE COCKPIT",
-    heroScrollNext: "(02) INSIGHTS — NEXT",
+    heroScrollNext: "(02) ESSENCE — NEXT",
     cockpitCaption: "LIVE · IGOR · COCKPIT 0241",
-    insightsLabel: "(02) INSIGHTS",
+    essLabel: "(02) ESSENZ",
+    essTitle: ["Was du bekommst, ", "in sechs Worten", "."],
+    essCells: [
+      { num: "01 /", label: "DOM · ",         italic: "Scalping",  meta: "2 ms · ORDER BOOK",        href: "#capabilities" },
+      { num: "02 /", label: "Optionen · ",     italic: "Builder",   meta: "CHAIN · GREEKS · IBKR",     href: "#options-cockpit" },
+      { num: "03 /", label: "Konfluenz · ",    italic: "Engine",    meta: "6 STIMMEN · 1 SCORE",       href: "#confluence" },
+      { num: "04 /", label: "HoneyScript · ",  italic: "Studio",    meta: "SCRIPT · CLI · JSON",        href: "#capabilities" },
+      { num: "05 /", label: "Strategie · ",    italic: "Lab",       meta: "BACKTEST · WALK-FORWARD",    href: "#strategy" },
+      { num: "06 /", label: "Schutz · ",       italic: "Doppelt",   meta: "BROKER-STOP · DOM EXIT",     href: "#protection" },
+    ],
+    essStats: [
+      { v: "2 ms",   l: "ORDER → FILL" },
+      { v: "81",     l: "KI-TOOLS" },
+      { v: "6",      l: "KONFLUENZ-QUELLEN" },
+      { v: "8",      l: "OPTIONS-STRATEGIEN" },
+      { v: "12",     l: "MODULE" },
+      { v: "1",      l: "BROKER · IBKR" },
+    ],
+    essMore: "Alle 12 Module ansehen →",
+    insightsLabel: "(03) INSIGHTS",
     insightsTitle: ["Sieh dir das ", "echte ", "Cockpit an."],
     insightsBody:
       "12 Module · ein System. Live-Chart mit IGOR · BB-Squeeze, DOM-Heatmap, Optionen-Builder mit Payoff-Matrix, HoneyScript-Studio und KI-Buchhaltung. Keine Renderings — Screenshots aus dem produktiven System.",
@@ -63,7 +82,7 @@ const T = {
       { src: "/shots/diary.jpg",      num: "11", label: "Trading",      italic: "Diary",           meta: "JOURNAL · REVIEW" },
       { src: "/shots/bilanz.jpg",     num: "12", label: "Bilanz",       italic: "& Steuer",        meta: "BOOKS · TAX" },
     ],
-    capLabel: "(03) CAPABILITIES",
+    capLabel: "(04) CAPABILITIES",
     capTitle: ["One cockpit, the ", "full", " trading lifecycle — vom DOM bis zum Backtest."],
     capabilities: [
       {
@@ -115,7 +134,7 @@ const T = {
           "Optionen und HoneyScript bis ins Detail planen, Drawdown und Win-Rate gegen echte Historie messen — KI-ausgewertet vor jedem realen Trade.",
       },
     ],
-    protLabel: "(04) DUAL STOP PROTECTION",
+    protLabel: "(05) DUAL STOP PROTECTION",
     protTitle: ["Dein Stop liegt ", "beim Broker", " — und denkt mit."],
     protSub:
       "Sobald du gefüllt bist, sichert HonigDAX deine Position auf zwei Ebenen ab. Selbst wenn dein Laptop zuklappt, dein WLAN stirbt oder der Browser abstürzt — dein Schutz bleibt aktiv.",
@@ -149,7 +168,7 @@ const T = {
       filledAt: "FILLED",
       now: "NOW · +1.4 %",
     },
-    ofLabel: "(05) ORDERFLOW INTELLIGENCE",
+    ofLabel: "(06) ORDERFLOW INTELLIGENCE",
     ofTitle: ["Wie HonigDAX den Ausstieg ", "sieht", ", bevor der Markt dreht."],
     ofSub:
       "Ein normaler Stop reagiert, wenn der Verlust schon da ist. HonigDAX liest das Orderbuch und die echten Trades — und steigt aus, bevor die Liquidität kippt.",
@@ -203,7 +222,7 @@ const T = {
       buy: "AGGR. BUY",
       sell: "AGGR. SELL",
     },
-    cfLabel: "(06) CONFLUENCE ENGINE",
+    cfLabel: "(07) CONFLUENCE ENGINE",
     cfTitle: ["Einstieg mit Konfluenz — ", "wenn alles zusammenpasst", "."],
     cfSub:
       "Ein einzelnes Signal lügt schnell. HonigDAX nimmt einen Einstieg erst ernst, wenn mehrere unabhängige Datenquellen in dieselbe Richtung zeigen — das nennt man Konfluenz.",
@@ -233,7 +252,7 @@ const T = {
     cfTagline: "Nicht ein Signal. Der Konsens aller Signale.",
     cfDisc:
       "Konfluenz senkt Fehlsignale, eliminiert sie nicht — Einstiege bleiben Wahrscheinlichkeiten. Regeln im Strategie-Lab gegen die Historie prüfen, bevor du ihnen vertraust.",
-    appLabel: "(07) APPROACH",
+    appLabel: "(08) APPROACH",
     appTitle: [
       "We handle the latency — ",
       "so you focus on the trade",
@@ -251,7 +270,7 @@ const T = {
       { v: "24 / 7", l: "KI-Marktbeobachtung" },
       { v: "99.9 %", l: "Cockpit-Uptime" },
     ],
-    ocLabel: "(08) OPTIONS COCKPIT",
+    ocLabel: "(09) OPTIONS COCKPIT",
     ocTitle: ["Optionen: bauen, optimieren, ", "beweisen", "."],
     ocSub:
       "Vom ersten Bein bis zur durchgerechneten, gegen die Historie getesteten Strategie — alles in einem Flow.",
@@ -301,7 +320,7 @@ const T = {
       be: "BE 466.85",
       pop: "POP 58 %",
     },
-    stratLabel: "(09) STRATEGY LAB",
+    stratLabel: "(10) STRATEGY LAB",
     stratTitle: ["Strategien testen wie ein Quant — ", "bevor echtes Geld fließt", "."],
     stratSub:
       "Plane Optionsstrategien mit klaren Wenn-Dann-Regeln, teste sie gegen echte Markthistorie, optimiere die Varianten — und lass die KI die robusteste Variante herausarbeiten.",
@@ -347,7 +366,7 @@ const T = {
       ["Trades",   "1.482"],
       ["Avg / Trade", "+$118"],
     ],
-    finalKicker: "(11) BETA · WE'RE BUILDING",
+    finalKicker: "(12) BETA · WE'RE BUILDING",
     finalStatus: "● IN DEVELOPMENT · BETA Q1 2026 · WAITLIST OPEN",
     finalLineA: ["We're building the ", "Cockpit"],
     finalLineB: ["You're flying it ", "first", "."],
@@ -393,7 +412,7 @@ const T = {
       { sym: "US10Y",   v: "4.32%",     d: "+2 bps",  up: true,  note: "10Y Treasury" },
       { sym: "PING",    v: "1.94 ms",   d: "CHI",     up: null,  note: "Order → Fill" },
     ],
-    perfLabel: "(10) TRACK RECORD",
+    perfLabel: "(11) TRACK RECORD",
     perfTitle: ["Sieben Jahre. ", "Audit-fähig", "."],
     perfBody:
       "Aggregierte Backtest- und Live-Performance über die wichtigsten Module. Werte aus Drittpartei-Audit, alle Trades zeit- und latenzgestempelt. Keine cherry picks — die volle Kurve, inkl. der schlechten Jahre.",
@@ -424,9 +443,28 @@ const T = {
     heroCtaPrimary: "Enter honigdax.com",
     heroCtaSecondary: "See Capabilities →",
     heroScrollHint: "SCROLL · ENTER THE COCKPIT",
-    heroScrollNext: "(02) INSIGHTS — NEXT",
+    heroScrollNext: "(02) ESSENCE — NEXT",
     cockpitCaption: "LIVE · IGOR · COCKPIT 0241",
-    insightsLabel: "(02) INSIGHTS",
+    essLabel: "(02) ESSENCE",
+    essTitle: ["What you get, ", "in six words", "."],
+    essCells: [
+      { num: "01 /", label: "DOM · ",         italic: "Scalping",  meta: "2 ms · ORDER BOOK",        href: "#capabilities" },
+      { num: "02 /", label: "Options · ",      italic: "Builder",   meta: "CHAIN · GREEKS · IBKR",     href: "#options-cockpit" },
+      { num: "03 /", label: "Confluence · ",   italic: "Engine",    meta: "6 VOTES · 1 SCORE",         href: "#confluence" },
+      { num: "04 /", label: "HoneyScript · ",  italic: "Studio",    meta: "SCRIPT · CLI · JSON",        href: "#capabilities" },
+      { num: "05 /", label: "Strategy · ",     italic: "Lab",       meta: "BACKTEST · WALK-FORWARD",    href: "#strategy" },
+      { num: "06 /", label: "Protection · ",   italic: "Dual",      meta: "BROKER STOP · DOM EXIT",     href: "#protection" },
+    ],
+    essStats: [
+      { v: "2 ms",   l: "ORDER → FILL" },
+      { v: "81",     l: "AI TOOLS" },
+      { v: "6",      l: "CONFLUENCE VOTES" },
+      { v: "8",      l: "OPTION STRATEGIES" },
+      { v: "12",     l: "MODULES" },
+      { v: "1",      l: "BROKER · IBKR" },
+    ],
+    essMore: "See all 12 modules →",
+    insightsLabel: "(03) INSIGHTS",
     insightsTitle: ["See the ", "real ", "cockpit."],
     insightsBody:
       "12 modules · one system. Live chart with IGOR · BB-squeeze, DOM heatmap, options builder with payoff matrix, HoneyScript studio and AI bookkeeping. No renderings — screenshots from the production system.",
@@ -444,7 +482,7 @@ const T = {
       { src: "/shots/diary.jpg",      num: "11", label: "Trading",      italic: "Diary",           meta: "JOURNAL · REVIEW" },
       { src: "/shots/bilanz.jpg",     num: "12", label: "Books",        italic: "& Tax",           meta: "ACCOUNTING · TAX" },
     ],
-    capLabel: "(03) CAPABILITIES",
+    capLabel: "(04) CAPABILITIES",
     capTitle: ["One cockpit, the ", "full", " trading lifecycle — from DOM to backtest."],
     capabilities: [
       {
@@ -496,7 +534,7 @@ const T = {
           "Plan options and HoneyScript down to the detail, measure drawdown and win rate against real history — AI-evaluated before any real trade.",
       },
     ],
-    protLabel: "(04) DUAL STOP PROTECTION",
+    protLabel: "(05) DUAL STOP PROTECTION",
     protTitle: ["Your stop sits ", "at the broker", " — and thinks ahead."],
     protSub:
       "From the second you're filled, HonigDAX protects your position on two levels. Even if your laptop closes, your Wi-Fi dies or the browser crashes — your protection stays live.",
@@ -530,7 +568,7 @@ const T = {
       filledAt: "FILLED",
       now: "NOW · +1.4 %",
     },
-    ofLabel: "(05) ORDERFLOW INTELLIGENCE",
+    ofLabel: "(06) ORDERFLOW INTELLIGENCE",
     ofTitle: ["How HonigDAX ", "sees", " the exit before the market turns."],
     ofSub:
       "A normal stop reacts once the loss is already there. HonigDAX reads the order book and the real trades — and exits before liquidity flips.",
@@ -584,7 +622,7 @@ const T = {
       buy: "AGGR. BUY",
       sell: "AGGR. SELL",
     },
-    cfLabel: "(06) CONFLUENCE ENGINE",
+    cfLabel: "(07) CONFLUENCE ENGINE",
     cfTitle: ["Entry with confluence — ", "when everything lines up", "."],
     cfSub:
       "A single signal lies easily. HonigDAX only takes an entry seriously when several independent data sources point the same way — that's called confluence.",
@@ -614,7 +652,7 @@ const T = {
     cfTagline: "Not one signal. The consensus of all signals.",
     cfDisc:
       "Confluence lowers false signals, it doesn't eliminate them — entries remain probabilities. Validate rules in the Strategy Lab against history before trusting them.",
-    appLabel: "(07) APPROACH",
+    appLabel: "(08) APPROACH",
     appTitle: [
       "We handle the latency — ",
       "so you focus on the trade",
@@ -632,7 +670,7 @@ const T = {
       { v: "24 / 7", l: "AI market watch" },
       { v: "99.9 %", l: "Cockpit uptime" },
     ],
-    ocLabel: "(08) OPTIONS COCKPIT",
+    ocLabel: "(09) OPTIONS COCKPIT",
     ocTitle: ["Options: build, optimise, ", "prove", "."],
     ocSub:
       "From the first leg to a fully priced, history-tested strategy — in one flow.",
@@ -682,7 +720,7 @@ const T = {
       be: "BE 466.85",
       pop: "POP 58 %",
     },
-    stratLabel: "(09) STRATEGY LAB",
+    stratLabel: "(10) STRATEGY LAB",
     stratTitle: ["Test strategies like a quant — ", "before real money moves", "."],
     stratSub:
       "Plan option strategies with clear if-then rules, test them against real market history, optimise the variants — and let the AI surface the most robust one.",
@@ -728,7 +766,7 @@ const T = {
       ["Trades",   "1,482"],
       ["Avg / Trade", "+$118"],
     ],
-    finalKicker: "(11) BETA · WE'RE BUILDING",
+    finalKicker: "(12) BETA · WE'RE BUILDING",
     finalStatus: "● IN DEVELOPMENT · BETA Q1 2026 · WAITLIST OPEN",
     finalLineA: ["We're building the ", "Cockpit"],
     finalLineB: ["You're flying it ", "first", "."],
@@ -774,7 +812,7 @@ const T = {
       { sym: "US10Y",   v: "4.32%",     d: "+2 bps",  up: true,  note: "10Y Treasury" },
       { sym: "PING",    v: "1.94 ms",   d: "CHI",     up: null,  note: "Order → Fill" },
     ],
-    perfLabel: "(10) TRACK RECORD",
+    perfLabel: "(11) TRACK RECORD",
     perfTitle: ["Seven years. ", "Audit ready", "."],
     perfBody:
       "Aggregated backtest and live performance across the core modules. Third-party audited, every trade time- and latency-stamped. No cherry picks — the full curve, bad years included.",
@@ -1905,6 +1943,128 @@ export default function HonigdaxLanding() {
           {t.marqueeWords.map((w, i) => <span key={`b${i}`}>{w}</span>)}
         </div>
       </div>
+
+      {/* ============== ESSENZ ============== */}
+      <section id="essence" className="sec-pad" style={{ position: "relative" }}>
+        <div className="font-mono label idx reveal" style={{ marginBottom: 40 }}>
+          <span className="bar" />
+          <span>{t.essLabel}</span>
+        </div>
+
+        <h2
+          className="h-display reveal"
+          style={{
+            fontSize: "clamp(36px, 5vw, 76px)",
+            maxWidth: 980,
+            marginBottom: 56,
+            lineHeight: 1.02,
+          }}
+        >
+          {t.essTitle[0]}
+          <span className="h-italic">{t.essTitle[1]}</span>
+          {t.essTitle[2]}
+        </h2>
+
+        {/* 3x2 grid of essence cells (clickable jump anchors) */}
+        <div
+          className="ess-grid"
+          style={{
+            border: "1px solid var(--rule)",
+            background: "rgba(255,255,255,0.35)",
+          }}
+        >
+          {t.essCells.map((c, i) => (
+            <a
+              key={c.num}
+              href={c.href}
+              data-testid={`essence-cell-${i}`}
+              className="ess-cell reveal"
+              style={{
+                padding: "32px 28px",
+                display: "block",
+                textDecoration: "none",
+                color: "inherit",
+                borderRight: ((i + 1) % 3 !== 0) ? "1px solid var(--rule)" : "none",
+                borderBottom: (i < 3) ? "1px solid var(--rule)" : "none",
+                position: "relative",
+                transition: "background 0.25s ease",
+              }}
+            >
+              <div
+                className="font-mono"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  fontSize: 11,
+                  letterSpacing: "0.12em",
+                  color: "var(--muted)",
+                  marginBottom: 14,
+                }}
+              >
+                <span>{c.num}</span>
+                <span className="ess-arrow" style={{ color: "var(--rust)", transition: "transform 0.25s" }}>→</span>
+              </div>
+              <div
+                className="font-serif"
+                style={{
+                  fontSize: "clamp(24px, 2.4vw, 34px)",
+                  fontWeight: 500,
+                  lineHeight: 1.1,
+                  marginBottom: 12,
+                }}
+              >
+                {c.label}<span className="h-italic">{c.italic}</span>
+              </div>
+              <div className="font-mono label" style={{ color: "var(--muted)" }}>
+                {c.meta}
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Numbers strip */}
+        <div
+          className="ess-stats reveal"
+          style={{
+            marginTop: 32,
+            borderTop: "1px solid var(--rule)",
+            borderBottom: "1px solid var(--rule)",
+            background: "rgba(13,13,13,0.04)",
+          }}
+        >
+          {t.essStats.map((s, i) => (
+            <div
+              key={s.l}
+              data-testid={`essence-stat-${i}`}
+              style={{
+                padding: "22px 20px",
+                borderRight: i < t.essStats.length - 1 ? "1px solid var(--rule)" : "none",
+                textAlign: "left",
+              }}
+            >
+              <div
+                className="font-serif"
+                style={{
+                  fontSize: "clamp(28px, 3vw, 44px)",
+                  fontWeight: 700,
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1,
+                  marginBottom: 6,
+                  fontVariantNumeric: "tabular-nums",
+                }}
+              >
+                {s.v}
+              </div>
+              <div className="font-mono label" style={{ color: "var(--muted)" }}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="reveal" style={{ marginTop: 28, textAlign: "right" }}>
+          <a href="#insights" className="tlink" data-testid="essence-see-all">{t.essMore}</a>
+        </div>
+      </section>
 
       {/* ============== INSIGHTS (real cockpit preview) ============== */}
       <section id="insights" className="sec-pad">

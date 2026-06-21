@@ -272,6 +272,10 @@ html, body {
 .cf-sources        { display: block; }
 .cf-flow           { display: flex; align-items: stretch; gap: 0; }
 .beta-cols         { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.ess-grid          { display: grid; grid-template-columns: repeat(3, 1fr); }
+.ess-stats         { display: grid; grid-template-columns: repeat(6, 1fr); }
+.ess-cell:hover    { background: rgba(196,74,31,0.05); }
+.ess-cell:hover .ess-arrow { transform: translate(4px, -2px); }
 .of-heat-wrap      { display: block; }
 
 @media (max-width: 900px) {
@@ -334,6 +338,16 @@ html, body {
     .beta-cols > div   { border-left: none !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.12) !important; }
     .beta-cols > div:last-child { border-bottom: none !important; }
 
+    /* ESSENZ */
+    .ess-grid          { grid-template-columns: 1fr 1fr !important; }
+    .ess-grid .ess-cell { border-right: 1px solid var(--rule) !important; border-bottom: 1px solid var(--rule) !important; }
+    .ess-grid .ess-cell:nth-child(2n) { border-right: none !important; }
+    .ess-grid .ess-cell:nth-last-child(-n+2) { border-bottom: none !important; }
+    .ess-stats         { grid-template-columns: repeat(3, 1fr) !important; }
+    .ess-stats > div   { border-right: 1px solid var(--rule) !important; border-bottom: 1px solid var(--rule) !important; }
+    .ess-stats > div:nth-child(3n) { border-right: none !important; }
+    .ess-stats > div:nth-last-child(-n+3) { border-bottom: none !important; }
+
     /* PERFORMANCE TABLE — collapse 6 cols to 4 (drop Sharpe + Note) */
     .perf-row,
     .perf-header-row   { grid-template-columns: 0.9fr 1fr 1fr 1fr !important; padding: 12px 14px !important; font-size: 12px !important; }
@@ -359,6 +373,11 @@ html, body {
 @media (max-width: 480px) {
     .stats-grid        { grid-template-columns: 1fr !important; }
     .footer-grid       { grid-template-columns: 1fr !important; }
+    .ess-grid          { grid-template-columns: 1fr !important; }
+    .ess-grid .ess-cell { border-right: none !important; }
+    .ess-stats         { grid-template-columns: 1fr 1fr !important; }
+    .ess-stats > div:nth-child(3n) { border-right: 1px solid var(--rule) !important; }
+    .ess-stats > div:nth-child(2n) { border-right: none !important; }
     h1.h-display       { font-size: clamp(44px, 14vw, 80px) !important; }
     h2.h-display       { font-size: clamp(30px, 9vw, 48px) !important; }
 }
