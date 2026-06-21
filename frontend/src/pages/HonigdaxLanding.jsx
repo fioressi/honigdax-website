@@ -43,13 +43,27 @@ const T = {
     heroCtaPrimary: "Enter honigdax.com",
     heroCtaSecondary: "See Capabilities →",
     heroScrollHint: "SCROLL · ENTER THE COCKPIT",
-    heroScrollNext: "(02) CAPABILITIES — NEXT",
+    heroScrollNext: "(02) INSIGHTS — NEXT",
     cockpitCaption: "LIVE · IGOR · COCKPIT 0241",
-    insightsLabel: "(02·a) INSIGHTS",
+    insightsLabel: "(02) INSIGHTS",
     insightsTitle: ["Sieh dir das ", "echte ", "Cockpit an."],
     insightsBody:
-      "Live-Chart mit IGOR · der Honey Badger KI, BB-Squeeze-Erkennung, BEAR/BULL-Signale direkt im Chart und Sprach-Kommentar. Keine Renderings — Screenshots aus dem produktiven System.",
-    capLabel: "(02) CAPABILITIES",
+      "12 Module · ein System. Live-Chart mit IGOR · BB-Squeeze, DOM-Heatmap, Optionen-Builder mit Payoff-Matrix, HoneyScript-Studio und KI-Buchhaltung. Keine Renderings — Screenshots aus dem produktiven System.",
+    galleryItems: [
+      { src: "/shots/chart.jpg",      num: "01", label: "Chart",        italic: "& Order",         meta: "IGOR · XAUUSD · 5m" },
+      { src: "/shots/tiefe.jpg",      num: "02", label: "Orderbuch",    italic: "Heatmap",         meta: "DOM · LIQUIDITY" },
+      { src: "/shots/optionen.jpg",   num: "03", label: "Optionen",     italic: "Builder",         meta: "CHAIN · MULTI-LEG" },
+      { src: "/shots/payoff.jpg",     num: "04", label: "Payoff",       italic: "& P/L Matrix",    meta: "GREEKS · RISK" },
+      { src: "/shots/lab.jpg",        num: "05", label: "Strategie",    italic: "Lab",             meta: "BACKTEST · EDGE" },
+      { src: "/shots/honeyscript.jpg",num: "06", label: "HoneyScript",  italic: "Studio",          meta: "SCRIPT · CLI" },
+      { src: "/shots/surge.jpg",      num: "07", label: "Surge",        italic: "Scanner",         meta: "MOMENTUM · BREAKOUT" },
+      { src: "/shots/alerts.jpg",     num: "08", label: "Alerts",       italic: "& KI-Analyse",    meta: "AI · WATCH" },
+      { src: "/shots/honeybadger.jpg",num: "09", label: "Honeybadger",  italic: "KI-Assistent",    meta: "VOICE · 81 TOOLS" },
+      { src: "/shots/markt.jpg",      num: "10", label: "Markt",        italic: "Live-News",       meta: "NEWS · SENTIMENT" },
+      { src: "/shots/diary.jpg",      num: "11", label: "Trading",      italic: "Diary",           meta: "JOURNAL · REVIEW" },
+      { src: "/shots/bilanz.jpg",     num: "12", label: "Bilanz",       italic: "& Steuer",        meta: "BOOKS · TAX" },
+    ],
+    capLabel: "(03) CAPABILITIES",
     capTitle: ["One cockpit, the ", "full", " trading lifecycle — vom DOM bis zum Backtest."],
     capabilities: [
       {
@@ -101,7 +115,7 @@ const T = {
           "Optionen und HoneyScript bis ins Detail planen, Drawdown und Win-Rate gegen echte Historie messen — KI-ausgewertet vor jedem realen Trade.",
       },
     ],
-    appLabel: "(03) APPROACH",
+    appLabel: "(04) APPROACH",
     appTitle: [
       "We handle the latency — ",
       "so you focus on the trade",
@@ -119,7 +133,7 @@ const T = {
       { v: "24 / 7", l: "KI-Marktbeobachtung" },
       { v: "99.9 %", l: "Cockpit-Uptime" },
     ],
-    stratLabel: "(04) STRATEGY LAB",
+    stratLabel: "(05) STRATEGY LAB",
     stratLines: ["Plane.", "Analysiere.", "Backteste."],
     stratItalic: "Backteste.",
     stratBody:
@@ -129,7 +143,7 @@ const T = {
       ["Analyze", "Greeks, IV-Surface, Skew & Vol-Term-Struktur."],
       ["Backtest", "Reale COMEX-Historie, KI-ausgewertete Edge & Drawdown."],
     ],
-    finalKicker: "(05) ENTER",
+    finalKicker: "(06) ENTER",
     finalLineA: ["Let\u2019s ", "trade"],
     finalLineB: "it together.",
     finalCta: "Visit honigdax.com",
@@ -166,13 +180,27 @@ const T = {
     heroCtaPrimary: "Enter honigdax.com",
     heroCtaSecondary: "See Capabilities →",
     heroScrollHint: "SCROLL · ENTER THE COCKPIT",
-    heroScrollNext: "(02) CAPABILITIES — NEXT",
+    heroScrollNext: "(02) INSIGHTS — NEXT",
     cockpitCaption: "LIVE · IGOR · COCKPIT 0241",
-    insightsLabel: "(02·a) INSIGHTS",
+    insightsLabel: "(02) INSIGHTS",
     insightsTitle: ["See the ", "real ", "cockpit."],
     insightsBody:
-      "Live chart with IGOR — the honey badger AI — BB-squeeze detection, BEAR/BULL signals straight in the chart and voice commentary. No renderings — screenshots from the production system.",
-    capLabel: "(02) CAPABILITIES",
+      "12 modules · one system. Live chart with IGOR · BB-squeeze, DOM heatmap, options builder with payoff matrix, HoneyScript studio and AI bookkeeping. No renderings — screenshots from the production system.",
+    galleryItems: [
+      { src: "/shots/chart.jpg",      num: "01", label: "Chart",        italic: "& Order",         meta: "IGOR · XAUUSD · 5m" },
+      { src: "/shots/tiefe.jpg",      num: "02", label: "Order Book",   italic: "Heatmap",         meta: "DOM · LIQUIDITY" },
+      { src: "/shots/optionen.jpg",   num: "03", label: "Options",      italic: "Builder",         meta: "CHAIN · MULTI-LEG" },
+      { src: "/shots/payoff.jpg",     num: "04", label: "Payoff",       italic: "& P/L Matrix",    meta: "GREEKS · RISK" },
+      { src: "/shots/lab.jpg",        num: "05", label: "Strategy",     italic: "Lab",             meta: "BACKTEST · EDGE" },
+      { src: "/shots/honeyscript.jpg",num: "06", label: "HoneyScript",  italic: "Studio",          meta: "SCRIPT · CLI" },
+      { src: "/shots/surge.jpg",      num: "07", label: "Surge",        italic: "Scanner",         meta: "MOMENTUM · BREAKOUT" },
+      { src: "/shots/alerts.jpg",     num: "08", label: "Alerts",       italic: "& AI Analysis",   meta: "AI · WATCH" },
+      { src: "/shots/honeybadger.jpg",num: "09", label: "Honeybadger",  italic: "AI Assistant",    meta: "VOICE · 81 TOOLS" },
+      { src: "/shots/markt.jpg",      num: "10", label: "Market",       italic: "Live News",       meta: "NEWS · SENTIMENT" },
+      { src: "/shots/diary.jpg",      num: "11", label: "Trading",      italic: "Diary",           meta: "JOURNAL · REVIEW" },
+      { src: "/shots/bilanz.jpg",     num: "12", label: "Books",        italic: "& Tax",           meta: "ACCOUNTING · TAX" },
+    ],
+    capLabel: "(03) CAPABILITIES",
     capTitle: ["One cockpit, the ", "full", " trading lifecycle — from DOM to backtest."],
     capabilities: [
       {
@@ -224,7 +252,7 @@ const T = {
           "Plan options and HoneyScript down to the detail, measure drawdown and win rate against real history — AI-evaluated before any real trade.",
       },
     ],
-    appLabel: "(03) APPROACH",
+    appLabel: "(04) APPROACH",
     appTitle: [
       "We handle the latency — ",
       "so you focus on the trade",
@@ -242,7 +270,7 @@ const T = {
       { v: "24 / 7", l: "AI market watch" },
       { v: "99.9 %", l: "Cockpit uptime" },
     ],
-    stratLabel: "(04) STRATEGY LAB",
+    stratLabel: "(05) STRATEGY LAB",
     stratLines: ["Plan.", "Analyze.", "Backtest."],
     stratItalic: "Backtest.",
     stratBody:
@@ -252,7 +280,7 @@ const T = {
       ["Analyze", "Greeks, IV surface, skew & vol-term structure."],
       ["Backtest", "Real COMEX history, AI-evaluated edge & drawdown."],
     ],
-    finalKicker: "(05) ENTER",
+    finalKicker: "(06) ENTER",
     finalLineA: ["Let\u2019s ", "trade"],
     finalLineB: "it together.",
     finalCta: "Visit honigdax.com",
@@ -676,8 +704,7 @@ export default function HonigdaxLanding() {
               }}
             />
           </div>
-          <div className="font-mono label">{t.heroScrollNext}</div>
-        </div>
+          <div className="font-mono label">{t.heroScrollNext}</div>        </div>
       </section>
 
       {/* ============== MARQUEE ============== */}
@@ -710,37 +737,93 @@ export default function HonigdaxLanding() {
           data-testid={TID.insightsImage}
           style={{
             marginTop: 56,
-            position: "relative",
-            border: "1px solid var(--rule)",
-            background: "#0c0c10",
-            aspectRatio: "16/9",
-            overflow: "hidden",
-            boxShadow: "0 30px 80px rgba(13,13,13,0.18)",
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 22,
           }}
         >
-          <img
-            src="/honigdax-cockpit.png"
-            alt="HonigDAX live cockpit — IGOR Gold Spot chart"
-            loading="lazy"
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-          />
-          <div
-            className="font-mono"
-            style={{
-              position: "absolute",
-              bottom: 14,
-              left: 18,
-              right: 18,
-              display: "flex",
-              justifyContent: "space-between",
-              color: "rgba(255,255,255,0.8)",
-              fontSize: 11,
-              letterSpacing: "0.08em",
-            }}
-          >
-            <span>XAUUSD · 5m · IGOR GOLD v4 · BB-SQUEEZE · CVD DOM</span>
-            <span style={{ color: "var(--rust-bright)" }}>● LIVE · CHI</span>
-          </div>
+          {t.galleryItems.map((g, idx) => (
+            <a
+              key={g.src}
+              href={g.src}
+              target="_blank"
+              rel="noreferrer"
+              data-testid={`gallery-item-${idx}`}
+              className="gallery-tile"
+              style={{
+                display: "block",
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  border: "1px solid var(--rule)",
+                  background: "#0c0c10",
+                  aspectRatio: "16/10",
+                  overflow: "hidden",
+                  transition: "transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s",
+                }}
+              >
+                <img
+                  src={g.src}
+                  alt={`${g.label} ${g.italic}`}
+                  loading="lazy"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                    transition: "transform 0.5s cubic-bezier(.2,.7,.2,1)",
+                  }}
+                />
+                <span
+                  className="font-mono"
+                  style={{
+                    position: "absolute",
+                    top: 10,
+                    left: 12,
+                    fontSize: 10,
+                    letterSpacing: "0.1em",
+                    color: "rgba(255,255,255,0.75)",
+                    background: "rgba(0,0,0,0.45)",
+                    padding: "3px 7px",
+                  }}
+                >
+                  {g.num} /
+                </span>
+                <span
+                  className="font-mono"
+                  style={{
+                    position: "absolute",
+                    top: 10,
+                    right: 12,
+                    fontSize: 10,
+                    letterSpacing: "0.1em",
+                    color: "rgba(255,255,255,0.55)",
+                  }}
+                >
+                  +
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  padding: "14px 4px 4px",
+                  gap: 12,
+                }}
+              >
+                <div className="font-serif" style={{ fontSize: 22, fontWeight: 600, lineHeight: 1.15 }}>
+                  {g.label}{" "}
+                  <span className="h-italic" style={{ fontSize: "1em" }}>{g.italic}</span>
+                </div>
+                <div className="font-mono label" style={{ flexShrink: 0 }}>{g.meta}</div>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
