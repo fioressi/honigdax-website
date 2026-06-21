@@ -272,6 +272,23 @@ html, body {
 .cf-sources        { display: block; }
 .cf-flow           { display: flex; align-items: stretch; gap: 0; }
 .chapter-grid      { display: grid; grid-template-columns: minmax(200px, 0.5fr) 1fr; gap: 60px; align-items: start; }
+
+/* Page flow — reorder via flex order so we don't move JSX */
+.page-flow                                   { display: flex; flex-direction: column; }
+.page-flow > [data-testid="chapter-a"]       { order: 1; }
+.page-flow > #protection                     { order: 2; }
+.page-flow > #orderflow                      { order: 3; }
+.page-flow > #confluence                     { order: 4; }
+.page-flow > #patterns                       { order: 5; }
+.page-flow > [data-testid="chapter-b"]       { order: 6; }
+.page-flow > #options-cockpit                { order: 7; }
+.page-flow > [data-testid="chapter-c"]       { order: 8; }
+.page-flow > #strategy                       { order: 9; }
+.page-flow > #track-record                   { order: 10; }
+.page-flow > [data-testid="chapter-d"]       { order: 11; }
+.page-flow > #insights                       { order: 12; }
+.page-flow > #capabilities                   { order: 13; }
+.page-flow > #approach                       { order: 14; }
 .beta-cols         { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
 .ess-grid          { display: grid; grid-template-columns: repeat(3, 1fr); }
 .ess-stats         { display: grid; grid-template-columns: repeat(6, 1fr); }

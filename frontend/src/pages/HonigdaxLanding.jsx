@@ -64,6 +64,40 @@ const T = {
       { v: "1",      l: "BROKER · IBKR" },
     ],
     essMore: "Alle 12 Module ansehen →",
+    chA: {
+      label: "KAPITEL A",
+      title: ["Chart Trading · Scalping · ", "Swing", "."],
+      items: [
+        { href: "#protection", label: "Schutz · ", italic: "Doppelt" },
+        { href: "#orderflow",  label: "Orderflow · ", italic: "Intelligence" },
+        { href: "#confluence", label: "Konfluenz · ", italic: "Engine" },
+        { href: "#patterns",   label: "Pattern · ", italic: "Recognition" },
+      ],
+    },
+    chB: {
+      label: "KAPITEL B",
+      title: ["Optionen · ", "geplant, bewiesen", "."],
+      items: [
+        { href: "#options-cockpit", label: "Options · ", italic: "Cockpit" },
+      ],
+    },
+    chC: {
+      label: "KAPITEL C",
+      title: ["Strategie · ", "Backtest", " · Walk-Forward."],
+      items: [
+        { href: "#strategy",     label: "Strategy · ", italic: "Lab" },
+        { href: "#track-record", label: "Track · ",     italic: "Record" },
+      ],
+    },
+    chD: {
+      label: "KAPITEL D",
+      title: ["Der ", "ganze Rest", "."],
+      items: [
+        { href: "#insights",     label: "Insights · ", italic: "Gallery" },
+        { href: "#capabilities", label: "Capabilities · ", italic: "Suite" },
+        { href: "#approach",     label: "Approach · ", italic: "Manifesto" },
+      ],
+    },
     insightsLabel: "(03) INSIGHTS",
     insightsTitle: ["Sieh dir das ", "echte ", "Cockpit an."],
     insightsBody:
@@ -504,6 +538,40 @@ const T = {
       { v: "1",      l: "BROKER · IBKR" },
     ],
     essMore: "See all 12 modules →",
+    chA: {
+      label: "CHAPTER A",
+      title: ["Chart trading · scalping · ", "swing", "."],
+      items: [
+        { href: "#protection", label: "Protection · ", italic: "Dual" },
+        { href: "#orderflow",  label: "Orderflow · ", italic: "Intelligence" },
+        { href: "#confluence", label: "Confluence · ", italic: "Engine" },
+        { href: "#patterns",   label: "Pattern · ", italic: "Recognition" },
+      ],
+    },
+    chB: {
+      label: "CHAPTER B",
+      title: ["Options · ", "planned, proven", "."],
+      items: [
+        { href: "#options-cockpit", label: "Options · ", italic: "Cockpit" },
+      ],
+    },
+    chC: {
+      label: "CHAPTER C",
+      title: ["Strategy · ", "backtest", " · walk-forward."],
+      items: [
+        { href: "#strategy",     label: "Strategy · ", italic: "Lab" },
+        { href: "#track-record", label: "Track · ",     italic: "Record" },
+      ],
+    },
+    chD: {
+      label: "CHAPTER D",
+      title: ["The ", "rest", "."],
+      items: [
+        { href: "#insights",     label: "Insights · ", italic: "Gallery" },
+        { href: "#capabilities", label: "Capabilities · ", italic: "Suite" },
+        { href: "#approach",     label: "Approach · ", italic: "Manifesto" },
+      ],
+    },
     insightsLabel: "(03) INSIGHTS",
     insightsTitle: ["See the ", "real ", "cockpit."],
     insightsBody:
@@ -2440,6 +2508,14 @@ export default function HonigdaxLanding() {
         </div>
       </section>
 
+      {/* ====== Page flow (chapters reordered via CSS flex order) ====== */}
+      <main className="page-flow">
+
+      <ChapterDivider letter="A" label={t.chA.label} title={t.chA.title} items={t.chA.items} />
+      <ChapterDivider letter="B" label={t.chB.label} title={t.chB.title} items={t.chB.items} onDark />
+      <ChapterDivider letter="C" label={t.chC.label} title={t.chC.title} items={t.chC.items} />
+      <ChapterDivider letter="D" label={t.chD.label} title={t.chD.title} items={t.chD.items} onDark />
+
       {/* ============== INSIGHTS (real cockpit preview) ============== */}
       <section id="insights" className="sec-pad">
         <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
@@ -3770,6 +3846,7 @@ export default function HonigdaxLanding() {
       </section>
 
       {/* ============== BETA — WE'RE BUILDING ============== */}
+      </main>
       <section
         id="contact"
         className="paper-grain dark on-dark"
