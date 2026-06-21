@@ -44,7 +44,7 @@ const T = {
     heroCtaSecondary: "See Capabilities →",
     heroScrollHint: "SCROLL · ENTER THE COCKPIT",
     heroScrollNext: "(02) ESSENCE — NEXT",
-    cockpitCaption: "LIVE · IGOR · COCKPIT 0241",
+    cockpitCaption: "LIVE · OPTIONEN · BUILDER 0241",
     essLabel: "(02) ESSENZ",
     essTitle: ["Was du bekommst, ", "in sechs Worten", "."],
     essCells: [
@@ -448,7 +448,7 @@ const T = {
     heroCtaSecondary: "See Capabilities →",
     heroScrollHint: "SCROLL · ENTER THE COCKPIT",
     heroScrollNext: "(02) ESSENCE — NEXT",
-    cockpitCaption: "LIVE · IGOR · COCKPIT 0241",
+    cockpitCaption: "LIVE · OPTIONEN · BUILDER 0241",
     essLabel: "(02) ESSENCE",
     essTitle: ["What you get, ", "in six words", "."],
     essCells: [
@@ -1107,7 +1107,7 @@ const ConfluenceRadar = ({ sources, signal }) => {
   );
 };
 
-/* ============ Options payoff card (Bull-Call spread schematic) ============ */
+/* ============ Options payoff card (real cockpit screenshot) ============ */
 const OptionsPayoffCard = ({ labels }) => (
   <div
     data-testid="options-payoff"
@@ -1116,7 +1116,7 @@ const OptionsPayoffCard = ({ labels }) => (
       width: "100%",
       border: "1px solid var(--rule)",
       background: "rgba(255,255,255,0.4)",
-      padding: 22,
+      padding: 18,
       position: "relative",
       fontFamily: "JetBrains Mono, monospace",
     }}
@@ -1128,81 +1128,126 @@ const OptionsPayoffCard = ({ labels }) => (
         fontSize: 11,
         letterSpacing: "0.08em",
         color: "var(--muted)",
-        marginBottom: 8,
+        marginBottom: 10,
       }}
     >
       <span>{labels.title}</span>
-      <span style={{ color: "var(--rust)" }}>● BUILDER</span>
+      <span style={{ color: "var(--rust)" }}>● BUILDER · LIVE</span>
     </div>
-    <div className="font-mono label" style={{ marginBottom: 14, color: "var(--ink)" }}>
+    <div className="font-mono label" style={{ marginBottom: 12, color: "var(--ink)" }}>
       {labels.legs}
     </div>
 
-    <svg viewBox="0 0 560 230" width="100%" height="auto" style={{ display: "block" }}>
-      <defs>
-        <linearGradient id="pgGain" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="rgba(63,122,85,0.32)" />
-          <stop offset="1" stopColor="rgba(63,122,85,0)" />
-        </linearGradient>
-        <linearGradient id="pgLoss" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="rgba(160,69,53,0.05)" />
-          <stop offset="1" stopColor="rgba(160,69,53,0.2)" />
-        </linearGradient>
-      </defs>
-      <g stroke="rgba(13,13,13,0.08)" strokeWidth="0.5">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <line key={`h${i}`} x1="30" y1={30 + i * 40} x2="540" y2={30 + i * 40} />
-        ))}
-        {Array.from({ length: 8 }).map((_, i) => (
-          <line key={`v${i}`} x1={30 + i * 72} y1="20" x2={30 + i * 72} y2="200" />
-        ))}
-      </g>
-      <line x1="30" y1="140" x2="540" y2="140" stroke="rgba(13,13,13,0.35)" strokeWidth="0.7" strokeDasharray="4 4" />
-      <polygon points="30,160 200,160 280,140 30,140" fill="url(#pgLoss)" />
-      <polygon points="280,140 380,60 540,60 540,140" fill="url(#pgGain)" />
-      <polyline points="30,160 200,160 380,60 540,60" fill="none" stroke="#0d0d0d" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round" />
-      <line x1="200" y1="20" x2="200" y2="210" stroke="rgba(13,13,13,0.35)" strokeDasharray="2 4" />
-      <text x="204" y="218" fill="var(--muted)" fontSize="10" letterSpacing="0.08em">K 460 (BUY)</text>
-      <line x1="380" y1="20" x2="380" y2="210" stroke="rgba(13,13,13,0.35)" strokeDasharray="2 4" />
-      <text x="384" y="218" fill="var(--muted)" fontSize="10" letterSpacing="0.08em">K 475 (SELL)</text>
-      <circle cx="280" cy="140" r="4" fill="var(--rust)" />
-      <text x="288" y="135" fill="var(--rust)" fontSize="11" fontFamily="JetBrains Mono" letterSpacing="0.04em">{labels.be}</text>
-      <text x="540" y="52" fill="#3f7a55" fontSize="11" fontFamily="JetBrains Mono" textAnchor="end" letterSpacing="0.04em">{labels.max}</text>
-      <text x="30" y="174" fill="#a04535" fontSize="11" fontFamily="JetBrains Mono" letterSpacing="0.04em">{labels.maxL}</text>
-      <g transform="translate(440, 14)">
-        <rect x="0" y="0" width="100" height="22" rx="11" fill="rgba(13,13,13,0.9)" />
-        <text x="50" y="15" textAnchor="middle" fill="#fff" fontSize="11" letterSpacing="0.08em" fontFamily="JetBrains Mono">{labels.pop}</text>
-      </g>
-    </svg>
+    {/* Real builder screenshot — P/L matrix + payoff diagram */}
+    <div
+      style={{
+        position: "relative",
+        background: "#0c0c10",
+        border: "1px solid rgba(0,0,0,0.4)",
+        overflow: "hidden",
+      }}
+    >
+      <img
+        src="/shots/optionen-builder.png"
+        alt="HonigDAX Options Builder — P/L matrix, Black-Scholes scenario, payoff diagram"
+        loading="lazy"
+        style={{ width: "100%", height: "auto", display: "block" }}
+      />
+      <span
+        className="dot-pulse"
+        style={{ position: "absolute", top: 12, right: 14 }}
+      />
+    </div>
 
+    {/* Key metrics under the screenshot */}
     <div
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(4, 1fr)",
-        marginTop: 18,
+        marginTop: 14,
         border: "1px solid var(--rule)",
         overflow: "hidden",
         fontVariantNumeric: "tabular-nums",
       }}
     >
       {[
-        ["Δ DELTA", "+0.34"],
-        ["Γ GAMMA", "0.018"],
-        ["Θ THETA", "−0.42"],
-        ["V VEGA",  "+0.21"],
+        ["NETTO-DEBIT",   "192.54 $", "#a04535"],
+        ["MAX PROFIT",    "23,307.46", "#3f7a55"],
+        ["BREAKEVEN",     labels.be,  "var(--rust)"],
+        ["CHANCE OF PROFIT", labels.pop, "var(--ink)"],
       ].map((g, i) => (
         <div
           key={g[0]}
           style={{
-            padding: "10px 14px",
+            padding: "10px 12px",
             borderRight: i < 3 ? "1px solid var(--rule)" : "none",
             background: "rgba(255,255,255,0.4)",
           }}
         >
-          <div style={{ fontSize: 10, letterSpacing: "0.08em", color: "var(--muted)" }}>{g[0]}</div>
-          <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", marginTop: 2 }}>{g[1]}</div>
+          <div style={{ fontSize: 9.5, letterSpacing: "0.1em", color: "var(--muted)" }}>{g[0]}</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: g[2], marginTop: 3 }}>{g[1]}</div>
         </div>
       ))}
+    </div>
+  </div>
+);
+
+/* ============ Optimizer cards strip (real cockpit screenshot) ============ */
+const OptimizerStrip = () => (
+  <div
+    data-testid="options-optimizer"
+    className="reveal"
+    style={{
+      marginTop: 80,
+      border: "1px solid var(--rule)",
+      background: "#0c0c10",
+      padding: 22,
+      position: "relative",
+      fontFamily: "JetBrains Mono, monospace",
+      color: "rgba(255,255,255,0.85)",
+    }}
+  >
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        fontSize: 11,
+        letterSpacing: "0.08em",
+        color: "rgba(255,255,255,0.55)",
+        marginBottom: 14,
+      }}
+    >
+      <span>OPTIMIZER · 5 OF MANY · RANKED BY EDGE</span>
+      <span style={{ color: "var(--rust-bright)" }}>● SCORED</span>
+    </div>
+
+    <div
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        background: "#0c0c10",
+      }}
+    >
+      <img
+        src="/shots/optionen-optimizer.png"
+        alt="Honigdax Options Optimizer — ranked strategy cards with mini payoff diagrams"
+        loading="lazy"
+        style={{ width: "100%", height: "auto", display: "block" }}
+      />
+    </div>
+
+    <div
+      style={{
+        marginTop: 12,
+        display: "flex",
+        justifyContent: "space-between",
+        fontSize: 10.5,
+        letterSpacing: "0.08em",
+        color: "rgba(255,255,255,0.55)",
+      }}
+    >
+      <span>SHORT STRANGLE · IRON CONDOR · IRON BUTTERFLY · SHORT STRADDLE · …</span>
+      <span style={{ color: "var(--rust-bright)" }}>RANKED BY EDGE × POP</span>
     </div>
   </div>
 );
@@ -1643,9 +1688,9 @@ const HeroCockpit = ({ caption }) => (
         }}
       >
         <img
-          src="/honigdax-cockpit.png"
-          alt="HonigDAX Cockpit — IGOR the Honey Badger live chart"
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          src="/shots/optionen-builder.png"
+          alt="HonigDAX Options Builder — Optionen-Strategie mit Payoff & Greeks"
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left top", display: "block" }}
           loading="lazy"
         />
         {/* signal dot overlay */}
@@ -2874,8 +2919,7 @@ export default function HonigdaxLanding() {
           <div className="oc-payoff-wrap">
             <OptionsPayoffCard labels={t.ocChart} />
           </div>
-          <div className="oc-steps">
-            {t.ocSteps.map((s, i) => (
+          <div className="oc-steps">            {t.ocSteps.map((s, i) => (
               <div
                 key={s.num}
                 data-testid={`oc-step-${i}`}
@@ -2948,6 +2992,9 @@ export default function HonigdaxLanding() {
             <div style={{ borderTop: "1px solid var(--rule)" }} />
           </div>
         </div>
+
+        {/* Optimizer cards strip — real screenshot */}
+        <OptimizerStrip />
 
         <div className="reveal" style={{ marginTop: 40, display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between" }}>
           <div
