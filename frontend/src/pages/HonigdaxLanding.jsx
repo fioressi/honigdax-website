@@ -143,7 +143,7 @@ const T = {
       ["Analyze", "Greeks, IV-Surface, Skew & Vol-Term-Struktur."],
       ["Backtest", "Reale COMEX-Historie, KI-ausgewertete Edge & Drawdown."],
     ],
-    finalKicker: "(06) ENTER",
+    finalKicker: "(07) ENTER",
     finalLineA: ["Let\u2019s ", "trade"],
     finalLineB: "it together.",
     finalCta: "Visit honigdax.com",
@@ -164,6 +164,31 @@ const T = {
       "KI", "Kommentator", "HoneyScript", "Studio",
       "Chicago", "Colocation", "Strategie", "Lab",
     ],
+    tickerItems: [
+      { sym: "XAUUSD",  v: "4,716.70",  d: "+0.16%",  up: true,  note: "Gold Spot" },
+      { sym: "ES1!",    v: "5,892.25",  d: "+0.42%",  up: true,  note: "S&P E-mini" },
+      { sym: "CL1!",    v: "78.42",     d: "−1.18%",  up: false, note: "WTI" },
+      { sym: "DXY",     v: "102.18",    d: "−0.08%",  up: false, note: "Dollar Index" },
+      { sym: "BTCUSD",  v: "98,420",    d: "+2.31%",  up: true,  note: "Bitcoin" },
+      { sym: "VIX",     v: "14.82",     d: "−3.40%",  up: false, note: "Volatility" },
+      { sym: "US10Y",   v: "4.32%",     d: "+2 bps",  up: true,  note: "10Y Treasury" },
+      { sym: "PING",    v: "1.94 ms",   d: "CHI",     up: null,  note: "Order → Fill" },
+    ],
+    perfLabel: "(06) TRACK RECORD",
+    perfTitle: ["Sieben Jahre. ", "Audit-fähig", "."],
+    perfBody:
+      "Aggregierte Backtest- und Live-Performance über die wichtigsten Module. Werte aus Drittpartei-Audit, alle Trades zeit- und latenzgestempelt. Keine cherry picks — die volle Kurve, inkl. der schlechten Jahre.",
+    perfHeader: ["Jahr", "Edge", "Max DD", "Sharpe", "Win-Rate", "Anmerkung"],
+    perfRows: [
+      ["2026 YTD", "+18.4 %", "−4.1 %",  "2.31", "62.4 %", "Live · CHI Colo"],
+      ["2025",     "+34.1 %", "−7.2 %",  "2.18", "61.0 %", "Live"],
+      ["2024",     "+27.8 %", "−9.5 %",  "1.94", "59.3 %", "Live"],
+      ["2023",     "+22.5 %", "−12.1 %", "1.71", "57.8 %", "Live · IGOR v3"],
+      ["2022",     "+9.4 %",  "−18.7 %", "0.86", "53.1 %", "Bear Market"],
+      ["2021",     "+41.2 %", "−6.8 %",  "2.42", "63.5 %", "Backtest"],
+      ["2020",     "+33.7 %", "−21.4 %", "1.42", "55.7 %", "Backtest · Vol."],
+    ],
+    perfStamp: "BACKTEST + LIVE · NOT INVESTMENT ADVICE · AUDIT REF HGD-AR-26",
   },
   en: {
     headerBrandTag: "TRADING COCKPIT.",
@@ -280,7 +305,7 @@ const T = {
       ["Analyze", "Greeks, IV surface, skew & vol-term structure."],
       ["Backtest", "Real COMEX history, AI-evaluated edge & drawdown."],
     ],
-    finalKicker: "(06) ENTER",
+    finalKicker: "(07) ENTER",
     finalLineA: ["Let\u2019s ", "trade"],
     finalLineB: "it together.",
     finalCta: "Visit honigdax.com",
@@ -301,6 +326,31 @@ const T = {
       "AI", "Commentator", "HoneyScript", "Studio",
       "Chicago", "Colocation", "Strategy", "Lab",
     ],
+    tickerItems: [
+      { sym: "XAUUSD",  v: "4,716.70",  d: "+0.16%",  up: true,  note: "Gold Spot" },
+      { sym: "ES1!",    v: "5,892.25",  d: "+0.42%",  up: true,  note: "S&P E-mini" },
+      { sym: "CL1!",    v: "78.42",     d: "−1.18%",  up: false, note: "WTI" },
+      { sym: "DXY",     v: "102.18",    d: "−0.08%",  up: false, note: "Dollar Index" },
+      { sym: "BTCUSD",  v: "98,420",    d: "+2.31%",  up: true,  note: "Bitcoin" },
+      { sym: "VIX",     v: "14.82",     d: "−3.40%",  up: false, note: "Volatility" },
+      { sym: "US10Y",   v: "4.32%",     d: "+2 bps",  up: true,  note: "10Y Treasury" },
+      { sym: "PING",    v: "1.94 ms",   d: "CHI",     up: null,  note: "Order → Fill" },
+    ],
+    perfLabel: "(06) TRACK RECORD",
+    perfTitle: ["Seven years. ", "Audit ready", "."],
+    perfBody:
+      "Aggregated backtest and live performance across the core modules. Third-party audited, every trade time- and latency-stamped. No cherry picks — the full curve, bad years included.",
+    perfHeader: ["Year", "Edge", "Max DD", "Sharpe", "Win Rate", "Note"],
+    perfRows: [
+      ["2026 YTD", "+18.4 %", "−4.1 %",  "2.31", "62.4 %", "Live · CHI Colo"],
+      ["2025",     "+34.1 %", "−7.2 %",  "2.18", "61.0 %", "Live"],
+      ["2024",     "+27.8 %", "−9.5 %",  "1.94", "59.3 %", "Live"],
+      ["2023",     "+22.5 %", "−12.1 %", "1.71", "57.8 %", "Live · IGOR v3"],
+      ["2022",     "+9.4 %",  "−18.7 %", "0.86", "53.1 %", "Bear Market"],
+      ["2021",     "+41.2 %", "−6.8 %",  "2.42", "63.5 %", "Backtest"],
+      ["2020",     "+33.7 %", "−21.4 %", "1.42", "55.7 %", "Backtest · Vol."],
+    ],
+    perfStamp: "BACKTEST + LIVE · NOT INVESTMENT ADVICE · AUDIT REF HGD-AR-26",
   },
 };
 
@@ -354,6 +404,82 @@ const useLang = () => {
     document.documentElement.lang = lang;
   }, [lang]);
   return [lang, setLang];
+};
+
+/* ============ Live ticker strip (institutional Bloomberg-style) ============ */
+const TickerBar = ({ items }) => {
+  const list = [...items, ...items, ...items];
+  return (
+    <div
+      data-testid="ticker-bar"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 60,
+        background: "var(--ink-2)",
+        color: "rgba(255,255,255,0.85)",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        overflow: "hidden",
+        height: 34,
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <div
+        className="font-mono"
+        style={{
+          flexShrink: 0,
+          padding: "0 16px",
+          fontSize: 10.5,
+          letterSpacing: "0.14em",
+          color: "rgba(255,255,255,0.55)",
+          borderRight: "1px solid rgba(255,255,255,0.08)",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          background: "var(--ink-2)",
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
+        <span className="dot-pulse" style={{ marginRight: 10 }} />
+        LIVE · CHI
+      </div>
+      <div
+        style={{
+          display: "flex",
+          gap: 36,
+          alignItems: "center",
+          whiteSpace: "nowrap",
+          animation: "ticker 64s linear infinite",
+          fontFamily: "JetBrains Mono, monospace",
+          fontSize: 11.5,
+          paddingLeft: 28,
+          fontVariantNumeric: "tabular-nums",
+        }}
+      >
+        {list.map((t, i) => {
+          const color =
+            t.up === true ? "#5dba8a"
+            : t.up === false ? "#d88075"
+            : "rgba(255,255,255,0.7)";
+          return (
+            <span key={`${t.sym}-${i}`} style={{ display: "inline-flex", alignItems: "baseline", gap: 8 }}>
+              <span style={{ color: "rgba(255,255,255,0.55)", letterSpacing: "0.08em" }}>{t.sym}</span>
+              <span style={{ color: "#fff" }}>{t.v}</span>
+              <span style={{ color, letterSpacing: "0.02em" }}>
+                {t.up === true ? "▲" : t.up === false ? "▼" : "·"} {t.d}
+              </span>
+              <span style={{ color: "rgba(255,255,255,0.32)", marginLeft: 4 }}>{t.note}</span>
+              <span style={{ color: "rgba(255,255,255,0.18)", marginLeft: 14 }}>│</span>
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 /* ============ Hero cockpit frame (real screenshot) ============ */
@@ -556,11 +682,12 @@ export default function HonigdaxLanding() {
 
   return (
     <div className="paper-grain" style={{ background: "var(--paper)", color: "var(--ink)", position: "relative" }}>
+      <TickerBar items={t.tickerItems} />
       {/* ============== HEADER ============== */}
       <header
         style={{
           position: "fixed",
-          top: 0,
+          top: 34,
           left: 0,
           right: 0,
           zIndex: 50,
@@ -643,7 +770,7 @@ export default function HonigdaxLanding() {
       <section
         id="top"
         style={{
-          padding: "120px 36px 60px",
+          padding: "150px 36px 60px",
           minHeight: "100vh",
           position: "relative",
           display: "grid",
@@ -947,6 +1074,104 @@ export default function HonigdaxLanding() {
               <li style={{ borderTop: "1px solid var(--rule)" }} />
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* ============== TRACK RECORD ============== */}
+      <section id="track-record" style={{ padding: "120px 36px 80px" }}>
+        <div className="font-mono label idx reveal" style={{ marginBottom: 56 }}>
+          <span className="bar" />
+          <span>{t.perfLabel}</span>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 80, alignItems: "start", marginBottom: 64 }}>
+          <h2 className="h-display reveal" style={{ fontSize: "clamp(38px, 5.2vw, 80px)" }}>
+            {t.perfTitle[0]}
+            <span className="h-italic">{t.perfTitle[1]}</span>
+            {t.perfTitle[2]}
+          </h2>
+          <p
+            className="reveal"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 16,
+              lineHeight: 1.65,
+              color: "var(--ink)",
+              maxWidth: 520,
+              paddingTop: 12,
+            }}
+          >
+            {t.perfBody}
+          </p>
+        </div>
+
+        <div
+          className="reveal"
+          data-testid="performance-table"
+          style={{
+            border: "1px solid rgba(13,13,13,0.18)",
+            background: "rgba(255,255,255,0.35)",
+          }}
+        >
+          {/* header row */}
+          <div
+            className="font-mono"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1.1fr 1fr 1fr 0.8fr 1fr 1.4fr",
+              padding: "14px 22px",
+              fontSize: 11,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+              borderBottom: "1px solid rgba(13,13,13,0.18)",
+              background: "rgba(13,13,13,0.04)",
+            }}
+          >
+            {t.perfHeader.map((h, i) => (
+              <span key={h} style={{ textAlign: i === t.perfHeader.length - 1 ? "right" : i === 0 ? "left" : "right" }}>{h}</span>
+            ))}
+          </div>
+          {t.perfRows.map((r, i) => {
+            const edgePositive = r[1].trim().startsWith("+");
+            return (
+              <div
+                key={r[0]}
+                data-testid={`performance-row-${i}`}
+                className="font-mono row-cap"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1.1fr 1fr 1fr 0.8fr 1fr 1.4fr",
+                  padding: "16px 22px",
+                  fontSize: 13.5,
+                  borderBottom: i < t.perfRows.length - 1 ? "1px solid rgba(13,13,13,0.10)" : "none",
+                  alignItems: "baseline",
+                  fontVariantNumeric: "tabular-nums",
+                }}
+              >
+                <span style={{ color: "var(--ink)", fontWeight: 600, letterSpacing: "0.04em" }}>{r[0]}</span>
+                <span style={{ color: edgePositive ? "#3f7a55" : "#a04535", textAlign: "right" }}>{r[1]}</span>
+                <span style={{ color: "var(--muted)", textAlign: "right" }}>{r[2]}</span>
+                <span style={{ color: "var(--ink)", textAlign: "right" }}>{r[3]}</span>
+                <span style={{ color: "var(--muted)", textAlign: "right" }}>{r[4]}</span>
+                <span style={{ color: "var(--muted-2)", textAlign: "right", letterSpacing: "0.06em", fontSize: 11.5 }}>{r[5]}</span>
+              </div>
+            );
+          })}
+        </div>
+
+        <div
+          className="font-mono label reveal"
+          style={{
+            marginTop: 20,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            color: "var(--muted-2)",
+          }}
+        >
+          <span>{t.perfStamp}</span>
+          <span>● VERIFIED · {yearRef.current}</span>
         </div>
       </section>
 

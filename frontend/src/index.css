@@ -196,6 +196,10 @@ html, body {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
+@keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-33.333%); }
+}
 
 /* X icon box (corner) */
 .x-box {
