@@ -280,15 +280,16 @@ html, body {
 .page-flow > #orderflow                      { order: 3; }
 .page-flow > #confluence                     { order: 4; }
 .page-flow > #patterns                       { order: 5; }
-.page-flow > [data-testid="chapter-b"]       { order: 6; }
-.page-flow > #options-cockpit                { order: 7; }
-.page-flow > [data-testid="chapter-c"]       { order: 8; }
-.page-flow > #strategy                       { order: 9; }
-.page-flow > #track-record                   { order: 10; }
-.page-flow > [data-testid="chapter-d"]       { order: 11; }
-.page-flow > #insights                       { order: 12; }
-.page-flow > #capabilities                   { order: 13; }
-.page-flow > #approach                       { order: 14; }
+.page-flow > #bot                            { order: 6; }
+.page-flow > [data-testid="chapter-b"]       { order: 7; }
+.page-flow > #options-cockpit                { order: 8; }
+.page-flow > [data-testid="chapter-c"]       { order: 9; }
+.page-flow > #strategy                       { order: 10; }
+.page-flow > #track-record                   { order: 11; }
+.page-flow > [data-testid="chapter-d"]       { order: 12; }
+.page-flow > #insights                       { order: 13; }
+.page-flow > #capabilities                   { order: 14; }
+.page-flow > #approach                       { order: 15; }
 .beta-cols         { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
 .ess-grid          { display: grid; grid-template-columns: repeat(3, 1fr); }
 .ess-stats         { display: grid; grid-template-columns: repeat(6, 1fr); }

@@ -72,6 +72,7 @@ const T = {
         { href: "#orderflow",  label: "Orderflow · ", italic: "Intelligence" },
         { href: "#confluence", label: "Konfluenz · ", italic: "Engine" },
         { href: "#patterns",   label: "Pattern · ", italic: "Recognition" },
+        { href: "#bot",        label: "Bot · ",     italic: "Intelligence" },
       ],
     },
     chB: {
@@ -322,6 +323,24 @@ const T = {
       tagTR: "ASCENDING TRIANGLE",
       neck: "NECKLINE",
     },
+    botLabel: "(A.05) BOT · INTELLIGENCE",
+    botTitle: ["Der Bot, der den Markt ", "liest", "."],
+    botSub:
+      "Vom Orderflow bis zum Replay: ein serverseitiges MGC-Trading-System, das Regime erkennt, Breakouts einordnet, Kompressionen handelt, Risiken schützt und jede Entscheidung für spätere Optimierung auswertbar macht.",
+    botFeatures: [
+      { num: "01", title: ["Regime · ", "Marktstruktur"], body: "Ruhiger Trend · Range/Kompression · High-Energy · chaotische Phase · Übergänge · Reopen-Zonen. Erkennt Volatilitätswechsel, Einpendeln nach Ausbrüchen, Freitags- und Sonntags-Reopen-Dynamik." },
+      { num: "02", title: ["Multi-TF · ", "Kontext"],     body: "15 m für Wellenstruktur und Ermüdung · 5 m für Setup-Form · DOM/Orderflow für Timing. Mikro-Signale werden im Kontext der größeren Bewegung gehandelt — nicht blind." },
+      { num: "03", title: ["Breakout · ", "Typisiert"],   body: "Echter BO mit Follow-through · Stop-Run · Absorption · fehlgeschlagener BO · unklarer Versuch. Derselbe Kaufdruck ist je nach Kontext Momentum, Falle oder Reversal — der Bot trennt das." },
+      { num: "04", title: ["DOM · ", "Orderflow"],         body: "Imbalance · CVD · aggressive Käufe/Verkäufe · Preisfortschritt pro Volumen · Buch-Instabilität. Erkennt nicht nur Chancen — auch wann der Markt gegen die offene Position plötzlich gefährlich wird." },
+      { num: "05", title: ["Kompression · ", "Range"],     body: "Nach Ausbrüchen pendelt MGC oft ein. Bot wechselt zwischen Trend-/Breakout-Logik, Mean-Reversion-/Range-Logik und No-Trade-/Protect-Modus. Frühwarnung wenn Kompression in Expansion kippt." },
+      { num: "06", title: ["Candles · ", "Kontextschicht"], body: "Engulfing · Hammer/Shooting Star · Inside/Outside Bars · Dojis · Rejection Bars (später Wedges, Triangles, Coils). Nie alleinstehendes Signal — immer mit Orderflow + Level + Regime kombiniert." },
+      { num: "07", title: ["Risk · ", "Serverseitig"],     body: "Verlust pro Trade · Session-Loss-Limits · Trailing · Regime-abhängige Risikosteuerung · Protect-only-Modus · Instability/Shock-Exit bei plötzlich chaotischem Verhalten. Schlechte Phasen früh erkennen, Verluste früh begrenzen." },
+      { num: "08", title: ["Decision · ", "Events"],       body: "Loggt nicht nur Trades, sondern auch blockierte Signale, fast-genommene Setups, verpasste BOs, verpasste Reversals, No-Trade-Entscheidungen und Regimewechsel. Belastbare Lernbasis statt Trade-only-Statistik." },
+      { num: "09", title: ["Replay · ", "Nachanalyse"],     body: "Exit-Replay · Entry-Replay · Regime-Replay · Risk-Replay. Vergleich erlaubter Verlustgrößen. Auswertung nach Regime, Strategie, Wochentag, Freitag, 22–24 Uhr MEZ, Sonntag-Reopen, Vol-Zustand." },
+    ],
+    botTagline: "Marktphasen erkennen. Breakouts einordnen. Risiken schützen. Lernen.",
+    botDisc:
+      "MGC-fokussiertes Intraday-System, serverseitig betrieben. Trading birgt Risiken; Algorithmen sind kein Garant für Gewinne. Decision-Event-Auswertung und Replay liefern Hinweise, ersetzen aber kein eigenes Risikomanagement.",
     appLabel: "(09) APPROACH",
     appTitle: [
       "We handle the latency — ",
@@ -546,6 +565,7 @@ const T = {
         { href: "#orderflow",  label: "Orderflow · ", italic: "Intelligence" },
         { href: "#confluence", label: "Confluence · ", italic: "Engine" },
         { href: "#patterns",   label: "Pattern · ", italic: "Recognition" },
+        { href: "#bot",        label: "Bot · ",     italic: "Intelligence" },
       ],
     },
     chB: {
@@ -796,6 +816,24 @@ const T = {
       tagTR: "ASCENDING TRIANGLE",
       neck: "NECKLINE",
     },
+    botLabel: "(A.05) BOT · INTELLIGENCE",
+    botTitle: ["The bot that ", "reads", " the market."],
+    botSub:
+      "From orderflow to replay: a server-side MGC trading system that detects regimes, classifies breakouts, trades compressions, protects risk and turns every decision into auditable learning.",
+    botFeatures: [
+      { num: "01", title: ["Regime · ", "Market Structure"], body: "Quiet trend · range/compression · high-energy · chaotic phase · transitions · reopen zones. Spots volatility shifts, settling after breakouts, Friday and Sunday-reopen dynamics." },
+      { num: "02", title: ["Multi-TF · ", "Context"],         body: "15 m for the larger wave structure and exhaustion · 5 m for setup form · DOM/orderflow for timing. Micro-signals are traded in the context of the bigger move — not blindly." },
+      { num: "03", title: ["Breakout · ", "Typed"],           body: "Real BO with follow-through · stop-run · absorption · failed BO · unclear attempt. The same aggressive flow can mean momentum, trap or reversal depending on context — the bot separates them." },
+      { num: "04", title: ["DOM · ", "Orderflow"],             body: "Imbalance · CVD · aggressive buys/sells · price progress per volume · book instability. Spots not only chances — also when the market suddenly turns dangerous against the open position." },
+      { num: "05", title: ["Compression · ", "Range"],         body: "After breakouts MGC often settles. The bot switches between trend/BO logic, mean-reversion/range logic and no-trade/protect mode. Early warning when compression flips back to expansion." },
+      { num: "06", title: ["Candles · ", "Context Layer"],     body: "Engulfings · hammer/shooting star · inside/outside bars · dojis · rejection bars (later wedges, triangles, coils). Never a standalone signal — always combined with orderflow + level + regime." },
+      { num: "07", title: ["Risk · ", "Server-side"],          body: "Per-trade loss · session loss limits · trailing · regime-aware risk control · protect-only mode · instability/shock exit on sudden chaotic behaviour against the position. Catch bad phases early, cap losses early." },
+      { num: "08", title: ["Decision · ", "Events"],           body: "Logs not only trades but also blocked signals, near-taken setups, missed breakouts, missed reversals, no-trade decisions and regime shifts. A learning base far stronger than trade-only stats." },
+      { num: "09", title: ["Replay · ", "Post-mortem"],         body: "Exit replay · entry replay · regime replay · risk replay. Comparison of larger or smaller allowed losses. Breakdowns by regime, strategy, weekday, Friday, 22–24 h CET, Sunday reopen, vol state." },
+    ],
+    botTagline: "Read regimes. Type breakouts. Protect risk. Learn.",
+    botDisc:
+      "MGC-focused intraday system, server-side. Trading carries risk; algorithms don't guarantee profits. Decision-event analytics and replay deliver insight but don't replace your own risk management.",
     appLabel: "(09) APPROACH",
     appTitle: [
       "We handle the latency — ",
@@ -3358,6 +3396,65 @@ export default function HonigdaxLanding() {
             }}
           >
             {t.prDisc}
+          </p>
+        </div>
+      </section>
+
+      {/* ============== BOT INTELLIGENCE (A.05) ============== */}
+      <section id="bot" className="sec-pad" style={{ position: "relative" }}>
+        <div className="font-mono label idx reveal" style={{ marginBottom: 48 }}>
+          <span className="bar" />
+          <span>{t.botLabel}</span>
+        </div>
+        <div className="insights-head" style={{ marginBottom: 48 }}>
+          <h2 className="h-display reveal" style={{ fontSize: "clamp(36px, 4.8vw, 70px)", maxWidth: 820 }}>
+            {t.botTitle[0]}<span className="h-italic">{t.botTitle[1]}</span>{t.botTitle[2]}
+          </h2>
+          <p className="reveal" style={{ fontFamily: "Inter, sans-serif", fontSize: 16.5, lineHeight: 1.65, color: "var(--ink)", maxWidth: 540 }}>
+            {t.botSub}
+          </p>
+        </div>
+        <div className="of-steps-grid">
+          {t.botFeatures.map((f, i) => (
+            <div
+              key={f.num}
+              data-testid={`bot-feature-${i}`}
+              className="reveal of-step"
+              style={{
+                border: "1px solid var(--rule)",
+                background: "rgba(255,255,255,0.35)",
+                padding: "24px 22px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 12,
+              }}
+            >
+              <div className="font-mono" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11, letterSpacing: "0.12em", color: "var(--muted)" }}>
+                <span>{f.num} /</span>
+                <span style={{ color: "var(--rust)" }}>+</span>
+              </div>
+              <div className="font-serif" style={{ fontSize: "clamp(18px, 1.8vw, 22px)", fontWeight: 500, lineHeight: 1.18 }}>
+                {f.title[0]}<span className="h-italic">{f.title[1]}</span>
+              </div>
+              <p style={{ fontFamily: "Inter, sans-serif", fontSize: 13.5, lineHeight: 1.55, color: "var(--muted)", margin: 0 }}>
+                {f.body}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="reveal" style={{ marginTop: 40, display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 14, padding: "12px 20px", border: "1px solid var(--ink)", borderRadius: 999, background: "var(--ink)", color: "#fff" }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+              <rect x="2" y="3" width="10" height="8" rx="1.5" fill="none" stroke="var(--rust-bright)" strokeWidth="1.2" />
+              <circle cx="5" cy="7" r="1" fill="var(--rust-bright)" />
+              <circle cx="9" cy="7" r="1" fill="var(--rust-bright)" />
+            </svg>
+            <span className="font-mono" style={{ letterSpacing: "0.08em", fontSize: 12, color: "rgba(255,255,255,0.92)" }}>
+              {t.botTagline}
+            </span>
+          </div>
+          <p style={{ fontFamily: "Inter, sans-serif", fontSize: 11.5, lineHeight: 1.6, color: "var(--muted-2)", maxWidth: 720, margin: 0 }}>
+            {t.botDisc}
           </p>
         </div>
       </section>
