@@ -393,16 +393,18 @@ html, body {
     .hero-cta-wrap > .pill { flex: 1; justify-content: center; }
 }
 
+/* TABLET / iPad portrait — keep 9-card grids at 2 columns instead of stacking */
+@media (min-width: 600px) and (max-width: 1024px) {
+    .of-steps-grid     { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+    .of-steps-grid .of-step:nth-child(4) { grid-column: auto !important; }
+    .strat-steps-grid  { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+    .ess-grid          { grid-template-columns: repeat(3, 1fr) !important; }
+    .ess-stats         { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
 @media (max-width: 480px) {
-    .stats-grid        { grid-template-columns: 1fr !important; }
-    .footer-grid       { grid-template-columns: 1fr !important; }
-    .ess-grid          { grid-template-columns: 1fr !important; }
-    .ess-grid .ess-cell { border-right: none !important; }
-    .ess-stats         { grid-template-columns: 1fr 1fr !important; }
-    .ess-stats > div:nth-child(3n) { border-right: 1px solid var(--rule) !important; }
-    .ess-stats > div:nth-child(2n) { border-right: none !important; }
-    h1.h-display       { font-size: clamp(44px, 14vw, 80px) !important; }
-    h2.h-display       { font-size: clamp(30px, 9vw, 48px) !important; }
+    .hero-cta-wrap > .pill { font-size: 12px !important; padding: 10px 14px !important; }
+    h1.h-display       { font-size: clamp(40px, 14vw, 80px) !important; }
 }
 
 /* Shadcn baseline (kept minimal) */
