@@ -30,11 +30,19 @@ Editorial single-page landing for **HonigDAX** — the KI-native Trading-Cockpit
 ## Recently Completed (Feb 2026)
 - Fixed iPad layout for Bot Intelligence section: added `@media (min-width: 600px) and (max-width: 1024px)` keeping `.of-steps-grid` / `.strat-steps-grid` at 2 columns instead of collapsing to 1
 - Closed previously broken `@media (max-width: 480px)` block (was swallowing `@layer base`)
-- Confirmed `id="bot"` anchor and `A.05 Bot · Intelligence` TOC entry exist in both DE and EN translation maps
+- Verified `/api/beta-signup` persists to MongoDB with idempotent email lookup + seat counter (curl-verified, seat=4 → already_on_list=true on retry)
+- Added full SEO meta (canonical, Open Graph DE+EN, Twitter cards, JSON-LD SoftwareApplication), `/robots.txt`, `/sitemap.xml` with hreflang alternates
+- Added editorial **Hero Equity Curve** sparkline (`/components/HeroEquityCurve.jsx`) — 7Y cumulative line, rust accent dot, mono labels, DE/EN labels (`eqTrack`, `eqYtd`, `eqSeven`)
+- **Refactor**: extracted 4 SVG components from the 4258-line monolith into `/app/frontend/src/components/`:
+  - `PatternChart.jsx` (123 lines)
+  - `ConfluenceRadar.jsx` (176 lines)
+  - `OrderflowHeatmap.jsx` (173 lines)
+  - `ProtectionChart.jsx` (133 lines)
+  - Net: `HonigdaxLanding.jsx` reduced from 4258 → 3670 lines (-588)
 
 ## Backlog / Next Action Items
-- P1: Verify `/api/beta-signup` actually persists to MongoDB (vs. in-memory) — inspect `backend/server.py`
-- P2: Refactor 4300-line `HonigdaxLanding.jsx` → extract `ConfluenceRadar`, `OrderflowHeatmap`, `ProtectionChart`, `PatternChart` into `/app/frontend/src/components/`
-- P2: Push back to the GitHub repo as Next.js port (repo expects static HTML or Next.js)
-- P3: SEO meta tags, OG image, sitemap.xml
+- P2: Push to GitHub repo `fioressi/honigdax-website` as Next.js port (current build is CRA — repo expects static HTML or Next.js)
+- P2: Further refactor — extract `HeroCockpit`, `TickerBar`, `CapabilityRow`, `ApproachRow`, `ChapterDivider`, `OptionsPayoffCard` (would bring monolith below 2500 lines)
+- P3: Replace `og-image.png` placeholder with actual 1200×630 cream/black/rust hero card
+- P3: Add JSON-LD `Product`/`FAQPage` schema if FAQ section is added
 - P3: Honey/amber detail accents — optionally extend to micro-highlights
